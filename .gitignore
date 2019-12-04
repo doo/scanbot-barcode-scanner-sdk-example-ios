@@ -1,0 +1,9 @@
+.DS_Store
+*.xcuserstate
+*.xcuserdatad
+/SBBarcodeSDK.xcodeproj/xcuserdata/sebastianhusche.xcuserdatad/xcschemes/xcschememanagement.plist
+/Release
+/build
+
+# IntelliJ IDEA
+.idea/
