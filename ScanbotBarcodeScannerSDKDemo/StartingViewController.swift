@@ -50,10 +50,19 @@ class StartingViewController: UITableViewController {
         
         let configuration = SBSDKUIMachineCodeScannerConfiguration.default()
         configuration.uiConfiguration.finderHeight = 0.5
-        configuration.uiConfiguration.finderWidth = 1
+        configuration.uiConfiguration.finderWidth = 1.0
+        
         if self.shouldCaptureBarcodeImage {
-            configuration.behaviorConfiguration.barcodeImageGenerationType = .capturedImage
+            configuration.behaviorConfiguration.barcodeImageGenerationType = .fromVideoFrame
+            configuration.uiConfiguration.finderHeight = 1.5
         }
+        
+        //configuration.behaviorConfiguration.isSuccessBeepEnabled = false
+        //configuration.behaviorConfiguration.isFlashEnabled = true
+        //configuration.textConfiguration.finderTextHint = "Custom text ..."
+        //configuration.textConfiguration.cancelButtonTitle = "Abort"
+        //configuration.uiConfiguration.topBarBackgroundColor = UIColor.red
+        // see further configs ...
         
         SBSDKUIBarcodeScannerViewController.present(on: self,
                                                     withAcceptedMachineCodeTypes: nil,

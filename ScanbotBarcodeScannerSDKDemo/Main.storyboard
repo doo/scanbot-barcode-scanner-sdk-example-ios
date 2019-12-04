@@ -2,15 +2,15 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LTj-Ok-5pM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Barcode scanner-->
+        <!--Scanbot Barcode Scanner SDK Example-->
         <scene sceneID="fh4-Fs-XUH">
             <objects>
-                <tableViewController id="TzJ-db-sWh" customClass="StartingViewController" customModule="ScanbotBarcodeScannerSDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="TzJ-db-sWh" customClass="StartingViewController" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nn8-AA-81G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                                    <state key="normal" title="Classic component">
+                                                    <state key="normal" title="Classical Components">
                                                         <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
                                                     <connections>
@@ -68,7 +68,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                                    <state key="normal" title="RTU UI">
+                                                    <state key="normal" title="RTU UI Components">
                                                         <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     </state>
                                                     <connections>
@@ -140,7 +140,7 @@
                             <outlet property="delegate" destination="TzJ-db-sWh" id="fWF-uq-8fa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Barcode scanner" id="s4N-pM-BYP"/>
+                    <navigationItem key="navigationItem" title="Scanbot Barcode Scanner SDK Example" id="s4N-pM-BYP"/>
                     <connections>
                         <segue destination="hi6-fS-Qjd" kind="show" identifier="ClassicBarcodeScanner" id="zat-Sf-Z8i"/>
                         <segue destination="cg2-VL-G1m" kind="show" identifier="BarcodeResultList" id="iQt-5D-Jfi"/>
@@ -153,7 +153,7 @@
         <!--Classic Barcode Scanner-->
         <scene sceneID="8Lf-Md-BrY">
             <objects>
-                <viewController id="hi6-fS-Qjd" customClass="ClassicBarcodeScanner" customModule="ScanbotBarcodeScannerSDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hi6-fS-Qjd" customClass="ClassicBarcodeScanner" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3MJ-uQ-0gD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,7 +188,7 @@
         <!--Barcode Result Details-->
         <scene sceneID="jYc-Lg-xP6">
             <objects>
-                <tableViewController id="WIP-Cw-Nxx" customClass="BarcodeResultDetails" customModule="ScanbotBarcodeScannerSDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="WIP-Cw-Nxx" customClass="BarcodeResultDetails" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3G5-Yf-3zk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -258,13 +258,13 @@
         <!--Barcode Result List-->
         <scene sceneID="Otu-zH-XNs">
             <objects>
-                <viewController id="cg2-VL-G1m" customClass="BarcodeResultList" customModule="ScanbotBarcodeScannerSDKDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cg2-VL-G1m" customClass="BarcodeResultList" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aZL-Gc-cvH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BarcodeResultListCellImage" rowHeight="100" id="5AQ-hh-a5F" customClass="BarcodeResultListCell" customModule="ScanbotBarcodeScannerSDKDemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BarcodeResultListCellImage" rowHeight="100" id="5AQ-hh-a5F" customClass="BarcodeResultListCell" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5AQ-hh-a5F" id="ilk-rm-a1h">
@@ -286,7 +286,7 @@
                                     <outlet property="barcodeImageView" destination="ZTK-us-q2t" id="Ipc-8y-LhO"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarcodeResultListCell" rowHeight="100" id="rLv-Db-Rh7" customClass="BarcodeResultListCell" customModule="ScanbotBarcodeScannerSDKDemo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarcodeResultListCell" rowHeight="100" id="rLv-Db-Rh7" customClass="BarcodeResultListCell" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="128" width="414" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rLv-Db-Rh7" id="jmf-y9-nQu">

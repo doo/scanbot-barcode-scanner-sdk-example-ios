@@ -1,6 +1,6 @@
 # Scanbot Barcode Scanner SDK Example App for iOS
 
-This example app shows how to integrate the [Scanbot BarcodeScanner SDK](https://scanbot.io/sdk) for iOS.
+This example app shows how to integrate the [Scanbot Barcode Scanner SDK](https://scanbot.io/sdk) for iOS.
 
 
 ## What is Scanbot Barcode Scanner SDK?
