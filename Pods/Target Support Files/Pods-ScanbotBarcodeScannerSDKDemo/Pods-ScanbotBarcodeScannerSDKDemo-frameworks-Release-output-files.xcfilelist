@@ -1,2 +1,0 @@
-${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScanbotBarcodeScannerSDK.framework
-${DWARF_DSYM_FOLDER_PATH}/ScanbotBarcodeScannerSDK.framework.dSYM
