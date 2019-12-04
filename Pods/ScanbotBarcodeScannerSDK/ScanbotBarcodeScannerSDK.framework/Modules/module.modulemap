@@ -1,0 +1,6 @@
+framework module ScanbotBarcodeScannerSDK {
+  umbrella header "ScanbotBarcodeScannerSDK.h"
+
+  export *
+  module * { export * }
+}

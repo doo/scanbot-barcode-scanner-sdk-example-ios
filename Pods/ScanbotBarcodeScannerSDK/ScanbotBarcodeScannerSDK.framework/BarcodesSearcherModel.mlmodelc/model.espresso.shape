@@ -1,0 +1,460 @@
+{
+  "layer_shapes" : {
+    "hourglass_up1_output" : {
+      "k" : 4,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "base_concat_output" : {
+      "k" : 24,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "base_pw_relu_output_relu_clip" : {
+      "k" : 16,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "base_2x_pool_output" : {
+      "k" : 8,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "barcode_compress_pw_relu_output_relu" : {
+      "k" : 16,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "barcode_se_pool_output" : {
+      "k" : 16,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "base_1x_relu_output_relu_neg" : {
+      "k" : 8,
+      "w" : 320,
+      "n" : 1,
+      "h" : 240
+    },
+    "hourglass_2x_dw_relu_output_relu" : {
+      "k" : 16,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    },
+    "barcode_compress_pw_relu_output_relu_clip" : {
+      "k" : 16,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "barcode_se_dense1_relu_output_relu_clip" : {
+      "k" : 16,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "base_1x_relu_output_relu" : {
+      "k" : 8,
+      "w" : 320,
+      "n" : 1,
+      "h" : 240
+    },
+    "barcode_dw_relu_output_relu_neg" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "barcode_se_dense1_relu_output_relu" : {
+      "k" : 16,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "barcode_expand_pw_relu_output_relu" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "hourglass_4x_dw_relu_output_relu_clip" : {
+      "k" : 16,
+      "w" : 20,
+      "n" : 1,
+      "h" : 15
+    },
+    "base_pw_relu_output_relu" : {
+      "k" : 16,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "hourglass_2x_dw_relu_output_relu_clip" : {
+      "k" : 16,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    },
+    "hourglass_up2_output" : {
+      "k" : 4,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "base_4x_relu_output_relu_clip" : {
+      "k" : 8,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "hourglass_relax_pw_relu_output_relu_clip" : {
+      "k" : 1,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "barcode_dw_relu_output" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "barcode_dw_relu_output_relu_clip" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "barcode_compress_pw_relu_output_relu_neg" : {
+      "k" : 16,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "base_2x_relu_output_relu" : {
+      "k" : 8,
+      "w" : 160,
+      "n" : 1,
+      "h" : 120
+    },
+    "input2x_output" : {
+      "k" : 1,
+      "w" : 320,
+      "n" : 1,
+      "h" : 240
+    },
+    "hourglass_2x_pw_relu_output_relu" : {
+      "k" : 16,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    },
+    "hourglass_relax_pw_relu_output_relu_neg" : {
+      "k" : 1,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "barcode_expand_pw_relu_output_relu_neg" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "hourglass_2x_compress_pw_relu_output_relu_clip" : {
+      "k" : 4,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    },
+    "hourglass_relax_pw_relu_output" : {
+      "k" : 1,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "base_1x_relu_output" : {
+      "k" : 8,
+      "w" : 320,
+      "n" : 1,
+      "h" : 240
+    },
+    "barcode_dw_relu_output_relu" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "barcode_se_dense2_bn_output" : {
+      "k" : 16,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "input1" : {
+      "k" : 1,
+      "w" : 640,
+      "n" : 1,
+      "h" : 480
+    },
+    "hourglass_pool1_output" : {
+      "k" : 16,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    },
+    "hourglass_4x_dw_relu_output_relu" : {
+      "k" : 16,
+      "w" : 20,
+      "n" : 1,
+      "h" : 15
+    },
+    "barcode_se_reshape_output" : {
+      "k" : 16,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "base_pw_relu_output_relu_neg" : {
+      "k" : 16,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "hourglass_4x_pw_relu_output" : {
+      "k" : 4,
+      "w" : 20,
+      "n" : 1,
+      "h" : 15
+    },
+    "barcode_compress_pw_relu_output" : {
+      "k" : 16,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "hourglass_concat2_output" : {
+      "k" : 17,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "hourglass_2x_compress_pw_relu_output_relu" : {
+      "k" : 4,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    },
+    "hourglass_concat1_output" : {
+      "k" : 8,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "classifier_bn_output" : {
+      "k" : 1,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "barcode_expand_pw_relu_output_relu_clip" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "base_1x_pool_output" : {
+      "k" : 8,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "base_4x_relu_output_relu" : {
+      "k" : 8,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "hourglass_2x_pw_relu_output" : {
+      "k" : 16,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    },
+    "hourglass_2x_compress_pw_relu_output_relu_neg" : {
+      "k" : 4,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    },
+    "barcode_add_output" : {
+      "k" : 16,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "base_4x_relu_output_relu_neg" : {
+      "k" : 8,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "hourglass_4x_pw_relu_output_relu" : {
+      "k" : 4,
+      "w" : 20,
+      "n" : 1,
+      "h" : 15
+    },
+    "barcode_expand_pw_relu_output" : {
+      "k" : 32,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "barcode_se_dense1_relu_output" : {
+      "k" : 16,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "barcode_se_multiply_output" : {
+      "k" : 16,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "hourglass_4x_dw_relu_output_relu_neg" : {
+      "k" : 16,
+      "w" : 20,
+      "n" : 1,
+      "h" : 15
+    },
+    "hourglass_2x_dw_relu_output_relu_neg" : {
+      "k" : 16,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    },
+    "hourglass_4x_dw_relu_output" : {
+      "k" : 16,
+      "w" : 20,
+      "n" : 1,
+      "h" : 15
+    },
+    "base_1x_relu_output_relu_clip" : {
+      "k" : 8,
+      "w" : 320,
+      "n" : 1,
+      "h" : 240
+    },
+    "hourglass_pool2_output" : {
+      "k" : 16,
+      "w" : 20,
+      "n" : 1,
+      "h" : 15
+    },
+    "hourglass_2x_compress_pw_relu_output" : {
+      "k" : 4,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    },
+    "hourglass_2x_dw_relu_output" : {
+      "k" : 16,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    },
+    "hourglass_4x_pw_relu_output_relu_neg" : {
+      "k" : 4,
+      "w" : 20,
+      "n" : 1,
+      "h" : 15
+    },
+    "hourglass_2x_pw_relu_output_relu_neg" : {
+      "k" : 16,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    },
+    "base_2x_relu_output" : {
+      "k" : 8,
+      "w" : 160,
+      "n" : 1,
+      "h" : 120
+    },
+    "input4x_output" : {
+      "k" : 1,
+      "w" : 160,
+      "n" : 1,
+      "h" : 120
+    },
+    "base_4x_relu_output" : {
+      "k" : 8,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "base_2x_relu_output_relu_clip" : {
+      "k" : 8,
+      "w" : 160,
+      "n" : 1,
+      "h" : 120
+    },
+    "barcode_se_dense1_relu_output_relu_neg" : {
+      "k" : 16,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "barcode_se_dense2_sigmoid_output" : {
+      "k" : 16,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "base_2x_relu_output_relu_neg" : {
+      "k" : 8,
+      "w" : 160,
+      "n" : 1,
+      "h" : 120
+    },
+    "hourglass_relax_pw_relu_output_relu" : {
+      "k" : 1,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "hourglass_4x_pw_relu_output_relu_clip" : {
+      "k" : 4,
+      "w" : 20,
+      "n" : 1,
+      "h" : 15
+    },
+    "output1" : {
+      "k" : 1,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "base_pw_relu_output" : {
+      "k" : 16,
+      "w" : 80,
+      "n" : 1,
+      "h" : 60
+    },
+    "hourglass_2x_pw_relu_output_relu_clip" : {
+      "k" : 16,
+      "w" : 40,
+      "n" : 1,
+      "h" : 30
+    }
+  }
+}
