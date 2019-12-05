@@ -9,6 +9,23 @@ Scanbot Barcode Scanner SDK is a simple to use high level API, providing a colle
 for scanning and parsing 1D and 2D barcodes from your mobile device's camera or other image sources like your photo library.
 
 
+### Supported Barcode Types
+
+- 1D codes: Code 39, Code 93, Code 128, Codabar, UPC-E, ITF, EAN-8, EAN-13, UPC-A
+- 2D codes: QR-Code, Aztec, PDF-417, Data Matrix
+
+Also check out our blog post [Types of barcodes](https://scanbot.io/blog/types-of-barcodes-and-their-usage/).
+
+
+### Supported Data Parsers:
+
+- From PDF-417 barcodes: AAMVA data coded on US driver's licenses, Boarding Pass data, German Medical Certificates data, ID Cards data, 
+- From Data Matrix codes: XML data coded in Medical Plans (German Medikationsplan).
+- From QR-Codes: VCard data, SEPA payform data.
+
+For more details please refer to the SDK documentation.
+
+
 ## Documentation
 
 👉 [Scanbot Barcode Scanner SDK documentation](https://scanbotsdk.github.io/documentation/barcode-scanner-sdk/ios/)
@@ -19,7 +36,7 @@ for scanning and parsing 1D and 2D barcodes from your mobile device's camera or 
 Make sure you have the latest versions of [Xcode](https://developer.apple.com/xcode/) and [CocoaPods](https://cocoapods.org) installed.
 
 - Clone this repository to a local folder
-- run `pod install`
+- run `pod install --repo-update`
 - Open `ScanbotBarcodeScannerSDKDemo.xcworkspace` (not `.xcodeproj`!) with Xcode, build and run
 
 
