@@ -26,6 +26,49 @@ class StartingViewController: UITableViewController {
         }
     }
     
+
+    
+    private func showBarcodeScannerFromClassicComponent() {
+        self.performSegue(withIdentifier: "ClassicBarcodeScanner", sender: self)
+    }
+    
+    private func showSetAcceptedBarcodesScreen() {
+        self.performSegue(withIdentifier: "BarcodeTypesListViewController", sender: self)
+    }
+    
+    private func showBarcodeScannerFromRTUUI() {
+        self.detectedBarcodes = []
+        self.barcodeImage = nil
+        
+        let configuration = SBSDKUIMachineCodeScannerConfiguration.default()
+        configuration.uiConfiguration.finderHeight = 0.5
+        configuration.uiConfiguration.finderWidth = 1
+        if self.shouldCaptureBarcodeImage {
+            configuration.behaviorConfiguration.barcodeImageGenerationType = .capturedImage
+        }
+        
+        SBSDKUIBarcodeScannerViewController.present(on: self,
+                                                    withAcceptedMachineCodeTypes: Array(SharedParameters.acceptedBarcodeTypes),
+                                                    configuration: configuration,
+                                                    andDelegate: self)
+    }
+    
+    private func showImagePicker() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .savedPhotosAlbum
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+    private func detectBarcodesOnImage(_ image: UIImage) {
+        let scanner = SBSDKBarcodeScanner(types: Array(SharedParameters.acceptedBarcodeTypes))
+        let result = scanner.detectBarCodes(on: image)
+        self.detectedBarcodes = result
+        self.barcodeImage = nil
+    }
+}
+
+extension StartingViewController {
     @IBAction func rtuUIButtonTapped(_ sender: UIButton) {
         self.shouldCaptureBarcodeImage = false
         self.showBarcodeScannerFromRTUUI()
@@ -40,36 +83,13 @@ class StartingViewController: UITableViewController {
         self.showBarcodeScannerFromRTUUI()
     }
     
-    private func showBarcodeScannerFromClassicComponent() {
-        self.performSegue(withIdentifier: "ClassicBarcodeScanner", sender: self)
+    @IBAction func scanImageFromLibraryButtonTapped(_ sender: UIButton) {
+        self.showImagePicker()
     }
     
-    private func showBarcodeScannerFromRTUUI() {
-        self.detectedBarcodes = []
-        self.barcodeImage = nil
-        
-        let configuration = SBSDKUIMachineCodeScannerConfiguration.default()
-        configuration.uiConfiguration.finderHeight = 0.5
-        configuration.uiConfiguration.finderWidth = 1.0
-        
-        if self.shouldCaptureBarcodeImage {
-            configuration.behaviorConfiguration.barcodeImageGenerationType = .fromVideoFrame
-            configuration.uiConfiguration.finderHeight = 1.5
-        }
-        
-        //configuration.behaviorConfiguration.isSuccessBeepEnabled = false
-        //configuration.behaviorConfiguration.isFlashEnabled = true
-        //configuration.textConfiguration.finderTextHint = "Custom text ..."
-        //configuration.textConfiguration.cancelButtonTitle = "Abort"
-        //configuration.uiConfiguration.topBarBackgroundColor = UIColor.red
-        // see further configs ...
-        
-        SBSDKUIBarcodeScannerViewController.present(on: self,
-                                                    withAcceptedMachineCodeTypes: nil,
-                                                    configuration: configuration,
-                                                    andDelegate: self)
+    @IBAction func setAcceptedBarcodesButtonTapped(_ sender: UIButton) {
+        self.showSetAcceptedBarcodesScreen()
     }
-    
 }
 
 extension StartingViewController: SBSDKUIBarcodeScannerViewControllerDelegate {
@@ -99,6 +119,18 @@ extension StartingViewController: SBSDKUIBarcodeScannerViewControllerDelegate {
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)
             self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+        }
+    }
+}
+
+extension StartingViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.dismiss(animated: true) {
+                self.detectBarcodesOnImage(image)
+                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+            }
         }
     }
 }

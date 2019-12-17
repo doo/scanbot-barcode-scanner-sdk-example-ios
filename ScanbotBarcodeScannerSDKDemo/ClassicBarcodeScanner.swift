@@ -19,11 +19,18 @@ class ClassicBarcodeScanner: UIViewController {
         
         self.scannerController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                    parentView: self.view)
+        self.scannerController?.barcodeAccumulatedFramesCount = 15;
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.shouldRecognizeBarcodes = true
+        self.scannerController?.acceptedBarcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        self.shouldRecognizeBarcodes = true                 
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.shouldRecognizeBarcodes = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

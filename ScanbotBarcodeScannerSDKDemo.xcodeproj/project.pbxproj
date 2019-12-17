@@ -11,13 +11,15 @@
 		690166CB239811940054D9AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690166CA239811940054D9AA /* AppDelegate.swift */; };
 		690166D4239811960054D9AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690166D3239811960054D9AA /* Assets.xcassets */; };
 		690166D7239811960054D9AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690166D5239811960054D9AA /* LaunchScreen.storyboard */; };
-		690166E5239814C40054D9AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690166DE239814C40054D9AA /* Main.storyboard */; };
-		690166E6239814C40054D9AA /* ClassicBarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690166DF239814C40054D9AA /* ClassicBarcodeScanner.swift */; };
-		690166E7239814C40054D9AA /* BarcodeResultListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690166E0239814C40054D9AA /* BarcodeResultListCell.swift */; };
-		690166E8239814C40054D9AA /* BarcodeResultDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690166E1239814C40054D9AA /* BarcodeResultDetails.swift */; };
-		690166E9239814C40054D9AA /* BarcodeResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690166E2239814C40054D9AA /* BarcodeResultList.swift */; };
-		690166EA239814C40054D9AA /* StartingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690166E3239814C40054D9AA /* StartingViewController.swift */; };
-		690166EB239814C40054D9AA /* BarcodeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690166E4239814C40054D9AA /* BarcodeFormatter.swift */; };
+		69B9C28E23A91D320055809B /* ClassicBarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28623A91D310055809B /* ClassicBarcodeScanner.swift */; };
+		69B9C28F23A91D320055809B /* BarcodeTypesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28723A91D310055809B /* BarcodeTypesListViewController.swift */; };
+		69B9C29023A91D320055809B /* BarcodeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28823A91D310055809B /* BarcodeFormatter.swift */; };
+		69B9C29123A91D320055809B /* SharedParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28923A91D310055809B /* SharedParameters.swift */; };
+		69B9C29223A91D320055809B /* StartingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28A23A91D320055809B /* StartingViewController.swift */; };
+		69B9C29323A91D320055809B /* BarcodeResultListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28B23A91D320055809B /* BarcodeResultListCell.swift */; };
+		69B9C29423A91D320055809B /* BarcodeResultDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28C23A91D320055809B /* BarcodeResultDetails.swift */; };
+		69B9C29523A91D320055809B /* BarcodeResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28D23A91D320055809B /* BarcodeResultList.swift */; };
+		69B9C29723A91D440055809B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B9C29623A91D440055809B /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,13 +30,15 @@
 		690166D3239811960054D9AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		690166D6239811960054D9AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		690166D8239811960054D9AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		690166DE239814C40054D9AA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		690166DF239814C40054D9AA /* ClassicBarcodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicBarcodeScanner.swift; sourceTree = "<group>"; };
-		690166E0239814C40054D9AA /* BarcodeResultListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultListCell.swift; sourceTree = "<group>"; };
-		690166E1239814C40054D9AA /* BarcodeResultDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultDetails.swift; sourceTree = "<group>"; };
-		690166E2239814C40054D9AA /* BarcodeResultList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultList.swift; sourceTree = "<group>"; };
-		690166E3239814C40054D9AA /* StartingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartingViewController.swift; sourceTree = "<group>"; };
-		690166E4239814C40054D9AA /* BarcodeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeFormatter.swift; sourceTree = "<group>"; };
+		69B9C28623A91D310055809B /* ClassicBarcodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicBarcodeScanner.swift; sourceTree = "<group>"; };
+		69B9C28723A91D310055809B /* BarcodeTypesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeTypesListViewController.swift; sourceTree = "<group>"; };
+		69B9C28823A91D310055809B /* BarcodeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeFormatter.swift; sourceTree = "<group>"; };
+		69B9C28923A91D310055809B /* SharedParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedParameters.swift; sourceTree = "<group>"; };
+		69B9C28A23A91D320055809B /* StartingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartingViewController.swift; sourceTree = "<group>"; };
+		69B9C28B23A91D320055809B /* BarcodeResultListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultListCell.swift; sourceTree = "<group>"; };
+		69B9C28C23A91D320055809B /* BarcodeResultDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultDetails.swift; sourceTree = "<group>"; };
+		69B9C28D23A91D320055809B /* BarcodeResultList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultList.swift; sourceTree = "<group>"; };
+		69B9C29623A91D440055809B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DF29528341FC8F8AB3883FCF /* Pods_ScanbotBarcodeScannerSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanbotBarcodeScannerSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,14 +84,16 @@
 		690166C9239811940054D9AA /* ScanbotBarcodeScannerSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
-				690166E4239814C40054D9AA /* BarcodeFormatter.swift */,
-				690166E1239814C40054D9AA /* BarcodeResultDetails.swift */,
-				690166E2239814C40054D9AA /* BarcodeResultList.swift */,
-				690166E0239814C40054D9AA /* BarcodeResultListCell.swift */,
-				690166DF239814C40054D9AA /* ClassicBarcodeScanner.swift */,
-				690166DE239814C40054D9AA /* Main.storyboard */,
-				690166E3239814C40054D9AA /* StartingViewController.swift */,
 				690166CA239811940054D9AA /* AppDelegate.swift */,
+				69B9C28823A91D310055809B /* BarcodeFormatter.swift */,
+				69B9C28C23A91D320055809B /* BarcodeResultDetails.swift */,
+				69B9C28D23A91D320055809B /* BarcodeResultList.swift */,
+				69B9C28B23A91D320055809B /* BarcodeResultListCell.swift */,
+				69B9C28723A91D310055809B /* BarcodeTypesListViewController.swift */,
+				69B9C28623A91D310055809B /* ClassicBarcodeScanner.swift */,
+				69B9C28923A91D310055809B /* SharedParameters.swift */,
+				69B9C28A23A91D320055809B /* StartingViewController.swift */,
+				69B9C29623A91D440055809B /* Main.storyboard */,
 				690166D3239811960054D9AA /* Assets.xcassets */,
 				690166D5239811960054D9AA /* LaunchScreen.storyboard */,
 				690166D8239811960054D9AA /* Info.plist */,
@@ -163,7 +169,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				690166E5239814C40054D9AA /* Main.storyboard in Resources */,
+				69B9C29723A91D440055809B /* Main.storyboard in Resources */,
 				690166D7239811960054D9AA /* LaunchScreen.storyboard in Resources */,
 				690166D4239811960054D9AA /* Assets.xcassets in Resources */,
 			);
@@ -218,13 +224,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				690166E6239814C40054D9AA /* ClassicBarcodeScanner.swift in Sources */,
+				69B9C28F23A91D320055809B /* BarcodeTypesListViewController.swift in Sources */,
+				69B9C29023A91D320055809B /* BarcodeFormatter.swift in Sources */,
+				69B9C29423A91D320055809B /* BarcodeResultDetails.swift in Sources */,
+				69B9C29523A91D320055809B /* BarcodeResultList.swift in Sources */,
+				69B9C29123A91D320055809B /* SharedParameters.swift in Sources */,
+				69B9C28E23A91D320055809B /* ClassicBarcodeScanner.swift in Sources */,
+				69B9C29223A91D320055809B /* StartingViewController.swift in Sources */,
+				69B9C29323A91D320055809B /* BarcodeResultListCell.swift in Sources */,
 				690166CB239811940054D9AA /* AppDelegate.swift in Sources */,
-				690166EB239814C40054D9AA /* BarcodeFormatter.swift in Sources */,
-				690166E8239814C40054D9AA /* BarcodeResultDetails.swift in Sources */,
-				690166E9239814C40054D9AA /* BarcodeResultList.swift in Sources */,
-				690166EA239814C40054D9AA /* StartingViewController.swift in Sources */,
-				690166E7239814C40054D9AA /* BarcodeResultListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

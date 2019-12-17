@@ -11,10 +11,12 @@ import ScanbotBarcodeScannerSDK
 
 class BarcodeResultList: UIViewController {
     @IBOutlet private var tableView: UITableView?
+    @IBOutlet private var noBarcodesView: UIView?
+
     var barcodeImage: UIImage? {
         didSet {
             if self.isViewLoaded {
-                self.tableView?.reloadData()
+                self.reloadData()
             }
         }
     }
@@ -22,7 +24,7 @@ class BarcodeResultList: UIViewController {
     var barcodes: [SBSDKBarcodeScannerResult] = [] {
         didSet {
             if self.isViewLoaded {
-                self.tableView?.reloadData()
+                self.reloadData()
             }
         }
     }
@@ -34,7 +36,7 @@ class BarcodeResultList: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView?.reloadData()
+        self.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,6 +46,11 @@ class BarcodeResultList: UIViewController {
             
             destination.barcode = selectedBarcode
         }
+    }
+    
+    private func reloadData() {
+        self.noBarcodesView?.isHidden = !self.barcodes.isEmpty
+        self.tableView?.reloadData()
     }
 }
 
