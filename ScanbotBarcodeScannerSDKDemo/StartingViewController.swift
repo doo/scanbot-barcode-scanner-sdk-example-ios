@@ -63,7 +63,7 @@ class StartingViewController: UITableViewController {
     private func detectBarcodesOnImage(_ image: UIImage) {
         let scanner = SBSDKBarcodeScanner(types: Array(SharedParameters.acceptedBarcodeTypes))
         let result = scanner.detectBarCodes(on: image)
-        self.detectedBarcodes = result
+        self.detectedBarcodes = result!
         self.barcodeImage = nil
     }
 }
