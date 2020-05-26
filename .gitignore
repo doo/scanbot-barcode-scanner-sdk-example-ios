@@ -11,3 +11,6 @@
 # Pods
 Pods/
 
+# local dev pods
+dev-pods/*.zip
+
