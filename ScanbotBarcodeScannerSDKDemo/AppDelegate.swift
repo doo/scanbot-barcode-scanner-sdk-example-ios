@@ -32,6 +32,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // or of your own app (see "Bundle Identifier" in your Xcode project settings).
         //ScanbotSDK.setLicense("YOUR_SCANBOT_SDK_LICENSE_KEY")
         
+        // trial license key, valid until 2020-06-26
+        ScanbotSDK.setLicense(
+        "UAgn+sPVU80cQAwgRmvVIuqKy4Ko6z" +
+        "fs1/ndIlOTDLSv/QAeD73x7YlYePb9" +
+        "Aj/4SOp1kCCpYSUXf0g81ssa0DrnWi" +
+        "vzy8rs1OrFHPLEczgvLH71crnwJ+Ey" +
+        "mOKCM7XNLjSn72KTXpowzpp6rc+QFL" +
+        "QDv4EWkkAqp5ZKAIjcIDQpvzQbjscR" +
+        "c2lLNaz+rBMwm0wNiQ8llo5XARAqIR" +
+        "MnEffZ1TtxDbn0goa2XHvZdasX/MV5" +
+        "UTPIgLlbchA744UhyLdRGW0Q1UkMGd" +
+        "i3aTZZZXlPcl2qXgS3Z2Yj99XZQLlX" +
+        "6ZSsFSi6RwThiX/o7KRCriXqvUfSb5" +
+        "GSwEGngHpUmw==\nU2NhbmJvdFNESw" +
+        "ppby5zY2FuYm90LmV4YW1wbGUuc2Rr" +
+        "LmJhcmNvZGUuaW9zLjIKMTU5MzIxNT" +
+        "k5OQo1MTIKMQ==\n")
+        
         return true
     }
 }
