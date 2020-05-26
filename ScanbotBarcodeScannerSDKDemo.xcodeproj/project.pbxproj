@@ -370,6 +370,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = VZ266K5KCR;
 				INFOPLIST_FILE = ScanbotBarcodeScannerSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -377,6 +378,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.scanbot.example.sdk.barcode.ios.2;
 				PRODUCT_NAME = "Scanbot Barcode Scanner SDK Example";
 				SWIFT_VERSION = 5.0;
@@ -390,6 +392,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = VZ266K5KCR;
 				INFOPLIST_FILE = ScanbotBarcodeScannerSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -397,6 +400,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.scanbot.example.sdk.barcode.ios.2;
 				PRODUCT_NAME = "Scanbot Barcode Scanner SDK Example";
 				SWIFT_VERSION = 5.0;
