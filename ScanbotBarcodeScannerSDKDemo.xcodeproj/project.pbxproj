@@ -19,7 +19,8 @@
 		69B9C29423A91D320055809B /* BarcodeResultDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28C23A91D320055809B /* BarcodeResultDetails.swift */; };
 		69B9C29523A91D320055809B /* BarcodeResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28D23A91D320055809B /* BarcodeResultList.swift */; };
 		69B9C29723A91D440055809B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B9C29623A91D440055809B /* Main.storyboard */; };
-		69ED6BED247EB48E005D4765 /* ScanbotBarcodeScannerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69ED6BE9247EB481005D4765 /* ScanbotBarcodeScannerSDK.framework */; };
+		69ED6BF0247ECF11005D4765 /* ScanbotBarcodeScannerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69ED6BE9247EB481005D4765 /* ScanbotBarcodeScannerSDK.framework */; };
+		69ED6BF1247ECF11005D4765 /* ScanbotBarcodeScannerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 69ED6BE9247EB481005D4765 /* ScanbotBarcodeScannerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,28 @@
 			remoteGlobalIDString = 087874742327FDC00095522A;
 			remoteInfo = ScanbotSDK;
 		};
+		69ED6BEE247ECEF4005D4765 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69ED6BDF247EB480005D4765 /* ScanbotBarcodeScannerSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0889A0982315768C003CD855;
+			remoteInfo = ScanbotBarcodeScannerSDK;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		69ED6BF2247ECF11005D4765 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				69ED6BF1247ECF11005D4765 /* ScanbotBarcodeScannerSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		690166C7239811940054D9AA /* Scanbot Barcode Scanner SDK Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scanbot Barcode Scanner SDK Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69ED6BED247EB48E005D4765 /* ScanbotBarcodeScannerSDK.framework in Frameworks */,
+				69ED6BF0247ECF11005D4765 /* ScanbotBarcodeScannerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +163,12 @@
 				690166C3239811940054D9AA /* Sources */,
 				690166C4239811940054D9AA /* Frameworks */,
 				690166C5239811940054D9AA /* Resources */,
+				69ED6BF2247ECF11005D4765 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				69ED6BEF247ECEF4005D4765 /* PBXTargetDependency */,
 			);
 			name = ScanbotBarcodeScannerSDKDemo;
 			productName = ScanbotBarcodeScannerSDKDemo;
@@ -238,6 +262,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69ED6BEF247ECEF4005D4765 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ScanbotBarcodeScannerSDK;
+			targetProxy = 69ED6BEE247ECEF4005D4765 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		690166D5239811960054D9AA /* LaunchScreen.storyboard */ = {
@@ -370,7 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = VZ266K5KCR;
 				INFOPLIST_FILE = ScanbotBarcodeScannerSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -391,7 +423,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = VZ266K5KCR;
 				INFOPLIST_FILE = ScanbotBarcodeScannerSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
