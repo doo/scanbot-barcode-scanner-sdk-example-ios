@@ -14,3 +14,5 @@ Pods/
 # local dev pods
 dev-pods/*.zip
 
+ScanbotBarcodeScannerSDK.framework
+
