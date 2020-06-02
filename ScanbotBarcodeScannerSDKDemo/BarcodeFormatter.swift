@@ -62,11 +62,11 @@ class BarcodeFormatter {
                     }
                 }
                 
-                if subheading.receipes.count > 0 {
-                    result = result + "\nReceipes:"
-                    for receipe in subheading.receipes {
-                        for receipeField in receipe.fields {
-                            result = result + "\n\(receipeField.typeHumanReadableString): \(receipeField.value)"
+                if subheading.prescriptions.count > 0 {
+                    result = result + "\nPrescriptions:"
+                    for prescription in subheading.prescriptions {
+                        for prescriptionField in prescription.fields {
+                            result = result + "\n\(prescriptionField.typeHumanReadableString): \(prescriptionField.value)"
                         }
                         result = result + "\n------"
                     }
