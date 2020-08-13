@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Please note: The Scanbot Barcode SDK will run without a license key for one minute per session!
         // After the trial period is over all Scanbot SDK functions as well as the UI components will stop working.
         // You can get an unrestricted "no-strings-attached" 30 day trial license key for free.
-        // Please submit the trial license form (https://scanbot.io/sdk/trial.html) on our website by using
-        // the app identifier (aka. bundle identifier) "io.scanbot.example.sdk.barcode.ios" of this example app
+        // Please submit the trial license form (https://scanbot.io/en/sdk/demo/trial) on our website by using
+        // the app identifier (aka. bundle identifier) "io.scanbot.example.sdk.ios.barcode" of this example app
         // or of your own app (see "Bundle Identifier" in your Xcode project settings).
         //ScanbotSDK.setLicense("YOUR_SCANBOT_SDK_LICENSE_KEY")
         
