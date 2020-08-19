@@ -52,6 +52,15 @@ class StartingViewController: UITableViewController {
                                                     andDelegate: self)
     }
     
+    private func showBarcodeBatchScanning() {
+        let configuration = SBSDKUIBarcodesBatchScannerConfiguration.default()
+        
+        SBSDKUIBarcodesBatchScannerViewController.present(on: self,
+                                                          withAcceptedMachineCodeTypes: Array(SharedParameters.acceptedBarcodeTypes),
+                                                          configuration: configuration,
+                                                          andDelegate: self)
+    }
+    
     private func showImagePicker() {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -80,6 +89,10 @@ extension StartingViewController {
     @IBAction func rtuUIWithBarcodeImageButtonTapped(_ sender: UIButton) {
         self.shouldCaptureBarcodeImage = true
         self.showBarcodeScannerFromRTUUI()
+    }
+    
+    @IBAction func barcodeBatchScanningButtonTapped(_ sender: UIButton) {
+        self.showBarcodeBatchScanning()
     }
     
     @IBAction func scanImageFromLibraryButtonTapped(_ sender: UIButton) {
@@ -120,6 +133,20 @@ extension StartingViewController: SBSDKUIBarcodeScannerViewControllerDelegate {
             self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
         }
     }
+}
+
+extension StartingViewController: SBSDKUIBarcodesBatchScannerViewControllerDelegate {
+    func barcodesBatchScannerViewController(_ viewController: SBSDKUIBarcodesBatchScannerViewController,
+                                            didFinishWith barcodeResults: [SBSDKUIBarcodeMappedResult]) {
+        self.detectedBarcodes = barcodeResults.map({$0.barcode})
+        
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+        }
+    }
+    
+    
 }
 
 extension StartingViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
