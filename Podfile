@@ -1,7 +1,7 @@
-platform :ios, '9.0'
+platform :ios, '11.0'
 
 target 'ScanbotBarcodeScannerSDKDemo' do
   use_frameworks!
 
-  pod 'ScanbotBarcodeScannerSDK', '~> 1.6.0'
+  pod 'ScanbotBarcodeScannerSDK', '~> 1.7.0'
 end

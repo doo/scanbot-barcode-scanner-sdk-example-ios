@@ -1,16 +1,16 @@
 PODS:
-  - ScanbotBarcodeScannerSDK (1.6.0)
+  - ScanbotBarcodeScannerSDK (1.7.0)
 
 DEPENDENCIES:
-  - ScanbotBarcodeScannerSDK (~> 1.6.0)
+  - ScanbotBarcodeScannerSDK (~> 1.7.0)
 
 SPEC REPOS:
   trunk:
     - ScanbotBarcodeScannerSDK
 
 SPEC CHECKSUMS:
-  ScanbotBarcodeScannerSDK: 9b09d3369dfda14f6bc44d3ac568ab7d86e433da
+  ScanbotBarcodeScannerSDK: d9e0e55756a40070adf6e147e25845536a9286b8
 
-PODFILE CHECKSUM: b575d999f7f9eeea7a7c01f99f28f9ee9ffae7b4
+PODFILE CHECKSUM: 5feff3f9ba8b3420ef309e6fcbedae35545f7381
 
 COCOAPODS: 1.9.2
