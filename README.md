@@ -19,7 +19,7 @@ Also check out our blog post [Types of barcodes](https://scanbot.io/blog/types-o
 
 ### Supported Data Parsers:
 
-- From PDF-417 barcodes: AAMVA data coded on US driver's licenses, Boarding Pass data, German Medical Certificates data, ID Cards data, 
+- From PDF-417 barcodes: AAMVA data coded on US driver's licenses, Boarding Pass data, German Medical Certificates data, ID Cards data.
 - From Data Matrix codes: XML data coded in Medical Plans (German Medikationsplan).
 - From QR-Codes: VCard data, SEPA payform data.
 
@@ -44,7 +44,7 @@ Make sure you have the latest versions of [Xcode](https://developer.apple.com/xc
 
 The Scanbot Barcode Scanner SDK will run without a license for one minute per session!
 
-After the trial period is over all SDK functions as well as the UI components will stop working.
+After the trial period has expired, all SDK functions as well as the UI components will stop working.
 You have to restart the app to get another trial period.
 
-To get an unrestricted "no-strings-attached" 30 day trial license, please submit the [Trial License Form](https://scanbot.io/en/sdk/demo/trial) on our website.
+To get an unrestricted, "no-strings-attached" 30 day trial license, please submit the [Trial License Form](https://scanbot.io/en/sdk/demo/trial) on our website.
