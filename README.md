@@ -31,15 +31,6 @@ For more details please refer to the SDK documentation.
 👉 [Scanbot Barcode Scanner SDK documentation](https://scanbotsdk.github.io/documentation/barcode-scanner-sdk/ios/)
 
 
-## How to run this example app?
-
-Make sure you have the latest versions of [Xcode](https://developer.apple.com/xcode/) and [CocoaPods](https://cocoapods.org) installed.
-
-- Clone this repository to a local folder
-- run `pod install --repo-update`
-- Open `ScanbotBarcodeScannerSDKDemo.xcworkspace` (not `.xcodeproj`!) with Xcode, build and run
-
-
 ## Please note
 
 The Scanbot Barcode Scanner SDK will run without a license for one minute per session!

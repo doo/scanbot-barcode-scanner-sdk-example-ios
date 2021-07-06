@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ScanbotBarcodeScannerSDK",
+        "repositoryURL": "https://github.com/doo/scanbot-barcode-scanner-sdk-ios-spm.git",
+        "state": {
+          "branch": null,
+          "revision": "ea118f47d09bd7c687b553bfc854f1db31eb6174",
+          "version": "3.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
