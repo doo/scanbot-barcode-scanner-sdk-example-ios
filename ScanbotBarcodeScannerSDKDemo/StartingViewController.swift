@@ -40,7 +40,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         self.barcodeImage = nil
         
-        let configuration = SBSDKUIMachineCodeScannerConfiguration.default()
+        let configuration =  SBSDKUIBarcodeScannerConfiguration.default()
         configuration.uiConfiguration.finderAspectRatio = SBSDKAspectRatio(width: 1, andHeight: 1)
         if self.shouldCaptureBarcodeImage {
             configuration.behaviorConfiguration.barcodeImageGenerationType = .capturedImage
