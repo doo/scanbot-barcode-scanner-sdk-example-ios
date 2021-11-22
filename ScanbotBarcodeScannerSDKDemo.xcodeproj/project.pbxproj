@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0852F3C2274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */; };
 		1B46267086A17AC3A2BB59FB /* Pods_ScanbotBarcodeScannerSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF29528341FC8F8AB3883FCF /* Pods_ScanbotBarcodeScannerSDKDemo.framework */; };
 		690166CB239811940054D9AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690166CA239811940054D9AA /* AppDelegate.swift */; };
 		690166D4239811960054D9AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690166D3239811960054D9AA /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicBatchBarcodeScanner.swift; sourceTree = "<group>"; };
 		0E5935A48D68A5404E770C27 /* Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		2C18669B4452FA83235EA177 /* Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 		690166C7239811940054D9AA /* Scanbot Barcode Scanner SDK Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scanbot Barcode Scanner SDK Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 				69B9C28B23A91D320055809B /* BarcodeResultListCell.swift */,
 				69B9C28723A91D310055809B /* BarcodeTypesListViewController.swift */,
 				69B9C28623A91D310055809B /* ClassicBarcodeScanner.swift */,
+				0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */,
 				69B9C28923A91D310055809B /* SharedParameters.swift */,
 				69B9C28A23A91D320055809B /* StartingViewController.swift */,
 				69B9C29623A91D440055809B /* Main.storyboard */,
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0852F3C2274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift in Sources */,
 				69B9C28F23A91D320055809B /* BarcodeTypesListViewController.swift in Sources */,
 				69B9C29023A91D320055809B /* BarcodeFormatter.swift in Sources */,
 				69B9C29423A91D320055809B /* BarcodeResultDetails.swift in Sources */,

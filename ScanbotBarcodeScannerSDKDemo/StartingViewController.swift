@@ -31,7 +31,11 @@ class StartingViewController: UITableViewController {
     private func showBarcodeScannerFromClassicComponent() {
         self.performSegue(withIdentifier: "ClassicBarcodeScanner", sender: self)
     }
-    
+
+    private func showBatchBarcodeScannerFromClassicComponent() {
+        self.performSegue(withIdentifier: "ClassicBatchBarcodeScanner", sender: self)
+    }
+
     private func showSetAcceptedBarcodesScreen() {
         self.performSegue(withIdentifier: "BarcodeTypesListViewController", sender: self)
     }
@@ -85,7 +89,11 @@ extension StartingViewController {
     @IBAction func classicBarcodeScannerButtonTapped(_ sender: UIButton) {
         self.showBarcodeScannerFromClassicComponent()
     }
-    
+
+    @IBAction func classicBatchBarcodeScannerButtonTapped(_ sender: UIButton) {
+        self.showBatchBarcodeScannerFromClassicComponent()
+    }
+
     @IBAction func rtuUIWithBarcodeImageButtonTapped(_ sender: UIButton) {
         self.shouldCaptureBarcodeImage = true
         self.showBarcodeScannerFromRTUUI()
