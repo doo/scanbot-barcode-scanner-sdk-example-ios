@@ -1,0 +1,435 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0852F3C2274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */; };
+		1B46267086A17AC3A2BB59FB /* Pods_ScanbotBarcodeScannerSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF29528341FC8F8AB3883FCF /* Pods_ScanbotBarcodeScannerSDKDemo.framework */; };
+		690166CB239811940054D9AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690166CA239811940054D9AA /* AppDelegate.swift */; };
+		690166D4239811960054D9AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690166D3239811960054D9AA /* Assets.xcassets */; };
+		690166D7239811960054D9AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690166D5239811960054D9AA /* LaunchScreen.storyboard */; };
+		69B9C28E23A91D320055809B /* ClassicBarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28623A91D310055809B /* ClassicBarcodeScanner.swift */; };
+		69B9C28F23A91D320055809B /* BarcodeTypesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28723A91D310055809B /* BarcodeTypesListViewController.swift */; };
+		69B9C29023A91D320055809B /* BarcodeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28823A91D310055809B /* BarcodeFormatter.swift */; };
+		69B9C29123A91D320055809B /* SharedParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28923A91D310055809B /* SharedParameters.swift */; };
+		69B9C29223A91D320055809B /* StartingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28A23A91D320055809B /* StartingViewController.swift */; };
+		69B9C29323A91D320055809B /* BarcodeResultListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28B23A91D320055809B /* BarcodeResultListCell.swift */; };
+		69B9C29423A91D320055809B /* BarcodeResultDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28C23A91D320055809B /* BarcodeResultDetails.swift */; };
+		69B9C29523A91D320055809B /* BarcodeResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28D23A91D320055809B /* BarcodeResultList.swift */; };
+		69B9C29723A91D440055809B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B9C29623A91D440055809B /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicBatchBarcodeScanner.swift; sourceTree = "<group>"; };
+		0E5935A48D68A5404E770C27 /* Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		2C18669B4452FA83235EA177 /* Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+		690166C7239811940054D9AA /* Scanbot Barcode Scanner SDK Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scanbot Barcode Scanner SDK Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		690166CA239811940054D9AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		690166D3239811960054D9AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		690166D6239811960054D9AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		690166D8239811960054D9AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		69B9C28623A91D310055809B /* ClassicBarcodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicBarcodeScanner.swift; sourceTree = "<group>"; };
+		69B9C28723A91D310055809B /* BarcodeTypesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeTypesListViewController.swift; sourceTree = "<group>"; };
+		69B9C28823A91D310055809B /* BarcodeFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeFormatter.swift; sourceTree = "<group>"; };
+		69B9C28923A91D310055809B /* SharedParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedParameters.swift; sourceTree = "<group>"; };
+		69B9C28A23A91D320055809B /* StartingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartingViewController.swift; sourceTree = "<group>"; };
+		69B9C28B23A91D320055809B /* BarcodeResultListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultListCell.swift; sourceTree = "<group>"; };
+		69B9C28C23A91D320055809B /* BarcodeResultDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultDetails.swift; sourceTree = "<group>"; };
+		69B9C28D23A91D320055809B /* BarcodeResultList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultList.swift; sourceTree = "<group>"; };
+		69B9C29623A91D440055809B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DF29528341FC8F8AB3883FCF /* Pods_ScanbotBarcodeScannerSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanbotBarcodeScannerSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		690166C4239811940054D9AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B46267086A17AC3A2BB59FB /* Pods_ScanbotBarcodeScannerSDKDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		32E897214C1993773CBE83D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E5935A48D68A5404E770C27 /* Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig */,
+				2C18669B4452FA83235EA177 /* Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		690166BE239811940054D9AA = {
+			isa = PBXGroup;
+			children = (
+				690166C9239811940054D9AA /* ScanbotBarcodeScannerSDKDemo */,
+				690166C8239811940054D9AA /* Products */,
+				32E897214C1993773CBE83D5 /* Pods */,
+				BBA3E4227DCE04CEAADC4163 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		690166C8239811940054D9AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				690166C7239811940054D9AA /* Scanbot Barcode Scanner SDK Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		690166C9239811940054D9AA /* ScanbotBarcodeScannerSDKDemo */ = {
+			isa = PBXGroup;
+			children = (
+				690166CA239811940054D9AA /* AppDelegate.swift */,
+				69B9C28823A91D310055809B /* BarcodeFormatter.swift */,
+				69B9C28C23A91D320055809B /* BarcodeResultDetails.swift */,
+				69B9C28D23A91D320055809B /* BarcodeResultList.swift */,
+				69B9C28B23A91D320055809B /* BarcodeResultListCell.swift */,
+				69B9C28723A91D310055809B /* BarcodeTypesListViewController.swift */,
+				69B9C28623A91D310055809B /* ClassicBarcodeScanner.swift */,
+				0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */,
+				69B9C28923A91D310055809B /* SharedParameters.swift */,
+				69B9C28A23A91D320055809B /* StartingViewController.swift */,
+				69B9C29623A91D440055809B /* Main.storyboard */,
+				690166D3239811960054D9AA /* Assets.xcassets */,
+				690166D5239811960054D9AA /* LaunchScreen.storyboard */,
+				690166D8239811960054D9AA /* Info.plist */,
+			);
+			path = ScanbotBarcodeScannerSDKDemo;
+			sourceTree = "<group>";
+		};
+		BBA3E4227DCE04CEAADC4163 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF29528341FC8F8AB3883FCF /* Pods_ScanbotBarcodeScannerSDKDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		690166C6239811940054D9AA /* ScanbotBarcodeScannerSDKDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 690166DB239811960054D9AA /* Build configuration list for PBXNativeTarget "ScanbotBarcodeScannerSDKDemo" */;
+			buildPhases = (
+				BDFF52054B3C91AEF9BA3529 /* [CP] Check Pods Manifest.lock */,
+				690166C3239811940054D9AA /* Sources */,
+				690166C4239811940054D9AA /* Frameworks */,
+				690166C5239811940054D9AA /* Resources */,
+				0D82004A086A3DAA802B0BC3 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScanbotBarcodeScannerSDKDemo;
+			productName = ScanbotBarcodeScannerSDKDemo;
+			productReference = 690166C7239811940054D9AA /* Scanbot Barcode Scanner SDK Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		690166BF239811940054D9AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1310;
+				ORGANIZATIONNAME = "doo GmbH";
+				TargetAttributes = {
+					690166C6239811940054D9AA = {
+						CreatedOnToolsVersion = 11.2;
+					};
+				};
+			};
+			buildConfigurationList = 690166C2239811940054D9AA /* Build configuration list for PBXProject "ScanbotBarcodeScannerSDKDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 690166BE239811940054D9AA;
+			productRefGroup = 690166C8239811940054D9AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				690166C6239811940054D9AA /* ScanbotBarcodeScannerSDKDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		690166C5239811940054D9AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69B9C29723A91D440055809B /* Main.storyboard in Resources */,
+				690166D7239811960054D9AA /* LaunchScreen.storyboard in Resources */,
+				690166D4239811960054D9AA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D82004A086A3DAA802B0BC3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDFF52054B3C91AEF9BA3529 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ScanbotBarcodeScannerSDKDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		690166C3239811940054D9AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0852F3C2274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift in Sources */,
+				69B9C28F23A91D320055809B /* BarcodeTypesListViewController.swift in Sources */,
+				69B9C29023A91D320055809B /* BarcodeFormatter.swift in Sources */,
+				69B9C29423A91D320055809B /* BarcodeResultDetails.swift in Sources */,
+				69B9C29523A91D320055809B /* BarcodeResultList.swift in Sources */,
+				69B9C29123A91D320055809B /* SharedParameters.swift in Sources */,
+				69B9C28E23A91D320055809B /* ClassicBarcodeScanner.swift in Sources */,
+				69B9C29223A91D320055809B /* StartingViewController.swift in Sources */,
+				69B9C29323A91D320055809B /* BarcodeResultListCell.swift in Sources */,
+				690166CB239811940054D9AA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		690166D5239811960054D9AA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				690166D6239811960054D9AA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		690166D9239811960054D9AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		690166DA239811960054D9AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		690166DC239811960054D9AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E5935A48D68A5404E770C27 /* Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FRUPYT6KB3;
+				INFOPLIST_FILE = ScanbotBarcodeScannerSDKDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.scanbot.example.sdk.ios.barcode;
+				PRODUCT_NAME = "Scanbot Barcode Scanner SDK Example";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		690166DD239811960054D9AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C18669B4452FA83235EA177 /* Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FRUPYT6KB3;
+				INFOPLIST_FILE = ScanbotBarcodeScannerSDKDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.scanbot.example.sdk.ios.barcode;
+				PRODUCT_NAME = "Scanbot Barcode Scanner SDK Example";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		690166C2239811940054D9AA /* Build configuration list for PBXProject "ScanbotBarcodeScannerSDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				690166D9239811960054D9AA /* Debug */,
+				690166DA239811960054D9AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		690166DB239811960054D9AA /* Build configuration list for PBXNativeTarget "ScanbotBarcodeScannerSDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				690166DC239811960054D9AA /* Debug */,
+				690166DD239811960054D9AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 690166BF239811940054D9AA /* Project object */;
+}
