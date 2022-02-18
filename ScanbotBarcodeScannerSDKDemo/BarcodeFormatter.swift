@@ -17,7 +17,7 @@ class BarcodeFormatter {
             return self.formattedPDF417IDCardDocument(formattedResult)
         } else if let formattedResult = barcode.formattedResult as? SBSDKBoardingPassDocumentFormat {
             return self.formattedBoardingPassDocument(formattedResult)
-        } else if let formattedResult = barcode.formattedResult as? SBSDKDisabilityCertificateDocumentFormat {
+        } else if let formattedResult = barcode.formattedResult as? SBSDKMedicalCertificateDocumentFormat {
             return self.formattedDCDocument(formattedResult)
         } else if let formattedResult = barcode.formattedResult as? SBSDKSEPADocumentFormat {
             return self.formattedSepaDocument(formattedResult)
@@ -168,7 +168,7 @@ class BarcodeFormatter {
         
         return result
     }
-    func formattedDCDocument(_ document: SBSDKDisabilityCertificateDocumentFormat) -> String {
+    func formattedDCDocument(_ document: SBSDKMedicalCertificateDocumentFormat) -> String {
         var result = "\n\n\nDetected DC form bar code:\n"
         if document.fields.count > 0 {
             for field in document.fields {
