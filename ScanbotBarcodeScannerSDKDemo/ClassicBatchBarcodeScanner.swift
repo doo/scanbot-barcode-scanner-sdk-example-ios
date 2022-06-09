@@ -20,51 +20,47 @@ class ClassicBatchBarcodeScanner: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     private var detectedBarcodes: [SBSDKBarcodeScannerResult] = []
-    private var shouldRecognizeBarcodes = true
-    private var scannerController: SBSDKBarcodeScannerViewController?
+    private var scannerController: SBSDKBarcodeScannerViewController!
     private var isScrolling: Bool = false
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scannerController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                    parentView: self.cameraContainer)
-        self.scannerController?.detectionRate = 10
+        
+        let energyConfiguration = self.scannerController.energyConfiguration
+        energyConfiguration.detectionRate = 10
+        
+        self.scannerController.energyConfiguration = energyConfiguration
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.scannerController?.acceptedBarcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
-        self.shouldRecognizeBarcodes = true                 
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.shouldRecognizeBarcodes = false
+        self.scannerController.acceptedBarcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
     }
 }
 
 extension ClassicBatchBarcodeScanner: SBSDKBarcodeScannerViewControllerDelegate {
     
     func barcodeScannerControllerShouldDetectBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
-        return self.shouldRecognizeBarcodes && !self.isScrolling
+        return !self.isScrolling
     }
     
-    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
-                                  didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
+
+    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController, 
+                                  didDetectBarcodes codes: [SBSDKBarcodeScannerResult], 
+                                  on image: UIImage) {
+        
         if codes.count == 0 {
             return
         }
         
-        self.shouldRecognizeBarcodes = false
-
         for code in codes.reversed() {
             if !self.detectedBarcodes.contains(code) {
                 self.detectedBarcodes.insert(code, at: 0)
             }
         }
         self.tableView.reloadData()
-        self.shouldRecognizeBarcodes = true
     }
 }
 
