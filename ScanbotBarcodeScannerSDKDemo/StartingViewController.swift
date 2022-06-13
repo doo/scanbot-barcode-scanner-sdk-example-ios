@@ -26,8 +26,6 @@ class StartingViewController: UITableViewController {
         }
     }
     
-
-    
     private func showBarcodeScannerFromClassicComponent() {
         self.performSegue(withIdentifier: "ClassicBarcodeScanner", sender: self)
     }
