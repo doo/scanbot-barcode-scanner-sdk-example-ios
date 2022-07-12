@@ -19,8 +19,6 @@ class ClassicBarcodeScanner: UIViewController {
         
         self.scannerController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                    parentView: self.view)
-
-        self.scannerController.barcodeAccumulatedFramesCount = 15;
     }
     
     override func viewDidAppear(_ animated: Bool) {
