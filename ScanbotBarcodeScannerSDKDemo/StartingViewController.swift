@@ -47,18 +47,18 @@ class StartingViewController: UITableViewController {
         if self.shouldCaptureBarcodeImage {
             configuration.behaviorConfiguration.barcodeImageGenerationType = .capturedImage
         }
+        configuration.behaviorConfiguration.acceptedMachineCodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
         SBSDKUIBarcodeScannerViewController.present(on: self,
-                                                    withAcceptedMachineCodeTypes: Array(SharedParameters.acceptedBarcodeTypes),
                                                     configuration: configuration,
                                                     andDelegate: self)
     }
     
     private func showBarcodeBatchScanning() {
         let configuration = SBSDKUIBarcodesBatchScannerConfiguration.default()
+        configuration.behaviorConfiguration.acceptedMachineCodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
         SBSDKUIBarcodesBatchScannerViewController.present(on: self,
-                                                          withAcceptedMachineCodeTypes: Array(SharedParameters.acceptedBarcodeTypes),
                                                           configuration: configuration,
                                                           andDelegate: self)
     }
