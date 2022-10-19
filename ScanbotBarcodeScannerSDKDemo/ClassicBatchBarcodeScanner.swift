@@ -79,7 +79,7 @@ extension ClassicBatchBarcodeScanner: UITableViewDataSource, UITableViewDelegate
         let code = self.detectedBarcodes[indexPath.row]
         
         cell.barcodeImageView.image = code.barcodeImage
-        cell.barcodeLabel.text = code.rawTextString
+        cell.barcodeLabel.text = code.rawTextStringWithExtension
         cell.barcodeTypeLabel.text = code.type.name
         return cell
     }
