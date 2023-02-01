@@ -51,8 +51,7 @@ extension ClassicBarcodeScanner: SBSDKBarcodeScannerViewControllerDelegate {
     }
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController, 
-                                  didDetectBarcodes codes: [SBSDKBarcodeScannerResult], 
-                                  on image: UIImage) {
+                                  didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
         if codes.count == 0 {
             return
         }
