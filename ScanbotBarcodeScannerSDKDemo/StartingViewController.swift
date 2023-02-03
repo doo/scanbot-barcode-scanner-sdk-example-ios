@@ -121,19 +121,9 @@ extension StartingViewController: SBSDKUIBarcodeScannerViewControllerDelegate {
         self.detectedBarcodes = barcodeResults
         
         if self.shouldCaptureBarcodeImage {
-            return
+            self.barcodeImage = barcodeResults.first?.sourceImage
         }
         
-        DispatchQueue.main.async {
-            self.dismiss(animated: true, completion: nil)
-            self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
-        }
-    }
-    
-    func qrBarcodeDetectionViewController(_ viewController: SBSDKUIBarcodeScannerViewController,
-                                          didCaptureBarcodeImage barcodeImage: UIImage?,
-                                          imageURL: URL?) {
-        self.barcodeImage = barcodeImage
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)
             self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
