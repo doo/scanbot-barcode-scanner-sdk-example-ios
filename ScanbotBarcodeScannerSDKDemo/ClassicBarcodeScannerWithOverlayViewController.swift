@@ -9,9 +9,22 @@
 import UIKit
 import ScanbotBarcodeScannerSDK
 
+class CustomBarcodeCell: UICollectionViewCell {
+    
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var detailLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.contentView.layer.cornerRadius = 8.0
+    }
+}
+
+
 class ClassicBarcodeScannerWithOverlayViewController: UIViewController {
     
     @IBOutlet var modeSwitch: UISwitch!
+    
     private var scannerController: SBSDKBarcodeScannerViewController!
     private var shouldRecognizeBarcodes = true
     private var detectedBarcodes: [SBSDKBarcodeScannerResult] = []
@@ -61,7 +74,8 @@ class ClassicBarcodeScannerWithOverlayViewController: UIViewController {
         modeSwitch.isOn = useCustomCellsMode 
         
         if useCustomCellsMode {
-            
+            let nib = UINib(nibName: "CustomBarcodeCell", bundle: nil)
+            scannerController.enableSelectionOverlayCustomCellMode(nib, withIdentifier: "CustomBarcodeCell")
         } else {
             scannerController.disableSelectionOverlayCustomCellMode()
         }
@@ -88,5 +102,23 @@ extension ClassicBarcodeScannerWithOverlayViewController: SBSDKBarcodeScannerVie
             self.dismiss(animated: true, completion: nil)
             self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
         }
+    }
+    
+    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController, 
+                                  customCellFrameForProposedFrame frame: CGRect) -> CGRect {
+        
+        let center = CGPoint(x: frame.midX, y: frame.midY)
+        let size = CGSize(width: max(frame.width, 50), height: max(frame.height, 50))
+        return RectWithSizeAndCenter(size, center)
+    }
+    
+    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController, 
+                                  configureCustomCell cell: UICollectionViewCell, 
+                                  forBarcode code: SBSDKBarcodeScannerResult, 
+                                  withBarcodePolygonPath path: UIBezierPath) {
+        
+        let cell = cell as! CustomBarcodeCell
+        cell.titleLabel.text = code.rawTextStringWithExtension
+        cell.detailLabel.text = code.type.name
     }
 }

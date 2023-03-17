@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomBarcodeCell" id="PTj-wB-z1e" customClass="CustomBarcodeCell" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="189"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HcB-Gn-qhK">
+                <rect key="frame" x="0.0" y="0.0" width="329" height="189"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your custom content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="B7c-DC-Nkj">
+                        <rect key="frame" x="12" y="12" width="305" height="24"/>
+                        <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
+                        <color key="textColor" red="0.59350832544191912" green="0.59350832544191912" blue="0.59350832544191912" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="G5i-Py-pnA">
+                        <rect key="frame" x="12" y="84" width="305" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="coL-S5-mPX">
+                        <rect key="frame" x="12" y="163" width="305" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.66268334799254969" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="G5i-Py-pnA" secondAttribute="trailing" constant="12" id="4ai-fP-pme"/>
+                    <constraint firstItem="B7c-DC-Nkj" firstAttribute="top" secondItem="HcB-Gn-qhK" secondAttribute="top" constant="12" id="BgX-e4-K8S"/>
+                    <constraint firstAttribute="bottom" secondItem="coL-S5-mPX" secondAttribute="bottom" constant="8" id="D8x-MF-pfo"/>
+                    <constraint firstItem="G5i-Py-pnA" firstAttribute="leading" secondItem="HcB-Gn-qhK" secondAttribute="leading" constant="12" id="DVg-nL-4V2"/>
+                    <constraint firstAttribute="trailing" secondItem="coL-S5-mPX" secondAttribute="trailing" constant="12" id="Egt-uk-sRs"/>
+                    <constraint firstItem="coL-S5-mPX" firstAttribute="leading" secondItem="HcB-Gn-qhK" secondAttribute="leading" constant="12" id="WYQ-wV-SnL"/>
+                    <constraint firstItem="G5i-Py-pnA" firstAttribute="centerY" secondItem="HcB-Gn-qhK" secondAttribute="centerY" id="Ykg-b5-NIx"/>
+                    <constraint firstItem="B7c-DC-Nkj" firstAttribute="leading" secondItem="HcB-Gn-qhK" secondAttribute="leading" constant="12" id="dGy-8s-tzR"/>
+                    <constraint firstAttribute="trailing" secondItem="B7c-DC-Nkj" secondAttribute="trailing" constant="12" id="pb7-z2-UHn"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="329" height="189"/>
+            <connections>
+                <outlet property="detailLabel" destination="coL-S5-mPX" id="wLU-1V-oLM"/>
+                <outlet property="titleLabel" destination="G5i-Py-pnA" id="duS-GO-FF0"/>
+            </connections>
+            <point key="canvasLocation" x="-622.13740458015263" y="-154.57746478873241"/>
+        </collectionViewCell>
+    </objects>
+</document>
