@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0852F3C2274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */; };
+		088C6FBB29C4B9740075CEE8 /* ClassicBarcodeScannerWithOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088C6FBA29C4B9740075CEE8 /* ClassicBarcodeScannerWithOverlayViewController.swift */; };
+		088C70B429C4C8940075CEE8 /* CustomBarcodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088C70B329C4C8940075CEE8 /* CustomBarcodeCell.xib */; };
 		690166CB239811940054D9AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690166CA239811940054D9AA /* AppDelegate.swift */; };
 		690166D4239811960054D9AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690166D3239811960054D9AA /* Assets.xcassets */; };
 		690166D7239811960054D9AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690166D5239811960054D9AA /* LaunchScreen.storyboard */; };
@@ -25,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicBatchBarcodeScanner.swift; sourceTree = "<group>"; };
+		088C6FBA29C4B9740075CEE8 /* ClassicBarcodeScannerWithOverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicBarcodeScannerWithOverlayViewController.swift; sourceTree = "<group>"; };
+		088C70B329C4C8940075CEE8 /* CustomBarcodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomBarcodeCell.xib; sourceTree = "<group>"; };
 		32ADA586A0E62A766A98B8B6 /* Pods_ScanbotBarcodeScannerSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanbotBarcodeScannerSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C52A423D3C11E377CB46865 /* Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 		690166C7239811940054D9AA /* Scanbot Barcode Scanner SDK Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scanbot Barcode Scanner SDK Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,12 +98,14 @@
 				69B9C28723A91D310055809B /* BarcodeTypesListViewController.swift */,
 				69B9C28623A91D310055809B /* ClassicBarcodeScanner.swift */,
 				0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */,
+				088C6FBA29C4B9740075CEE8 /* ClassicBarcodeScannerWithOverlayViewController.swift */,
 				69B9C28923A91D310055809B /* SharedParameters.swift */,
 				69B9C28A23A91D320055809B /* StartingViewController.swift */,
 				69B9C29623A91D440055809B /* Main.storyboard */,
 				690166D3239811960054D9AA /* Assets.xcassets */,
 				690166D5239811960054D9AA /* LaunchScreen.storyboard */,
 				690166D8239811960054D9AA /* Info.plist */,
+				088C70B329C4C8940075CEE8 /* CustomBarcodeCell.xib */,
 			);
 			path = ScanbotBarcodeScannerSDKDemo;
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69B9C29723A91D440055809B /* Main.storyboard in Resources */,
+				088C70B429C4C8940075CEE8 /* CustomBarcodeCell.xib in Resources */,
 				690166D7239811960054D9AA /* LaunchScreen.storyboard in Resources */,
 				690166D4239811960054D9AA /* Assets.xcassets in Resources */,
 			);
@@ -231,6 +238,7 @@
 				69B9C28F23A91D320055809B /* BarcodeTypesListViewController.swift in Sources */,
 				69B9C29023A91D320055809B /* BarcodeFormatter.swift in Sources */,
 				69B9C29423A91D320055809B /* BarcodeResultDetails.swift in Sources */,
+				088C6FBB29C4B9740075CEE8 /* ClassicBarcodeScannerWithOverlayViewController.swift in Sources */,
 				69B9C29523A91D320055809B /* BarcodeResultList.swift in Sources */,
 				69B9C29123A91D320055809B /* SharedParameters.swift in Sources */,
 				69B9C28E23A91D320055809B /* ClassicBarcodeScanner.swift in Sources */,
