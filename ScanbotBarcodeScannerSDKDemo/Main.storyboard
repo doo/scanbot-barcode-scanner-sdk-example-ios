@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LTj-Ok-5pM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LTj-Ok-5pM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +21,7 @@
                             <tableViewSection id="IJS-wb-ecP">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="Zyg-EI-0pS">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="65"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zyg-EI-0pS" id="Fhu-YR-0x4">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -32,7 +32,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                                    <state key="normal" title="Classic UI">
+                                                    <state key="normal" title="Classic component">
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
                                                     <connections>
@@ -58,46 +58,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="dkr-wG-0Pl">
-                                        <rect key="frame" x="0.0" y="115" width="414" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dkr-wG-0Pl" id="VXm-Pd-pd5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4L-LW-yvS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                                    <state key="normal" title="Classic UI with selection overlay">
-                                                        <color key="titleColor" systemColor="labelColor"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="classicBarcodeScannerWithCustomCellsButtonTapped:" destination="TzJ-db-sWh" eventType="touchUpInside" id="Js4-mp-dY5"/>
-                                                    </connections>
-                                                </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZX-6p-UX9">
-                                                    <rect key="frame" x="16" y="64.5" width="398" height="0.5"/>
-                                                    <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="0.5" id="nAL-oF-j1P"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="ZZX-6p-UX9" secondAttribute="bottom" id="Db9-yz-8dI"/>
-                                                <constraint firstItem="l4L-LW-yvS" firstAttribute="leading" secondItem="VXm-Pd-pd5" secondAttribute="leading" id="F4A-5u-Nly"/>
-                                                <constraint firstItem="l4L-LW-yvS" firstAttribute="top" secondItem="VXm-Pd-pd5" secondAttribute="top" id="HhR-X5-Fhe"/>
-                                                <constraint firstItem="ZZX-6p-UX9" firstAttribute="top" secondItem="l4L-LW-yvS" secondAttribute="bottom" id="Nia-9x-fe3"/>
-                                                <constraint firstItem="ZZX-6p-UX9" firstAttribute="leading" secondItem="VXm-Pd-pd5" secondAttribute="leading" constant="16" id="aEa-H7-nTK"/>
-                                                <constraint firstAttribute="trailing" secondItem="l4L-LW-yvS" secondAttribute="trailing" id="ltd-jQ-JnH"/>
-                                                <constraint firstAttribute="trailing" secondItem="ZZX-6p-UX9" secondAttribute="trailing" id="q3F-YZ-6T9"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="a11-IU-pDk">
-                                        <rect key="frame" x="0.0" y="180" width="414" height="65"/>
+                                        <rect key="frame" x="0.0" y="109.5" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a11-IU-pDk" id="qQ7-A8-CoX">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -108,7 +70,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                                    <state key="normal" title="Classic UI batch barcode scanning">
+                                                    <state key="normal" title="Classic batch barcode scanning">
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
                                                     <connections>
@@ -135,7 +97,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="iuM-Ph-Yg1">
-                                        <rect key="frame" x="0.0" y="245" width="414" height="65"/>
+                                        <rect key="frame" x="0.0" y="174.5" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iuM-Ph-Yg1" id="vgZ-uI-eRK">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -173,7 +135,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="tV9-lx-pI3">
-                                        <rect key="frame" x="0.0" y="310" width="414" height="65"/>
+                                        <rect key="frame" x="0.0" y="239.5" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tV9-lx-pI3" id="1by-KP-Uh1">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -211,7 +173,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="sYO-fI-DsG">
-                                        <rect key="frame" x="0.0" y="375" width="414" height="65"/>
+                                        <rect key="frame" x="0.0" y="304.5" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sYO-fI-DsG" id="7Qf-7z-Hl3">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -249,7 +211,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="m0S-mY-Nd2">
-                                        <rect key="frame" x="0.0" y="440" width="414" height="65"/>
+                                        <rect key="frame" x="0.0" y="369.5" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m0S-mY-Nd2" id="4LC-t0-BiR">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -287,7 +249,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="3bz-ff-reC">
-                                        <rect key="frame" x="0.0" y="505" width="414" height="65"/>
+                                        <rect key="frame" x="0.0" y="434.5" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3bz-ff-reC" id="mf4-UW-l2Q">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -338,12 +300,11 @@
                         <segue destination="7aQ-WW-1bH" kind="show" identifier="BarcodeResultList" id="9yT-hO-839"/>
                         <segue destination="s2p-lP-onS" kind="show" identifier="BarcodeTypesListViewController" id="Hec-wo-46B"/>
                         <segue destination="dOk-K0-k9j" kind="show" identifier="ClassicBatchBarcodeScanner" id="N2J-uh-mon"/>
-                        <segue destination="1rh-ZW-fMl" kind="show" identifier="ClassicBarcodeScannerOverlay" id="PkB-Gv-ec4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJk-YO-8tT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-672" y="29"/>
+            <point key="canvasLocation" x="-729" y="66"/>
         </scene>
         <!--Classic Barcode Scanner-->
         <scene sceneID="8Lf-Md-BrY">
@@ -380,7 +341,7 @@
                                 <rect key="frame" x="0.0" y="456" width="414" height="440"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="barcodeCell" id="0xE-ZJ-kox" customClass="ClassicBatchBarcodeScannerTableCell" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0xE-ZJ-kox" id="uy1-fy-vuc">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -460,11 +421,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Je-4W-m3y">
-                                <rect key="frame" x="0.0" y="92" width="414" height="804"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="XnV-4p-rYV">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XnV-4p-rYV" id="Hnu-st-uzL">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -508,7 +469,7 @@
             <objects>
                 <navigationController id="LTj-Ok-5pM" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Lxh-jZ-Ll0">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -531,7 +492,7 @@
                             <tableViewSection id="j1x-g8-Fkk">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="225" id="7eg-jz-Pc7">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="225"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="225"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7eg-jz-Pc7" id="Unx-Fz-ajr">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
@@ -550,7 +511,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dOc-Mt-1RK">
-                                        <rect key="frame" x="0.0" y="275" width="414" height="42.5"/>
+                                        <rect key="frame" x="0.0" y="269.5" width="414" height="42.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dOc-Mt-1RK" id="cif-ea-g3E">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="42.5"/>
@@ -598,11 +559,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1OF-AQ-FRl">
-                                <rect key="frame" x="0.0" y="92" width="414" height="804"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BarcodeResultListCellImage" rowHeight="100" id="uSN-AR-bFv" customClass="BarcodeResultListCell" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uSN-AR-bFv" id="BrG-Ju-hYV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
@@ -624,7 +585,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarcodeResultListCell" rowHeight="100" id="FbW-e3-Khm" customClass="BarcodeResultListCell" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="150" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="144.5" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FbW-e3-Khm" id="iUW-V0-fYx">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
@@ -688,10 +649,10 @@
                                 </connections>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9e-Df-7Nt">
-                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No barcodes detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijv-Jn-6NZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="770"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -730,53 +691,13 @@
             </objects>
             <point key="canvasLocation" x="141" y="122"/>
         </scene>
-        <!--Classic Barcode Scanner With Overlay View Controller-->
-        <scene sceneID="gfM-rm-Fsd">
-            <objects>
-                <viewController storyboardIdentifier="ClassicBarcodeScannerWithOverlayViewController" id="1rh-ZW-fMl" customClass="ClassicBarcodeScannerWithOverlayViewController" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="L4D-a6-1cT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use custom cells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSp-T6-x6E">
-                                <rect key="frame" x="205" y="97" width="130" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NAI-ha-vHM">
-                                <rect key="frame" x="343" y="92" width="51" height="31"/>
-                                <connections>
-                                    <action selector="modeSwitchToggled:" destination="1rh-ZW-fMl" eventType="valueChanged" id="XKD-Ir-K9M"/>
-                                </connections>
-                            </switch>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="sJq-nY-BEr"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="sJq-nY-BEr" firstAttribute="trailing" secondItem="NAI-ha-vHM" secondAttribute="trailing" constant="22" id="Czw-Iu-VWW"/>
-                            <constraint firstItem="NAI-ha-vHM" firstAttribute="leading" secondItem="wSp-T6-x6E" secondAttribute="trailing" constant="8" symbolic="YES" id="RoW-x7-5yV"/>
-                            <constraint firstItem="NAI-ha-vHM" firstAttribute="top" secondItem="sJq-nY-BEr" secondAttribute="top" id="s2z-Ln-bOL"/>
-                            <constraint firstItem="wSp-T6-x6E" firstAttribute="centerY" secondItem="NAI-ha-vHM" secondAttribute="centerY" id="sPm-aN-wIt"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="0wN-wo-XPx"/>
-                    <connections>
-                        <outlet property="modeSwitch" destination="NAI-ha-vHM" id="cPb-qg-eba"/>
-                        <segue destination="7aQ-WW-1bH" kind="show" identifier="BarcodeResultList" id="m0M-xZ-Czd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OQ1-ap-lin" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1117" y="502"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="m0M-xZ-Czd"/>
+        <segue reference="5Yy-sA-0Cn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -785,7 +706,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29803921568627451" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

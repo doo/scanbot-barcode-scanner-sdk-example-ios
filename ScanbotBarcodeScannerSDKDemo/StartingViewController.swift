@@ -10,8 +10,6 @@ import UIKit
 import ScanbotBarcodeScannerSDK
 
 class StartingViewController: UITableViewController {
-    
-    
     private var shouldCaptureBarcodeImage = false
     private var detectedBarcodes: [SBSDKBarcodeScannerResult] = []
     private var barcodeImage: UIImage?
@@ -38,10 +36,6 @@ class StartingViewController: UITableViewController {
 
     private func showSetAcceptedBarcodesScreen() {
         self.performSegue(withIdentifier: "BarcodeTypesListViewController", sender: self)
-    }
-    
-    private func showBarcodeScannerWithCustomCellsFromClassicComponent() {
-        self.performSegue(withIdentifier: "ClassicBarcodeScannerOverlay", sender: self)
     }
     
     private func showBarcodeScannerFromRTUUI() {
@@ -94,10 +88,6 @@ extension StartingViewController {
         self.showBarcodeScannerFromClassicComponent()
     }
 
-    @IBAction func classicBarcodeScannerWithCustomCellsButtonTapped(_ sender: UIButton) {
-        self.showBarcodeScannerWithCustomCellsFromClassicComponent()
-    }
-    
     @IBAction func classicBatchBarcodeScannerButtonTapped(_ sender: UIButton) {
         self.showBatchBarcodeScannerFromClassicComponent()
     }
