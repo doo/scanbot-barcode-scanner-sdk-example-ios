@@ -11,7 +11,6 @@ import ScanbotBarcodeScannerSDK
 
 class StartingViewController: UITableViewController {
     
-    
     private var shouldCaptureBarcodeImage = false
     private var detectedBarcodes: [SBSDKBarcodeScannerResult] = []
     private var barcodeImage: UIImage?
