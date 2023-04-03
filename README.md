@@ -27,6 +27,13 @@ Also check out our blog post [Types of barcodes](https://scanbot.io/blog/types-o
 For more details please refer to the SDK documentation.
 
 
+## Free Developer Support
+
+We provide free "no-strings-attached" developer support for the implementation & testing of the Scanbot SDK.
+If you encounter technical issues with integrating the Scanbot SDK or need advice on choosing the appropriate
+framework or features, please visit our [Support Page](https://docs.scanbot.io/support/).
+
+
 ## Documentation
 
 👉 [Scanbot Barcode Scanner SDK documentation](https://docs.scanbot.io/barcode-scanner-sdk/ios/introduction/)
