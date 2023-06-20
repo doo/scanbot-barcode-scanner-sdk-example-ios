@@ -29,6 +29,10 @@ class StartingViewController: UITableViewController {
     private func showBarcodeScannerFromClassicComponent() {
         self.performSegue(withIdentifier: "ClassicBarcodeScanner", sender: self)
     }
+    
+    private func showScanAndCountScannerFromClassicComponent() {
+        self.performSegue(withIdentifier: "ClassicScanAndCount", sender: self)
+    }
 
     private func showBatchBarcodeScannerFromClassicComponent() {
         self.performSegue(withIdentifier: "ClassicBatchBarcodeScanner", sender: self)
@@ -91,6 +95,10 @@ extension StartingViewController {
     @IBAction func classicBatchBarcodeScannerButtonTapped(_ sender: UIButton) {
         self.showBatchBarcodeScannerFromClassicComponent()
     }
+    
+    @IBAction func classicScanAndCountButtonTapped(_ sender: UIButton) {
+        self.showScanAndCountScannerFromClassicComponent()
+    }
 
     @IBAction func rtuUIWithBarcodeImageButtonTapped(_ sender: UIButton) {
         self.shouldCaptureBarcodeImage = true
@@ -141,8 +149,6 @@ extension StartingViewController: SBSDKUIBarcodesBatchScannerViewControllerDeleg
             self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
         }
     }
-    
-    
 }
 
 extension StartingViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
