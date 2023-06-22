@@ -10,14 +10,17 @@ import UIKit
 import ScanbotBarcodeScannerSDK
 
 final class ScanAndCountViewController: UIViewController {
-    private var detectedBarcodes: [SBSDKBarcodeScannerResult] = []
-    private var shouldRecognizeBarcodes = true
-    private var scannerController: SBSDKBarcodeScanAndCountViewController!
-    private var selectedBarcode: SBSDKBarcodeScannerResult?
     
+    @IBOutlet private var listCountView: UIView!
+    @IBOutlet private var listCountLabel: UILabel!
+    
+    private var countedBarcodes = [SBSDKBarcodeScannerAccumulatingResult]()
+    private var scannerController: SBSDKBarcodeScanAndCountViewController!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        listCountView.layer.cornerRadius = listCountView.bounds.height / 2
         self.scannerController = SBSDKBarcodeScanAndCountViewController(parentViewController: self,
                                                                         parentView: self.view,
                                                                         delegate: self)
@@ -30,55 +33,38 @@ final class ScanAndCountViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "BarcodeResultList",
-           let destination = segue.destination as? BarcodeResultList {
-            if let selectedBarcode {
-                destination.barcodes = [selectedBarcode]
-            }
+        if segue.identifier == "showScanAndCountResult",
+           let destination = segue.destination as? ScanAndCountResultsViewController {
+            destination.countedBarcodes = countedBarcodes
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.shouldRecognizeBarcodes = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.shouldRecognizeBarcodes = false
+    @IBAction private func listButtonTapped(_ sender: UIButton) {
+        guard !countedBarcodes.isEmpty else { return }
+        performSegue(withIdentifier: "showScanAndCountResult", sender: self)
     }
 }
 
 extension ScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDelegate {
     
-    func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController, didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
-        detectedBarcodes = codes
-    }
-    
-    func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController, overlayForBarcode code: SBSDKBarcodeScannerResult) -> UIView? {
-        let button = UIButton()
-        let image = UIImage(systemName: "checkmark.circle.fill")
-        button.setImage(image, for: .normal)
-        button.contentHorizontalAlignment = .fill
-        button.contentVerticalAlignment = .fill
-        button.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
-        button.tintColor = .green
-        if let index = detectedBarcodes.firstIndex(of: code) {
-            button.tag = index
-        }
-        button.addTarget(self, action: #selector(barcodeButtonTapped), for: .touchUpInside)
-        return button
-    }
-    
-    @objc private func barcodeButtonTapped(_ sender: UIButton) {
-        if sender.tag < detectedBarcodes.count {
-            selectedBarcode = detectedBarcodes[sender.tag]
-            if selectedBarcode != nil {
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
-                    self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
-                }
+    func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
+                             didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
+        codes.forEach { code in
+            guard let existingCode = self.countedBarcodes.first(where: {
+                $0.code.type == code.type && $0.code.rawTextString == code.rawTextString
+            }) else {
+                self.countedBarcodes.append(SBSDKBarcodeScannerAccumulatingResult(barcodeResult: code))
+                return
             }
+            existingCode.scanCount += 1
+            existingCode.code.dateOfDetection = code.dateOfDetection
         }
+        let count = countedBarcodes.reduce(0) { $0 + $1.scanCount }
+        listCountLabel.text = String(count)
+    }
+    
+    func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
+                             overlayForBarcode code: SBSDKBarcodeScannerResult) -> UIView? {
+        UIImageView(image: UIImage(systemName: "checkmark.circle.fill"))
     }
 }

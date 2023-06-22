@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0852F3C2274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */; };
+		288AB3D52A448B3100D6461E /* ScanAndCountResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288AB3D42A448B3100D6461E /* ScanAndCountResultsViewController.swift */; };
+		288AB3D72A448B5900D6461E /* ScanAndCountBarcodeDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288AB3D62A448B5900D6461E /* ScanAndCountBarcodeDetailsCell.swift */; };
 		28E8A5942A41BEC10071539A /* ScanAndCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8A5932A41BEC10071539A /* ScanAndCountViewController.swift */; };
 		690166CB239811940054D9AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690166CA239811940054D9AA /* AppDelegate.swift */; };
 		690166D4239811960054D9AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690166D3239811960054D9AA /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicBatchBarcodeScanner.swift; sourceTree = "<group>"; };
+		288AB3D42A448B3100D6461E /* ScanAndCountResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanAndCountResultsViewController.swift; sourceTree = "<group>"; };
+		288AB3D62A448B5900D6461E /* ScanAndCountBarcodeDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanAndCountBarcodeDetailsCell.swift; sourceTree = "<group>"; };
 		28E8A5932A41BEC10071539A /* ScanAndCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanAndCountViewController.swift; sourceTree = "<group>"; };
 		32ADA586A0E62A766A98B8B6 /* Pods_ScanbotBarcodeScannerSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanbotBarcodeScannerSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C52A423D3C11E377CB46865 /* Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				69B9C28623A91D310055809B /* ClassicBarcodeScanner.swift */,
 				0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */,
 				28E8A5932A41BEC10071539A /* ScanAndCountViewController.swift */,
+				288AB3D42A448B3100D6461E /* ScanAndCountResultsViewController.swift */,
+				288AB3D62A448B5900D6461E /* ScanAndCountBarcodeDetailsCell.swift */,
 				69B9C28923A91D310055809B /* SharedParameters.swift */,
 				69B9C28A23A91D320055809B /* StartingViewController.swift */,
 				69B9C29623A91D440055809B /* Main.storyboard */,
@@ -143,8 +149,9 @@
 		690166BF239811940054D9AA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "doo GmbH";
 				TargetAttributes = {
 					690166C6239811940054D9AA = {
@@ -238,9 +245,11 @@
 				69B9C29523A91D320055809B /* BarcodeResultList.swift in Sources */,
 				69B9C29123A91D320055809B /* SharedParameters.swift in Sources */,
 				69B9C28E23A91D320055809B /* ClassicBarcodeScanner.swift in Sources */,
+				288AB3D52A448B3100D6461E /* ScanAndCountResultsViewController.swift in Sources */,
 				69B9C29223A91D320055809B /* StartingViewController.swift in Sources */,
 				69B9C29323A91D320055809B /* BarcodeResultListCell.swift in Sources */,
 				690166CB239811940054D9AA /* AppDelegate.swift in Sources */,
+				288AB3D72A448B5900D6461E /* ScanAndCountBarcodeDetailsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +293,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -344,6 +354,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
