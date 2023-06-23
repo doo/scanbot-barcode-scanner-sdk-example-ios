@@ -46,20 +46,35 @@ extension ClassicBatchBarcodeScanner: SBSDKBarcodeScannerViewControllerDelegate 
         return !self.isScrolling
     }
     
-
-    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController, 
+    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
         
         if codes.count == 0 {
             return
         }
-        
-        for code in codes.reversed() {
-            if !self.detectedBarcodes.contains(code) {
-                self.detectedBarcodes.insert(code, at: 0)
+        if !controller.selectionOverlayEnabled || controller.automaticSelectionEnabled {
+            for code in codes.reversed() {
+                if !self.detectedBarcodes.contains(code) {
+                    self.detectedBarcodes.insert(code, at: 0)
+                }
             }
+            self.tableView.reloadData()
+        }
+    }
+    
+    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
+                                  didTapOnBarcode code: SBSDKBarcodeScannerResult) {
+        if !self.detectedBarcodes.contains(code) {
+            self.detectedBarcodes.insert(code, at: 0)
+        } else {
+            self.detectedBarcodes.removeAll(where: { $0 == code })
         }
         self.tableView.reloadData()
+    }
+    
+    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
+                                  shouldHighlight code: SBSDKBarcodeScannerResult) -> Bool {
+        return detectedBarcodes.contains(code)
     }
 }
 

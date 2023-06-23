@@ -29,6 +29,10 @@ class StartingViewController: UITableViewController {
     private func showBarcodeScannerFromClassicComponent() {
         self.performSegue(withIdentifier: "ClassicBarcodeScanner", sender: self)
     }
+    
+    private func showScanAndCountScannerFromClassicComponent() {
+        self.performSegue(withIdentifier: "ClassicScanAndCount", sender: self)
+    }
 
     private func showBatchBarcodeScannerFromClassicComponent() {
         self.performSegue(withIdentifier: "ClassicBatchBarcodeScanner", sender: self)
@@ -47,7 +51,7 @@ class StartingViewController: UITableViewController {
         if self.shouldCaptureBarcodeImage {
             configuration.behaviorConfiguration.barcodeImageGenerationType = .capturedImage
         }
-        configuration.behaviorConfiguration.acceptedMachineCodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        configuration.behaviorConfiguration.acceptedBarcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
         SBSDKUIBarcodeScannerViewController.present(on: self,
                                                     configuration: configuration,
@@ -56,7 +60,7 @@ class StartingViewController: UITableViewController {
     
     private func showBarcodeBatchScanning() {
         let configuration = SBSDKUIBarcodesBatchScannerConfiguration.default()
-        configuration.behaviorConfiguration.acceptedMachineCodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        configuration.behaviorConfiguration.acceptedBarcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
         SBSDKUIBarcodesBatchScannerViewController.present(on: self,
                                                           configuration: configuration,
@@ -90,6 +94,10 @@ extension StartingViewController {
 
     @IBAction func classicBatchBarcodeScannerButtonTapped(_ sender: UIButton) {
         self.showBatchBarcodeScannerFromClassicComponent()
+    }
+    
+    @IBAction func classicScanAndCountButtonTapped(_ sender: UIButton) {
+        self.showScanAndCountScannerFromClassicComponent()
     }
 
     @IBAction func rtuUIWithBarcodeImageButtonTapped(_ sender: UIButton) {
@@ -141,8 +149,6 @@ extension StartingViewController: SBSDKUIBarcodesBatchScannerViewControllerDeleg
             self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
         }
     }
-    
-    
 }
 
 extension StartingViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
