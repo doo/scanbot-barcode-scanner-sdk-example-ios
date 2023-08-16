@@ -64,6 +64,18 @@ extension ScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDele
     }
     
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
+                             polygonStyleForBarcode code: SBSDKBarcodeScannerResult) -> SBSDKScanAndCountPolygonStyle {
+        
+        let style = SBSDKScanAndCountPolygonStyle()
+        style.polygonDrawingEnabled = true
+        style.cornerRadius = 4.0
+        style.polygonColor = UIColor.systemBlue
+        style.polygonFillColor = UIColor.systemBlue.withAlphaComponent(0.3)
+        return style
+        
+    }
+    
+    func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
                              overlayForBarcode code: SBSDKBarcodeScannerResult) -> UIView? {
         UIImageView(image: UIImage(systemName: "checkmark.circle.fill"))
     }
