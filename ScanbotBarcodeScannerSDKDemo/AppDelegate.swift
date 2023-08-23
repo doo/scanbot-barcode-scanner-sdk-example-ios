@@ -18,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // Setup the default license failure handler for demo purposes. In case of expired license or expired trial period it will present an alert dialog.
-        // See also the ScanbotSDK.setLicenseFailureHandler(..) to setup a custom handler.
-        ScanbotSDK.setupDefaultLicenseFailureHandler()
+        // See also the Scanbot.setLicenseFailureHandler(..) to setup a custom handler.
+        Scanbot.setupDefaultLicenseFailureHandler()
         
-        ScanbotSDK.setLoggingEnabled(true)
+        Scanbot.setLoggingEnabled(true)
         
         // TODO: Add the Scanbot Barcode SDK license key here.
         // Please note: The Scanbot Barcode SDK will run without a license key for one minute per session!
@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Please submit the trial license form (https://scanbot.io/en/sdk/demo/trial) on our website by using
         // the app identifier (aka. bundle identifier) "io.scanbot.example.sdk.ios.barcode" of this example app
         // or of your own app (see "Bundle Identifier" in your Xcode project settings).
-        //ScanbotSDK.setLicense("YOUR_SCANBOT_SDK_LICENSE_KEY")
+        //Scanbot.setLicense("YOUR_SCANBOT_SDK_LICENSE_KEY")
         
         return true
     }

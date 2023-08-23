@@ -28,15 +28,33 @@ class ClassicBatchBarcodeScanner: UIViewController {
         self.scannerController = SBSDKBarcodeScannerViewController(parentViewController: self,
                                                                    parentView: self.cameraContainer)
         
+        self.scannerController.trackingOverlayController.delegate = self
+        
+        // Enable the tracking overlay here.
+        //self.scannerController.isTrackingOverlayEnabled = true
+        
         let energyConfiguration = self.scannerController.energyConfiguration
         energyConfiguration.detectionRate = 10
-        
         self.scannerController.energyConfiguration = energyConfiguration
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.scannerController.acceptedBarcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+    }
+}
+
+extension ClassicBatchBarcodeScanner: SBSDKBarcodeTrackingOverlayControllerDelegate {
+    
+    func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
+                                didTapOnBarcode barcode: SBSDKBarcodeScannerResult) {
+        
+        if !self.detectedBarcodes.contains(barcode) {
+            self.detectedBarcodes.insert(barcode, at: 0)
+        } else {
+            self.detectedBarcodes.removeAll(where: { $0 == barcode })
+        }
+        self.tableView.reloadData()
     }
 }
 
@@ -49,29 +67,17 @@ extension ClassicBatchBarcodeScanner: SBSDKBarcodeScannerViewControllerDelegate 
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
         
-        if codes.count == 0 {
+        if codes.count == 0 || controller.isTrackingOverlayEnabled {
             return
         }
-        if !controller.selectionOverlayEnabled || controller.automaticSelectionEnabled {
-            for code in codes.reversed() {
-                if !self.detectedBarcodes.contains(code) {
-                    self.detectedBarcodes.insert(code, at: 0)
-                }
+        for code in codes.reversed() {
+            if !self.detectedBarcodes.contains(code) {
+                self.detectedBarcodes.insert(code, at: 0)
             }
-            self.tableView.reloadData()
-        }
-    }
-    
-    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
-                                  didTapOnBarcode code: SBSDKBarcodeScannerResult) {
-        if !self.detectedBarcodes.contains(code) {
-            self.detectedBarcodes.insert(code, at: 0)
-        } else {
-            self.detectedBarcodes.removeAll(where: { $0 == code })
         }
         self.tableView.reloadData()
     }
-    
+        
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   shouldHighlight code: SBSDKBarcodeScannerResult) -> Bool {
         return detectedBarcodes.contains(code)
