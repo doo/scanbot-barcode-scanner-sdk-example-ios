@@ -26,7 +26,12 @@ class ScanAndCountResultsViewController: UIViewController {
         if segue.identifier == "showBarcodeResultDetails",
             let destination = segue.destination as? BarcodeResultDetails,
             let selectedBarcode = self.selectedBarcode {
-            destination.barcode = selectedBarcode
+            destination.barcode = BarcodeResult(type: selectedBarcode.type,
+                                                rawTextString: selectedBarcode.rawTextString,
+                                                rawTextStringWithExtension: selectedBarcode.rawTextStringWithExtension,
+                                                barcodeImage: selectedBarcode.barcodeImage,
+                                                rawBytes: selectedBarcode.rawBytes,
+                                                formattedResult: selectedBarcode.formattedResult)
         }
     }
 }

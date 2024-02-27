@@ -10,20 +10,20 @@ import Foundation
 import ScanbotBarcodeScannerSDK
 
 class BarcodeFormatter {
-    func formattedBarcodeText(barcode: SBSDKBarcodeScannerResult) -> String? {
-        if let formattedResult = barcode.formattedResult as? SBSDKAAMVADocumentFormat {
+    func formattedBarcodeText(formattedResult: SBSDKBarCodeScannerDocumentFormat) -> String? {
+        if let formattedResult = formattedResult as? SBSDKAAMVADocumentFormat {
             return self.formattedAAMVADocument(formattedResult)
-        } else if let formattedResult = barcode.formattedResult as? SBSDKIDCardPDF417DocumentFormat {
+        } else if let formattedResult = formattedResult as? SBSDKIDCardPDF417DocumentFormat {
             return self.formattedPDF417IDCardDocument(formattedResult)
-        } else if let formattedResult = barcode.formattedResult as? SBSDKBoardingPassDocumentFormat {
+        } else if let formattedResult = formattedResult as? SBSDKBoardingPassDocumentFormat {
             return self.formattedBoardingPassDocument(formattedResult)
-        } else if let formattedResult = barcode.formattedResult as? SBSDKMedicalCertificateDocumentFormat {
+        } else if let formattedResult = formattedResult as? SBSDKMedicalCertificateDocumentFormat {
             return self.formattedDCDocument(formattedResult)
-        } else if let formattedResult = barcode.formattedResult as? SBSDKSEPADocumentFormat {
+        } else if let formattedResult = formattedResult as? SBSDKSEPADocumentFormat {
             return self.formattedSepaDocument(formattedResult)
-        } else if let formattedResult = barcode.formattedResult as? SBSDKMedicalPlanDocumentFormat {
+        } else if let formattedResult = formattedResult as? SBSDKMedicalPlanDocumentFormat {
             return self.formattedMedicalPlan(formattedResult)
-        } else if let formattedResult = barcode.formattedResult as? SBSDKVCardDocumentFormat {
+        } else if let formattedResult = formattedResult as? SBSDKVCardDocumentFormat {
             return self.formattedVCard(formattedResult)
         }
         return nil
@@ -120,7 +120,7 @@ class BarcodeFormatter {
         var result = "\n\n\nDetected AAMVA document:\n\nRaw header string: \(document.headerRawString)"
         result = result + "\nFile type: \(document.fileType)"
         result = result + "\nIssuer ID number: \(document.issuerIdentificationNumber)"
-        result = result + "\nAAMVA version: \(document.aamvaVersionNumber)"
+        result = result + "\nAAMVA version: \(document.AAMVAVersionNumber)"
         result = result + "\nJurisdiction version: \(document.jurisdictionVersionNumber)"
         
         if document.subfiles.count > 0 {

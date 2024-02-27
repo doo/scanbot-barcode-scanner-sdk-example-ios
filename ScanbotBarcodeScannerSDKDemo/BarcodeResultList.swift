@@ -21,7 +21,7 @@ class BarcodeResultList: UIViewController {
         }
     }
     
-    var barcodes: [SBSDKBarcodeScannerResult] = [] {
+    var barcodes: [BarcodeResult] = [] {
         didSet {
             if self.isViewLoaded {
                 self.reloadData()
@@ -29,7 +29,7 @@ class BarcodeResultList: UIViewController {
         }
     }
     
-    private var selectedBarcode: SBSDKBarcodeScannerResult?
+    private var selectedBarcode: BarcodeResult?
     
     private let imageSection = 0
     private let listSection = 1
