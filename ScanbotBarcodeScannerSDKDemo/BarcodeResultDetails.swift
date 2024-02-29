@@ -36,9 +36,7 @@ class BarcodeResultDetails: UITableViewController {
         guard let barcode = self.barcode else { return }
         self.imageView?.image = barcode.barcodeImage
         
-        guard let formattedResult = barcode.formattedResult else { return }
-        
-        var text = self.formatter.formattedBarcodeText(formattedResult: formattedResult) ?? barcode.rawTextStringWithExtension
+        var text = self.formatter.formattedBarcodeText(formattedResult: barcode.formattedResult) ?? barcode.rawTextStringWithExtension
         
         if let rawBytes = self.barcode?.rawBytes {
             let hexString = rawBytes.map({ String(format: "%02hhx", $0) }).joined()

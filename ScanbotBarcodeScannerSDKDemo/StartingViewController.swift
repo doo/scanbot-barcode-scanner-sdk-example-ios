@@ -50,6 +50,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
         let usecase = SBSDKUI2BarcodeUseCase.singleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -82,6 +83,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
         let usecase = SBSDKUI2BarcodeUseCase.singleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -114,6 +116,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
         let usecase = SBSDKUI2BarcodeUseCase.singleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -145,6 +148,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
         let usecase = SBSDKUI2BarcodeUseCase.multipleScanningMode()
         usecase.mode = .unique
@@ -176,6 +180,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
         let usecase = SBSDKUI2BarcodeUseCase.multipleScanningMode()
         usecase.mode = .unique
@@ -208,6 +213,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
         let usecase = SBSDKUI2BarcodeUseCase.multipleScanningMode()
         usecase.mode = .counting
@@ -243,6 +249,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
         let usecase = SBSDKUI2BarcodeUseCase.multipleScanningMode()
         usecase.mode = .counting
@@ -274,14 +281,14 @@ class StartingViewController: UITableViewController {
     }
     
     private func detectBarcodesOnImage(_ image: UIImage) {
+        detectedBarcodes.removeAll()
         let scanner = SBSDKBarcodeScanner(types: Array(SharedParameters.acceptedBarcodeTypes))
         let result = scanner.detectBarCodes(on: image)
-        var barcodeResults = [BarcodeResult]()
         result?.forEach({ barcode in
             let barcodeResult = BarcodeResult(type: barcode.type,
                                               rawTextString: barcode.rawTextString,
                                               rawTextStringWithExtension: barcode.rawTextStringWithExtension)
-            barcodeResults.append(barcodeResult)
+            detectedBarcodes.append(barcodeResult)
         })
         self.barcodeImage = nil
     }

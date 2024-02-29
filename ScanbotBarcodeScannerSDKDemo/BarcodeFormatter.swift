@@ -10,7 +10,7 @@ import Foundation
 import ScanbotBarcodeScannerSDK
 
 class BarcodeFormatter {
-    func formattedBarcodeText(formattedResult: SBSDKBarCodeScannerDocumentFormat) -> String? {
+    func formattedBarcodeText(formattedResult: SBSDKBarCodeScannerDocumentFormat?) -> String? {
         if let formattedResult = formattedResult as? SBSDKAAMVADocumentFormat {
             return self.formattedAAMVADocument(formattedResult)
         } else if let formattedResult = formattedResult as? SBSDKIDCardPDF417DocumentFormat {
