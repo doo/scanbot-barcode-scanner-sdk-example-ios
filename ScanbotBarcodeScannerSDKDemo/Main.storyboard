@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LTj-Ok-5pM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LTj-Ok-5pM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -155,11 +155,11 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                                    <state key="normal" title="RTU UI">
+                                                    <state key="normal" title="RTU UI Single Scanning">
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="rtuUIButtonTapped:" destination="TzJ-db-sWh" eventType="touchUpInside" id="aZb-rj-5e4"/>
+                                                        <action selector="rtuUISingleScannerButtonTapped:" destination="TzJ-db-sWh" eventType="touchUpInside" id="rUu-r7-MD1"/>
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8cV-KV-V0W">
@@ -193,11 +193,11 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                                    <state key="normal" title="RTU UI - with barcode image">
+                                                    <state key="normal" title="RTU UI Single AR Scanning">
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="rtuUIWithBarcodeImageButtonTapped:" destination="TzJ-db-sWh" eventType="touchUpInside" id="brL-10-KCr"/>
+                                                        <action selector="rtuUISingleARScannerButtonTapped:" destination="TzJ-db-sWh" eventType="touchUpInside" id="0zo-8p-c3u"/>
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5oN-ok-6Lg">
@@ -231,11 +231,11 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                                    <state key="normal" title="RTU UI - batch barcode scanning">
+                                                    <state key="normal" title="RTU UI Single AR Auto Select Scanning">
                                                         <color key="titleColor" systemColor="labelColor"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="barcodeBatchScanningButtonTapped:" destination="TzJ-db-sWh" eventType="touchUpInside" id="cpg-2X-3ai"/>
+                                                        <action selector="rtuUISingleARAutoSelectScannerButtonTapped:" destination="TzJ-db-sWh" eventType="touchUpInside" id="NJM-cX-zYA"/>
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4v2-Ni-vRa">
@@ -257,8 +257,160 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="m0S-mY-Nd2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="1zX-Ks-VUL">
                                         <rect key="frame" x="0.0" y="440" width="414" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1zX-Ks-VUL" id="5vH-rd-3sS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5y-9i-k5a">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                    <state key="normal" title="RTU UI Multi Scanning">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="rtuUIMultiScannerButtonTapped:" destination="TzJ-db-sWh" eventType="touchUpInside" id="MiV-O9-iqn"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFr-uh-RE2">
+                                                    <rect key="frame" x="16" y="64.5" width="398" height="0.5"/>
+                                                    <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.5" id="6xi-2l-qnR"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="GFr-uh-RE2" secondAttribute="bottom" id="CDJ-Av-hhX"/>
+                                                <constraint firstAttribute="trailing" secondItem="GFr-uh-RE2" secondAttribute="trailing" id="FKv-81-Qz9"/>
+                                                <constraint firstItem="GFr-uh-RE2" firstAttribute="top" secondItem="z5y-9i-k5a" secondAttribute="bottom" id="TZk-hG-L5e"/>
+                                                <constraint firstItem="GFr-uh-RE2" firstAttribute="leading" secondItem="5vH-rd-3sS" secondAttribute="leading" constant="16" id="YpL-A5-ssH"/>
+                                                <constraint firstAttribute="trailing" secondItem="z5y-9i-k5a" secondAttribute="trailing" id="hDK-nl-V1h"/>
+                                                <constraint firstItem="z5y-9i-k5a" firstAttribute="top" secondItem="5vH-rd-3sS" secondAttribute="top" id="iiX-di-BXc"/>
+                                                <constraint firstItem="z5y-9i-k5a" firstAttribute="leading" secondItem="5vH-rd-3sS" secondAttribute="leading" id="wy6-Xr-s4x"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="bf6-Vp-cBH">
+                                        <rect key="frame" x="0.0" y="505" width="414" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bf6-Vp-cBH" id="HUl-bk-x8b">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cph-tU-W7T">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                    <state key="normal" title="RTU UI Multi Sheet Scanning">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="rtuUIMultiSheetScannerButtonTapped:" destination="TzJ-db-sWh" eventType="touchUpInside" id="dZP-J4-xyB"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tmL-uJ-FK2">
+                                                    <rect key="frame" x="16" y="64.5" width="398" height="0.5"/>
+                                                    <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.5" id="ang-UP-XHf"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tmL-uJ-FK2" firstAttribute="leading" secondItem="HUl-bk-x8b" secondAttribute="leading" constant="16" id="55j-I1-PAi"/>
+                                                <constraint firstAttribute="trailing" secondItem="tmL-uJ-FK2" secondAttribute="trailing" id="Dsc-8v-hHE"/>
+                                                <constraint firstAttribute="trailing" secondItem="Cph-tU-W7T" secondAttribute="trailing" id="NLC-im-X6o"/>
+                                                <constraint firstItem="Cph-tU-W7T" firstAttribute="top" secondItem="HUl-bk-x8b" secondAttribute="top" id="QI4-w1-jey"/>
+                                                <constraint firstItem="Cph-tU-W7T" firstAttribute="leading" secondItem="HUl-bk-x8b" secondAttribute="leading" id="RPe-iU-Rm0"/>
+                                                <constraint firstAttribute="bottom" secondItem="tmL-uJ-FK2" secondAttribute="bottom" id="jJQ-n6-P6C"/>
+                                                <constraint firstItem="tmL-uJ-FK2" firstAttribute="top" secondItem="Cph-tU-W7T" secondAttribute="bottom" id="xS1-tC-pTG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="Q20-Jr-1dr">
+                                        <rect key="frame" x="0.0" y="570" width="414" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q20-Jr-1dr" id="kFF-bg-UvF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epw-mA-Kxa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                    <state key="normal" title="RTU UI Multi Sheet AR Count Scanning">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="rtuUIMultiSheetARCountScannerButtonTapped:" destination="TzJ-db-sWh" eventType="touchUpInside" id="rsf-Qe-BYW"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2g-nc-mZc">
+                                                    <rect key="frame" x="16" y="64.5" width="398" height="0.5"/>
+                                                    <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.5" id="gwd-n1-4en"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Epw-mA-Kxa" firstAttribute="leading" secondItem="kFF-bg-UvF" secondAttribute="leading" id="0AJ-Jf-6vn"/>
+                                                <constraint firstAttribute="bottom" secondItem="O2g-nc-mZc" secondAttribute="bottom" id="Cet-KF-dcv"/>
+                                                <constraint firstItem="Epw-mA-Kxa" firstAttribute="top" secondItem="kFF-bg-UvF" secondAttribute="top" id="EhJ-yE-Pmc"/>
+                                                <constraint firstAttribute="trailing" secondItem="Epw-mA-Kxa" secondAttribute="trailing" id="VkG-wM-sfq"/>
+                                                <constraint firstItem="O2g-nc-mZc" firstAttribute="top" secondItem="Epw-mA-Kxa" secondAttribute="bottom" id="aoc-vf-Y0Z"/>
+                                                <constraint firstItem="O2g-nc-mZc" firstAttribute="leading" secondItem="kFF-bg-UvF" secondAttribute="leading" constant="16" id="d4d-jf-nXg"/>
+                                                <constraint firstAttribute="trailing" secondItem="O2g-nc-mZc" secondAttribute="trailing" id="dRg-Ob-KzS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="ZJw-ic-C5o">
+                                        <rect key="frame" x="0.0" y="635" width="414" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZJw-ic-C5o" id="4qz-wL-6e4">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzy-qY-rjc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                    <state key="normal" title="RTU UI Multi Sheet AR Count AutoSelect">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="rtuUIMultiSheetARCountAutoSelectScannerButtonTapped:" destination="TzJ-db-sWh" eventType="touchUpInside" id="ISa-6l-08C"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i75-6B-E9R">
+                                                    <rect key="frame" x="16" y="64.5" width="398" height="0.5"/>
+                                                    <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.5" id="89C-l3-ktY"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="i75-6B-E9R" secondAttribute="trailing" id="9cF-O7-Sl7"/>
+                                                <constraint firstItem="i75-6B-E9R" firstAttribute="leading" secondItem="4qz-wL-6e4" secondAttribute="leading" constant="16" id="NpN-7m-NdZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="dzy-qY-rjc" secondAttribute="trailing" id="Prd-cg-HVq"/>
+                                                <constraint firstItem="dzy-qY-rjc" firstAttribute="leading" secondItem="4qz-wL-6e4" secondAttribute="leading" id="Tp2-Bu-Isf"/>
+                                                <constraint firstItem="dzy-qY-rjc" firstAttribute="top" secondItem="4qz-wL-6e4" secondAttribute="top" id="XR6-sS-F2y"/>
+                                                <constraint firstItem="i75-6B-E9R" firstAttribute="top" secondItem="dzy-qY-rjc" secondAttribute="bottom" id="e09-6E-gWP"/>
+                                                <constraint firstAttribute="bottom" secondItem="i75-6B-E9R" secondAttribute="bottom" id="lwA-qu-g1z"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="m0S-mY-Nd2">
+                                        <rect key="frame" x="0.0" y="700" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m0S-mY-Nd2" id="4LC-t0-BiR">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -296,7 +448,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="65" id="3bz-ff-reC">
-                                        <rect key="frame" x="0.0" y="505" width="414" height="65"/>
+                                        <rect key="frame" x="0.0" y="765" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3bz-ff-reC" id="mf4-UW-l2Q">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -816,7 +968,7 @@
         <!--Scan And Count Results View Controller-->
         <scene sceneID="aAT-23-r7S">
             <objects>
-                <viewController storyboardIdentifier="ScanAndCountResultsViewController" id="Vzi-tE-8KQ" customClass="ScanAndCountResultsViewController" customModule="ScanbotSDK_Internal_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScanAndCountResultsViewController" id="Vzi-tE-8KQ" customClass="ScanAndCountResultsViewController" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nBs-rA-Qb1"/>
                         <viewControllerLayoutGuide type="bottom" id="CLb-vd-Sjf"/>
@@ -828,7 +980,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="u97-Ny-3yL">
                                 <rect key="frame" x="0.0" y="92" width="414" height="770"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScanAndCountBarcodeDetailsCell" rowHeight="50" id="AJl-gr-pmr" customClass="ScanAndCountBarcodeDetailsCell" customModule="ScanbotSDK_Internal_Demo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScanAndCountBarcodeDetailsCell" rowHeight="50" id="AJl-gr-pmr" customClass="ScanAndCountBarcodeDetailsCell" customModule="Scanbot_Barcode_Scanner_SDK_Example" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AJl-gr-pmr" id="d51-3n-Jhp">
@@ -910,7 +1062,7 @@
     <resources>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

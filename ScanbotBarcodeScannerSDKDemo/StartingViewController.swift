@@ -11,20 +11,22 @@ import ScanbotBarcodeScannerSDK
 
 class StartingViewController: UITableViewController {
     private var shouldCaptureBarcodeImage = false
-    private var detectedBarcodes: [SBSDKBarcodeScannerResult] = []
+    private var detectedBarcodes: [BarcodeResult] = []
     private var barcodeImage: UIImage?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "BarcodeResultList",
-            let destination = segue.destination as? BarcodeResultList {
+           let destination = segue.destination as? BarcodeResultList {
             destination.barcodeImage = self.barcodeImage
             destination.barcodes = self.detectedBarcodes
         }
     }
+    
+    // Classic components
     
     private func showBarcodeScannerFromClassicComponent() {
         self.performSegue(withIdentifier: "ClassicBarcodeScanner", sender: self)
@@ -33,38 +35,262 @@ class StartingViewController: UITableViewController {
     private func showScanAndCountScannerFromClassicComponent() {
         self.performSegue(withIdentifier: "ClassicScanAndCount", sender: self)
     }
-
+    
     private func showBatchBarcodeScannerFromClassicComponent() {
         self.performSegue(withIdentifier: "ClassicBatchBarcodeScanner", sender: self)
     }
-
+    
     private func showSetAcceptedBarcodesScreen() {
         self.performSegue(withIdentifier: "BarcodeTypesListViewController", sender: self)
     }
     
-    private func showBarcodeScannerFromRTUUI() {
+    // RTU UI components
+    
+    private func showSingleBarcodeScannerFromRTUUI() {
         self.detectedBarcodes = []
-        self.barcodeImage = nil
         
-        let configuration =  SBSDKUIBarcodeScannerConfiguration.default()
-        configuration.uiConfiguration.finderAspectRatio = SBSDKAspectRatio(width: 1, andHeight: 1)
-        if self.shouldCaptureBarcodeImage {
-            configuration.behaviorConfiguration.barcodeImageGenerationType = .capturedImage
+        let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        
+        let usecase = SBSDKUI2BarcodeUseCase.singleScanningMode()
+        usecase.confirmationSheetEnabled = true
+        usecase.barcodeInfoMapping.barcodeItemMapper = self
+        usecase.arOverlay.visible = false
+        usecase.arOverlay.automaticSelectionEnabled = false
+        
+        config.useCase = usecase
+        
+        SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                     configuration: config) { controller, cancelled, error, result in
+            
+            if !cancelled, let items = result?.items {
+                self.detectedBarcodes = items.map({ item in
+                    return BarcodeResult(type: item.type.toBarcodeType(),
+                                         rawTextString: item.text,
+                                         rawTextStringWithExtension: item.textWithExtension)
+                })
+                
+                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                
+            } else if cancelled {
+                controller.presentingViewController?.dismiss(animated: true)
+            }
         }
-        configuration.behaviorConfiguration.acceptedBarcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
-        
-        SBSDKUIBarcodeScannerViewController.present(on: self,
-                                                    configuration: configuration,
-                                                    andDelegate: self)
     }
     
-    private func showBarcodeBatchScanning() {
-        let configuration = SBSDKUIBarcodesBatchScannerConfiguration.default()
-        configuration.behaviorConfiguration.acceptedBarcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+    private func showSingleARBarcodeScannerFromRTUUI() {
+        self.detectedBarcodes = []
         
-        SBSDKUIBarcodesBatchScannerViewController.present(on: self,
-                                                          configuration: configuration,
-                                                          andDelegate: self)
+        let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        
+        let usecase = SBSDKUI2BarcodeUseCase.singleScanningMode()
+        usecase.confirmationSheetEnabled = true
+        usecase.arOverlay.visible = true
+        usecase.arOverlay.automaticSelectionEnabled = false
+        usecase.barcodeInfoMapping.barcodeItemMapper = self
+        
+        config.useCase = usecase
+        
+        SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                     configuration: config) { controller, cancelled, error, result in
+            
+            if !cancelled, let items = result?.items {
+                self.detectedBarcodes = items.map({ item in
+                    return BarcodeResult(type: item.type.toBarcodeType(),
+                                         rawTextString: item.text,
+                                         rawTextStringWithExtension: item.textWithExtension)
+                })
+                
+                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                
+            } else if cancelled {
+                controller.presentingViewController?.dismiss(animated: true)
+            }
+        }
+    }
+    
+    private func showSingleARAutoSelectBarcodeScannerFromRTUUI() {
+        self.detectedBarcodes = []
+        
+        let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        
+        let usecase = SBSDKUI2BarcodeUseCase.singleScanningMode()
+        usecase.confirmationSheetEnabled = true
+        usecase.arOverlay.visible = true
+        usecase.arOverlay.automaticSelectionEnabled = true
+        
+        config.useCase = usecase
+        
+        SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                     configuration: config) { controller, cancelled, error, result in
+            
+            if !cancelled, let items = result?.items {
+                self.detectedBarcodes = items.map({ item in
+                    return BarcodeResult(type: item.type.toBarcodeType(),
+                                         rawTextString: item.text,
+                                         rawTextStringWithExtension: item.textWithExtension)
+                })
+                
+                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                
+            } else if cancelled {
+                controller.presentingViewController?.dismiss(animated: true)
+            }
+        }
+    }
+    
+    private func showMultiBarcodeScannerFromRTUUI() {
+        self.detectedBarcodes = []
+        
+        let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        
+        let usecase = SBSDKUI2BarcodeUseCase.multipleScanningMode()
+        usecase.mode = .unique
+        usecase.sheet.mode = .button
+        usecase.arOverlay.visible = false
+        
+        config.useCase = usecase
+        
+        SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                     configuration: config) { controller, cancelled, error, result in
+            
+            if !cancelled, let items = result?.items {
+                self.detectedBarcodes = items.map({ item in
+                    return BarcodeResult(type: item.type.toBarcodeType(),
+                                         rawTextString: item.text,
+                                         rawTextStringWithExtension: item.textWithExtension)
+                })
+                
+                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                
+            } else if cancelled {
+                controller.presentingViewController?.dismiss(animated: true)
+            }
+        }
+    }
+    
+    private func showMultiSheetBarcodeScannerFromRTUUI() {
+        self.detectedBarcodes = []
+        
+        let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        
+        let usecase = SBSDKUI2BarcodeUseCase.multipleScanningMode()
+        usecase.mode = .unique
+        usecase.sheet.mode = .collapsedSheet
+        usecase.sheet.collapsedVisibleHeight = .small
+        usecase.arOverlay.visible = false
+        
+        config.useCase = usecase
+        
+        SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                     configuration: config) { controller, cancelled, error, result in
+            
+            if !cancelled, let items = result?.items {
+                self.detectedBarcodes = items.map({ item in
+                    return BarcodeResult(type: item.type.toBarcodeType(),
+                                         rawTextString: item.text,
+                                         rawTextStringWithExtension: item.textWithExtension)
+                })
+                
+                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                
+            } else if cancelled {
+                controller.presentingViewController?.dismiss(animated: true)
+            }
+        }
+    }
+    
+    private func showMultiSheetARCountBarcodeScannerFromRTUUI() {
+        self.detectedBarcodes = []
+        
+        let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        
+        let usecase = SBSDKUI2BarcodeUseCase.multipleScanningMode()
+        usecase.mode = .counting
+        usecase.sheet.mode = .collapsedSheet
+        usecase.sheet.collapsedVisibleHeight = .small
+        usecase.sheetContent.manualCountChangeEnabled = true
+        usecase.arOverlay.visible = true
+        usecase.arOverlay.automaticSelectionEnabled = false
+        usecase.barcodeInfoMapping.barcodeItemMapper = self
+        
+        config.useCase = usecase
+        
+        SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                     configuration: config) { controller, cancelled, error, result in
+            
+            if !cancelled, let items = result?.items {
+                self.detectedBarcodes = items.map({ item in
+                    return BarcodeResult(type: item.type.toBarcodeType(),
+                                         rawTextString: item.text,
+                                         rawTextStringWithExtension: item.textWithExtension)
+                })
+                
+                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                
+            } else if cancelled {
+                controller.presentingViewController?.dismiss(animated: true)
+            }
+        }
+    }
+    
+    private func showMultiSheetARCountAutoSelectBarcodeScannerFromRTUUI() {
+        self.detectedBarcodes = []
+        
+        let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        
+        let usecase = SBSDKUI2BarcodeUseCase.multipleScanningMode()
+        usecase.mode = .counting
+        usecase.sheet.mode = .collapsedSheet
+        usecase.sheet.collapsedVisibleHeight = .large
+        usecase.sheetContent.manualCountChangeEnabled = true
+        usecase.arOverlay.visible = true
+        usecase.arOverlay.automaticSelectionEnabled = true
+        
+        config.useCase = usecase
+        
+        SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                     configuration: config) { controller, cancelled, error, result in
+            
+            if !cancelled, let items = result?.items {
+                self.detectedBarcodes = items.map({ item in
+                    return BarcodeResult(type: item.type.toBarcodeType(),
+                                         rawTextString: item.text,
+                                         rawTextStringWithExtension: item.textWithExtension)
+                })
+                
+                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                
+            } else if cancelled {
+                controller.presentingViewController?.dismiss(animated: true)
+            }
+        }
+    }
+    
+    private func detectBarcodesOnImage(_ image: UIImage) {
+        detectedBarcodes.removeAll()
+        let scanner = SBSDKBarcodeScanner(types: Array(SharedParameters.acceptedBarcodeTypes))
+        let result = scanner.detectBarCodes(on: image)
+        result?.forEach({ barcode in
+            let barcodeResult = BarcodeResult(type: barcode.type,
+                                              rawTextString: barcode.rawTextString,
+                                              rawTextStringWithExtension: barcode.rawTextStringWithExtension)
+            detectedBarcodes.append(barcodeResult)
+        })
+        self.barcodeImage = nil
     }
     
     private func showImagePicker() {
@@ -73,20 +299,9 @@ class StartingViewController: UITableViewController {
         picker.sourceType = .savedPhotosAlbum
         self.present(picker, animated: true, completion: nil)
     }
-    
-    private func detectBarcodesOnImage(_ image: UIImage) {
-        let scanner = SBSDKBarcodeScanner(types: Array(SharedParameters.acceptedBarcodeTypes))
-        let result = scanner.detectBarCodes(on: image)
-        self.detectedBarcodes = result!
-        self.barcodeImage = nil
-    }
 }
 
 extension StartingViewController {
-    @IBAction func rtuUIButtonTapped(_ sender: UIButton) {
-        self.shouldCaptureBarcodeImage = false
-        self.showBarcodeScannerFromRTUUI()
-    }
     
     @IBAction func classicBarcodeScannerButtonTapped(_ sender: UIButton) {
         self.showBarcodeScannerFromClassicComponent()
@@ -99,14 +314,33 @@ extension StartingViewController {
     @IBAction func classicScanAndCountButtonTapped(_ sender: UIButton) {
         self.showScanAndCountScannerFromClassicComponent()
     }
-
-    @IBAction func rtuUIWithBarcodeImageButtonTapped(_ sender: UIButton) {
-        self.shouldCaptureBarcodeImage = true
-        self.showBarcodeScannerFromRTUUI()
+    
+    @IBAction func rtuUISingleScannerButtonTapped(_ sender: UIButton) {
+        self.showSingleBarcodeScannerFromRTUUI()
     }
     
-    @IBAction func barcodeBatchScanningButtonTapped(_ sender: UIButton) {
-        self.showBarcodeBatchScanning()
+    @IBAction func rtuUISingleARScannerButtonTapped(_ sender: UIButton) {
+        self.showSingleARBarcodeScannerFromRTUUI()
+    }
+    
+    @IBAction func rtuUISingleARAutoSelectScannerButtonTapped(_ sender: UIButton) {
+        self.showSingleARAutoSelectBarcodeScannerFromRTUUI()
+    }
+    
+    @IBAction func rtuUIMultiScannerButtonTapped(_ sender: UIButton) {
+        self.showMultiBarcodeScannerFromRTUUI()
+    }
+    
+    @IBAction func rtuUIMultiSheetScannerButtonTapped(_ sender: UIButton) {
+        self.showMultiSheetBarcodeScannerFromRTUUI()
+    }
+    
+    @IBAction func rtuUIMultiSheetARCountScannerButtonTapped(_ sender: UIButton) {
+        self.showMultiSheetARCountBarcodeScannerFromRTUUI()
+    }
+    
+    @IBAction func rtuUIMultiSheetARCountAutoSelectScannerButtonTapped(_ sender: UIButton) {
+        self.showMultiSheetARCountAutoSelectBarcodeScannerFromRTUUI()
     }
     
     @IBAction func scanImageFromLibraryButtonTapped(_ sender: UIButton) {
@@ -118,35 +352,19 @@ extension StartingViewController {
     }
 }
 
-extension StartingViewController: SBSDKUIBarcodeScannerViewControllerDelegate {
-    func qrBarcodeDetectionViewController(_ viewController: SBSDKUIBarcodeScannerViewController,
-                                          didDetect barcodeResults: [SBSDKBarcodeScannerResult]) {
-        if barcodeResults.count == 0 {
-            return
-        }
-        
-        viewController.isRecognitionEnabled = false
-        self.detectedBarcodes = barcodeResults
-        
-        if self.shouldCaptureBarcodeImage {
-            self.barcodeImage = barcodeResults.first?.sourceImage
-        }
-        
-        DispatchQueue.main.async {
-            self.dismiss(animated: true, completion: nil)
-            self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
-        }
-    }
-}
-
-extension StartingViewController: SBSDKUIBarcodesBatchScannerViewControllerDelegate {
-    func barcodesBatchScannerViewController(_ viewController: SBSDKUIBarcodesBatchScannerViewController,
-                                            didFinishWith barcodeResults: [SBSDKUIBarcodeMappedResult]) {
-        self.detectedBarcodes = barcodeResults.map({$0.barcode})
-        
-        DispatchQueue.main.async {
-            self.dismiss(animated: true, completion: nil)
-            self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+extension StartingViewController : SBSDKUI2BarcodeItemMapper {
+    func mapBarcodeItem(item: ScanbotBarcodeScannerSDK.SBSDKUI2BarcodeItem, 
+                        onResult: @escaping (ScanbotBarcodeScannerSDK.SBSDKUI2BarcodeMappedData) -> Void,
+                        onError: @escaping () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            if item.type == .qrCode {
+                onError()
+            } else {
+                let mappedData = SBSDKUI2BarcodeMappedData(title: item.textWithExtension,
+                                                           subtitle: "\(item.type)",
+                                                           barcodeImage: SBSDKUI2BarcodeMappedData.barcodeImageKey)
+                onResult(mappedData)
+            }
         }
     }
 }

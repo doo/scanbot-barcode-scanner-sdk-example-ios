@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,8 @@
 		69B9C29423A91D320055809B /* BarcodeResultDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28C23A91D320055809B /* BarcodeResultDetails.swift */; };
 		69B9C29523A91D320055809B /* BarcodeResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28D23A91D320055809B /* BarcodeResultList.swift */; };
 		69B9C29723A91D440055809B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B9C29623A91D440055809B /* Main.storyboard */; };
+		F1A5C2B42B8CFBE2005E30B1 /* SDK+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A5C2B32B8CFBE2005E30B1 /* SDK+Extensions.swift */; };
+		F1A5C2B72B8CFF87005E30B1 /* BarcodeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A5C2B62B8CFF87005E30B1 /* BarcodeResult.swift */; };
 		F616F13B4424F6523829BBEC /* Pods_ScanbotBarcodeScannerSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ADA586A0E62A766A98B8B6 /* Pods_ScanbotBarcodeScannerSDKDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,8 @@
 		69B9C28D23A91D320055809B /* BarcodeResultList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultList.swift; sourceTree = "<group>"; };
 		69B9C29623A91D440055809B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		98BB45D671FDE6BFF00B02CA /* Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		F1A5C2B32B8CFBE2005E30B1 /* SDK+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SDK+Extensions.swift"; sourceTree = "<group>"; };
+		F1A5C2B62B8CFF87005E30B1 /* BarcodeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				69B9C28923A91D310055809B /* SharedParameters.swift */,
 				69B9C28A23A91D320055809B /* StartingViewController.swift */,
 				69B9C29623A91D440055809B /* Main.storyboard */,
+				F1A5C2B52B8CFBE9005E30B1 /* Helpers */,
 				690166D3239811960054D9AA /* Assets.xcassets */,
 				690166D5239811960054D9AA /* LaunchScreen.storyboard */,
 				690166D8239811960054D9AA /* Info.plist */,
@@ -119,6 +124,15 @@
 				32ADA586A0E62A766A98B8B6 /* Pods_ScanbotBarcodeScannerSDKDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1A5C2B52B8CFBE9005E30B1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F1A5C2B62B8CFF87005E30B1 /* BarcodeResult.swift */,
+				F1A5C2B32B8CFBE2005E30B1 /* SDK+Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +254,7 @@
 				28E8A5942A41BEC10071539A /* ScanAndCountViewController.swift in Sources */,
 				0852F3C2274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift in Sources */,
 				69B9C28F23A91D320055809B /* BarcodeTypesListViewController.swift in Sources */,
+				F1A5C2B42B8CFBE2005E30B1 /* SDK+Extensions.swift in Sources */,
 				69B9C29023A91D320055809B /* BarcodeFormatter.swift in Sources */,
 				69B9C29423A91D320055809B /* BarcodeResultDetails.swift in Sources */,
 				69B9C29523A91D320055809B /* BarcodeResultList.swift in Sources */,
@@ -250,6 +265,7 @@
 				69B9C29323A91D320055809B /* BarcodeResultListCell.swift in Sources */,
 				690166CB239811940054D9AA /* AppDelegate.swift in Sources */,
 				288AB3D72A448B5900D6461E /* ScanAndCountBarcodeDetailsCell.swift in Sources */,
+				F1A5C2B72B8CFF87005E30B1 /* BarcodeResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

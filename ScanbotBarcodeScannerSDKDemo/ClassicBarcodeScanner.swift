@@ -31,7 +31,14 @@ class ClassicBarcodeScanner: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "BarcodeResultList",
             let destination = segue.destination as? BarcodeResultList {
-            destination.barcodes = self.detectedBarcodes
+            destination.barcodes = self.detectedBarcodes.map({ barcode in
+                return BarcodeResult(type: barcode.type,
+                                     rawTextString: barcode.rawTextString,
+                                     rawTextStringWithExtension: barcode.rawTextStringWithExtension,
+                                     barcodeImage: barcode.barcodeImage, 
+                                     rawBytes: barcode.rawBytes,
+                                     formattedResult: barcode.formattedResult)
+            })
         }
     }
     
