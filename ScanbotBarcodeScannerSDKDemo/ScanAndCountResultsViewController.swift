@@ -31,7 +31,7 @@ class ScanAndCountResultsViewController: UIViewController {
                                                 rawTextStringWithExtension: selectedBarcode.rawTextStringWithExtension,
                                                 barcodeImage: selectedBarcode.barcodeImage,
                                                 rawBytes: selectedBarcode.rawBytes,
-                                                formattedResult: selectedBarcode.formattedResult)
+                                                formattedDocument: selectedBarcode.parsedDocument)
         }
     }
 }
