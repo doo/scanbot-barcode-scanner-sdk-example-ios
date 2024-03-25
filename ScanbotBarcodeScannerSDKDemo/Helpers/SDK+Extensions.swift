@@ -66,6 +66,8 @@ extension SBSDKUI2BarcodeFormat {
             return SBSDKBarcodeType.gs1Composite
         case .databarExpanded:
             return SBSDKBarcodeType.databarExpanded
+        case .microPdf417:
+            return .microPdf417
         @unknown default: fatalError("Unknown barcode format")
         }
     }
