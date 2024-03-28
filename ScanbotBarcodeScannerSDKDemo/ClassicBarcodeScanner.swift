@@ -37,7 +37,7 @@ class ClassicBarcodeScanner: UIViewController {
                                      rawTextStringWithExtension: barcode.rawTextStringWithExtension,
                                      barcodeImage: barcode.barcodeImage, 
                                      rawBytes: barcode.rawBytes,
-                                     formattedResult: barcode.formattedResult)
+                                     formattedDocument: barcode.parsedDocument)
             })
         }
     }
