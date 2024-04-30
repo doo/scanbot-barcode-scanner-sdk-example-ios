@@ -52,7 +52,7 @@ class StartingViewController: UITableViewController {
         let config = SBSDKUI2BarcodeScannerConfiguration()
         config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
-        let usecase = SBSDKUI2BarcodeUseCase.singleScanningMode()
+        let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
         usecase.barcodeInfoMapping.barcodeItemMapper = self
         usecase.arOverlay.visible = false
@@ -85,7 +85,7 @@ class StartingViewController: UITableViewController {
         let config = SBSDKUI2BarcodeScannerConfiguration()
         config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
-        let usecase = SBSDKUI2BarcodeUseCase.singleScanningMode()
+        let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
         usecase.arOverlay.visible = true
         usecase.arOverlay.automaticSelectionEnabled = false
@@ -118,7 +118,7 @@ class StartingViewController: UITableViewController {
         let config = SBSDKUI2BarcodeScannerConfiguration()
         config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
-        let usecase = SBSDKUI2BarcodeUseCase.singleScanningMode()
+        let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
         usecase.arOverlay.visible = true
         usecase.arOverlay.automaticSelectionEnabled = true
@@ -150,7 +150,7 @@ class StartingViewController: UITableViewController {
         let config = SBSDKUI2BarcodeScannerConfiguration()
         config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
-        let usecase = SBSDKUI2BarcodeUseCase.multipleScanningMode()
+        let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .unique
         usecase.sheet.mode = .button
         usecase.arOverlay.visible = false
@@ -182,7 +182,7 @@ class StartingViewController: UITableViewController {
         let config = SBSDKUI2BarcodeScannerConfiguration()
         config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
-        let usecase = SBSDKUI2BarcodeUseCase.multipleScanningMode()
+        let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .unique
         usecase.sheet.mode = .collapsedSheet
         usecase.sheet.collapsedVisibleHeight = .small
@@ -215,7 +215,7 @@ class StartingViewController: UITableViewController {
         let config = SBSDKUI2BarcodeScannerConfiguration()
         config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
-        let usecase = SBSDKUI2BarcodeUseCase.multipleScanningMode()
+        let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .counting
         usecase.sheet.mode = .collapsedSheet
         usecase.sheet.collapsedVisibleHeight = .small
@@ -251,7 +251,7 @@ class StartingViewController: UITableViewController {
         let config = SBSDKUI2BarcodeScannerConfiguration()
         config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
         
-        let usecase = SBSDKUI2BarcodeUseCase.multipleScanningMode()
+        let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .counting
         usecase.sheet.mode = .collapsedSheet
         usecase.sheet.collapsedVisibleHeight = .large
