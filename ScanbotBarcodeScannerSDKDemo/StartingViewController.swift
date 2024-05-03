@@ -280,6 +280,41 @@ class StartingViewController: UITableViewController {
         }
     }
     
+    private func showFindAndPickBarcodeScannerFromRTUUI() {
+        self.detectedBarcodes = []
+        
+        let config = SBSDKUI2BarcodeScannerConfiguration()
+        config.userGuidance.title.text = "Please align the QR-/Barcode in the frame above to scan it."
+        
+        let usecase = SBSDKUI2FindAndPickScanningMode()
+        usecase.arOverlay.automaticSelectionEnabled = false
+        usecase.arOverlay.visible = true
+        usecase.allowPartialScan = true
+        
+        usecase.expectedBarcodes = [
+            SBSDKUI2ExpectedBarcode(barcodeValue: "ScanbotSDK", title: "ScanbotSDK", image: "https://avatas.githubusercontent.com/u/1454920?s=280&v=4", count: 4),
+            SBSDKUI2ExpectedBarcode(barcodeValue: "Hello world!", title: "Hello world!", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/HelloWorld_in_black_and_white.svg/240px-HelloWorld_in_black_and_white.svg.png", count: 3)
+        ]
+        
+        config.useCase = usecase
+        
+        SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                     configuration: config) { controller, cancelled, error, result in
+            if !cancelled, let items = result?.items {
+                self.detectedBarcodes = items.map({ item in 
+                    return BarcodeResult(type: item.type.toBarcodeType(),
+                                         rawTextString: item.text,
+                                         rawTextStringWithExtension: item.textWithExtension)
+                })
+                
+                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+            } else if cancelled {
+                controller.presentingViewController?.dismiss(animated: true)
+            }
+        }
+    }
+    
     private func detectBarcodesOnImage(_ image: UIImage) {
         detectedBarcodes.removeAll()
         let scanner = SBSDKBarcodeScanner(types: Array(SharedParameters.acceptedBarcodeTypes))
@@ -341,6 +376,10 @@ extension StartingViewController {
     
     @IBAction func rtuUIMultiSheetARCountAutoSelectScannerButtonTapped(_ sender: UIButton) {
         self.showMultiSheetARCountAutoSelectBarcodeScannerFromRTUUI()
+    }
+    
+    @IBAction func rtuUIFindAndPickScannerButtonTapped(_ sender: UIButton) {
+        self.showFindAndPickBarcodeScannerFromRTUUI()
     }
     
     @IBAction func scanImageFromLibraryButtonTapped(_ sender: UIButton) {
