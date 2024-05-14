@@ -400,7 +400,7 @@ extension StartingViewController : SBSDKUI2BarcodeItemMapper {
                 onError()
             } else {
                 
-                let subtitle = item.type != nil ? "\(item.type!)" : ""
+                let subtitle = item.type?.toBarcodeType().name ?? ""
                 
                 let mappedData = SBSDKUI2BarcodeMappedData(title: item.textWithExtension,
                                                            subtitle: subtitle,
