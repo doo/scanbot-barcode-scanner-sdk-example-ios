@@ -43,7 +43,7 @@ class BarcodeResultDetails: UITableViewController {
             text = text + "\n\nRaw bytes:\n" + hexString
         }
         
-        text = text + "\n\nBarcode Type: " + barcode.type.name
+        text = text + "\n\nBarcode Type: " + (barcode.type?.name ?? "---")
         
         self.label?.text = text
     }

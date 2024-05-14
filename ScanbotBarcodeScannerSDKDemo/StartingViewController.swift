@@ -50,7 +50,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        config.recognizerConfiguration.barcodeFormats = SBSDKUI2BarcodeFormat.allFormats
         
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -65,7 +65,7 @@ class StartingViewController: UITableViewController {
             
             if !cancelled, let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.type.toBarcodeType(),
+                    return BarcodeResult(type: item.type?.toBarcodeType(),
                                          rawTextString: item.text,
                                          rawTextStringWithExtension: item.textWithExtension)
                 })
@@ -83,7 +83,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        config.recognizerConfiguration.barcodeFormats = SBSDKUI2BarcodeFormat.allFormats
         
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -98,7 +98,7 @@ class StartingViewController: UITableViewController {
             
             if !cancelled, let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.type.toBarcodeType(),
+                    return BarcodeResult(type: item.type?.toBarcodeType(),
                                          rawTextString: item.text,
                                          rawTextStringWithExtension: item.textWithExtension)
                 })
@@ -116,7 +116,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        config.recognizerConfiguration.barcodeFormats = SBSDKUI2BarcodeFormat.allFormats
         
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -130,7 +130,7 @@ class StartingViewController: UITableViewController {
             
             if !cancelled, let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.type.toBarcodeType(),
+                    return BarcodeResult(type: item.type?.toBarcodeType(),
                                          rawTextString: item.text,
                                          rawTextStringWithExtension: item.textWithExtension)
                 })
@@ -148,7 +148,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        config.recognizerConfiguration.barcodeFormats = SBSDKUI2BarcodeFormat.allFormats
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .unique
@@ -162,7 +162,7 @@ class StartingViewController: UITableViewController {
             
             if !cancelled, let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.type.toBarcodeType(),
+                    return BarcodeResult(type: item.type?.toBarcodeType(),
                                          rawTextString: item.text,
                                          rawTextStringWithExtension: item.textWithExtension)
                 })
@@ -180,7 +180,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        config.recognizerConfiguration.barcodeFormats = SBSDKUI2BarcodeFormat.allFormats
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .unique
@@ -195,7 +195,7 @@ class StartingViewController: UITableViewController {
             
             if !cancelled, let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.type.toBarcodeType(),
+                    return BarcodeResult(type: item.type?.toBarcodeType(),
                                          rawTextString: item.text,
                                          rawTextStringWithExtension: item.textWithExtension)
                 })
@@ -213,7 +213,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        config.recognizerConfiguration.barcodeFormats = SBSDKUI2BarcodeFormat.allFormats
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .counting
@@ -231,7 +231,7 @@ class StartingViewController: UITableViewController {
             
             if !cancelled, let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.type.toBarcodeType(),
+                    return BarcodeResult(type: item.type?.toBarcodeType(),
                                          rawTextString: item.text,
                                          rawTextStringWithExtension: item.textWithExtension)
                 })
@@ -249,7 +249,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        config.recognizerConfiguration.barcodeFormats = SBSDKUI2BarcodeFormat.allFormats
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .counting
@@ -266,7 +266,7 @@ class StartingViewController: UITableViewController {
             
             if !cancelled, let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.type.toBarcodeType(),
+                    return BarcodeResult(type: item.type?.toBarcodeType(),
                                          rawTextString: item.text,
                                          rawTextStringWithExtension: item.textWithExtension)
                 })
@@ -302,7 +302,7 @@ class StartingViewController: UITableViewController {
                                                      configuration: config) { controller, cancelled, error, result in
             if !cancelled, let items = result?.items {
                 self.detectedBarcodes = items.map({ item in 
-                    return BarcodeResult(type: item.type.toBarcodeType(),
+                    return BarcodeResult(type: item.type?.toBarcodeType(),
                                          rawTextString: item.text,
                                          rawTextStringWithExtension: item.textWithExtension)
                 })
@@ -399,8 +399,11 @@ extension StartingViewController : SBSDKUI2BarcodeItemMapper {
             if item.type == .qrCode {
                 onError()
             } else {
+                
+                let subtitle = item.type != nil ? "\(item.type!)" : ""
+                
                 let mappedData = SBSDKUI2BarcodeMappedData(title: item.textWithExtension,
-                                                           subtitle: "\(item.type)",
+                                                           subtitle: subtitle,
                                                            barcodeImage: SBSDKUI2BarcodeMappedData.barcodeImageKey)
                 onResult(mappedData)
             }

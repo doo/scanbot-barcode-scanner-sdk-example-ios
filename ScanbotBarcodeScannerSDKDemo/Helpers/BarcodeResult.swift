@@ -10,14 +10,14 @@ import ScanbotBarcodeScannerSDK
 
 class BarcodeResult {
     
-    let type: SBSDKBarcodeType
+    let type: SBSDKBarcodeType?
     let rawTextString: String
     let rawTextStringWithExtension: String
     let barcodeImage: UIImage?
     var rawBytes: Data?
     var formattedDocument: SBSDKGenericDocument?
     
-    init(type: SBSDKBarcodeType,
+    init(type: SBSDKBarcodeType?,
          rawTextString: String,
          rawTextStringWithExtension: String,
          barcodeImage: UIImage? = nil,
