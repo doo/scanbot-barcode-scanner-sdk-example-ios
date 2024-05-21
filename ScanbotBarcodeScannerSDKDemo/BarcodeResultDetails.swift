@@ -36,14 +36,14 @@ class BarcodeResultDetails: UITableViewController {
         guard let barcode = self.barcode else { return }
         self.imageView?.image = barcode.barcodeImage
         
-        var text = self.formatter.formattedBarcodeText(formattedResult: barcode.formattedResult) ?? barcode.rawTextStringWithExtension
+        var text = self.formatter.formattedBarcodeText(barcode.formattedDocument) ?? barcode.rawTextStringWithExtension
         
         if let rawBytes = self.barcode?.rawBytes {
             let hexString = rawBytes.map({ String(format: "%02hhx", $0) }).joined()
             text = text + "\n\nRaw bytes:\n" + hexString
         }
         
-        text = text + "\n\nBarcode Type: " + barcode.type.name
+        text = text + "\n\nBarcode Type: " + (barcode.type?.name ?? "---")
         
         self.label?.text = text
     }

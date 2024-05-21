@@ -83,7 +83,7 @@ extension BarcodeResultList: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BarcodeResultListCell", for: indexPath) as! BarcodeResultListCell
         let barcode = self.barcodes[indexPath.row]
         cell.infoLabel?.text = barcode.rawTextStringWithExtension
-        cell.typeLabel?.text = barcode.type.name
+        cell.typeLabel?.text = barcode.type?.name ?? ""
         cell.barcodeImageView?.image = barcode.barcodeImage
         return cell
     }
