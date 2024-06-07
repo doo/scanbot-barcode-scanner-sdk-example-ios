@@ -74,6 +74,8 @@ extension SBSDKUI2BarcodeFormat {
             return .code11
         case .code32:
             return .code32
+        case .maxiCode:
+            return .maxiCode
         default: fatalError("Unknown barcode format")
         }
     }
