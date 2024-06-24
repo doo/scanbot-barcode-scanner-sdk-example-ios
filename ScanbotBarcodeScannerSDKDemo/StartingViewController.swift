@@ -292,7 +292,7 @@ class StartingViewController: UITableViewController {
         usecase.allowPartialScan = true
         
         usecase.expectedBarcodes = [
-            SBSDKUI2ExpectedBarcode(barcodeValue: "ScanbotSDK", title: "ScanbotSDK", image: "https://avatas.githubusercontent.com/u/1454920?s=280&v=4", count: 4),
+            SBSDKUI2ExpectedBarcode(barcodeValue: "ScanbotSDK", title: "ScanbotSDK", image: "https://avatars.githubusercontent.com/u/1454920?s=280&v=4", count: 4),
             SBSDKUI2ExpectedBarcode(barcodeValue: "Hello world!", title: "Hello world!", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/HelloWorld_in_black_and_white.svg/240px-HelloWorld_in_black_and_white.svg.png", count: 3)
         ]
         
