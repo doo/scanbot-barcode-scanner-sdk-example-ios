@@ -23,13 +23,20 @@ final class ScanAndCountViewController: UIViewController {
         listCountView.layer.cornerRadius = listCountView.bounds.height / 2
         self.scannerController = SBSDKBarcodeScanAndCountViewController(parentViewController: self,
                                                                         parentView: self.view,
+                                                                        configuration: SBSDKBarcodeScannerConfiguration(),
                                                                         delegate: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.scannerController.acceptedBarcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        let barcodeConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: Array(SharedParameters.acceptedBarcodeTypes))
+        
+        let scannerConfiguration = self.scannerController.configuration
+        
+        scannerConfiguration.barcodeFormatConfigurations = [barcodeConfiguration]
+        
+        self.scannerController.configuration = scannerConfiguration
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,23 +55,23 @@ final class ScanAndCountViewController: UIViewController {
 extension ScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDelegate {
     
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
-                             didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
+                             didDetectBarcodes codes: [SBSDKBarcodeItem]) {
         codes.forEach { code in
             guard let existingCode = self.countedBarcodes.first(where: {
-                $0.code.type == code.type && $0.code.rawTextString == code.rawTextString
+                $0.item.format == code.format && $0.item.textWithExtension == code.textWithExtension
             }) else {
-                self.countedBarcodes.append(SBSDKBarcodeScannerAccumulatingResult(barcodeResult: code))
+                self.countedBarcodes.append(SBSDKBarcodeScannerAccumulatingResult(barcodeItem: code))
                 return
             }
             existingCode.scanCount += 1
-            existingCode.code.dateOfDetection = code.dateOfDetection
+            existingCode.dateOfLastDetection = Date()
         }
         let count = countedBarcodes.reduce(0) { $0 + $1.scanCount }
         listCountLabel.text = String(count)
     }
     
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
-                             polygonStyleForBarcode code: SBSDKBarcodeScannerResult) -> SBSDKScanAndCountPolygonStyle {
+                             polygonStyleForBarcode code: SBSDKBarcodeItem) -> SBSDKScanAndCountPolygonStyle {
         
         let style = SBSDKScanAndCountPolygonStyle()
         style.polygonDrawingEnabled = true
@@ -76,7 +83,7 @@ extension ScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDele
     }
     
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
-                             overlayForBarcode code: SBSDKBarcodeScannerResult) -> UIView? {
+                             overlayForBarcode code: SBSDKBarcodeItem) -> UIView? {
         UIImageView(image: UIImage(systemName: "checkmark.circle.fill"))
     }
 }
