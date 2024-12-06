@@ -19,7 +19,7 @@ class ScanAndCountResultsViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
-        countedBarcodes = countedBarcodes.sorted { $0.dateOfLastDetection > $1.dateOfLastDetection }
+        countedBarcodes = countedBarcodes.sorted { $0.dateOfLastScanning > $1.dateOfLastScanning }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,7 +31,7 @@ class ScanAndCountResultsViewController: UIViewController {
                                                 rawTextStringWithExtension: selectedBarcode.textWithExtension,
                                                 barcodeImage: selectedBarcode.sourceImage?.toUIImage(),
                                                 rawBytes: selectedBarcode.rawBytes,
-                                                formattedDocument: selectedBarcode.parsedDocument)
+                                                formattedDocument: selectedBarcode.extractedDocument)
         }
     }
 }

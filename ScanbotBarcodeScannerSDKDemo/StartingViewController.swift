@@ -49,8 +49,8 @@ class StartingViewController: UITableViewController {
     private func showSingleBarcodeScannerFromRTUUI() {
         self.detectedBarcodes = []
         
-        let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        let config = SBSDKUI2BarcodeScannerScreenConfiguration()
+        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
         
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -82,8 +82,8 @@ class StartingViewController: UITableViewController {
     private func showSingleARBarcodeScannerFromRTUUI() {
         self.detectedBarcodes = []
         
-        let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        let config = SBSDKUI2BarcodeScannerScreenConfiguration()
+        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
         
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -115,8 +115,8 @@ class StartingViewController: UITableViewController {
     private func showSingleARAutoSelectBarcodeScannerFromRTUUI() {
         self.detectedBarcodes = []
         
-        let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        let config = SBSDKUI2BarcodeScannerScreenConfiguration()
+        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
         
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -147,8 +147,8 @@ class StartingViewController: UITableViewController {
     private func showMultiBarcodeScannerFromRTUUI() {
         self.detectedBarcodes = []
         
-        let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        let config = SBSDKUI2BarcodeScannerScreenConfiguration()
+        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .unique
@@ -179,8 +179,8 @@ class StartingViewController: UITableViewController {
     private func showMultiSheetBarcodeScannerFromRTUUI() {
         self.detectedBarcodes = []
         
-        let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        let config = SBSDKUI2BarcodeScannerScreenConfiguration()
+        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .unique
@@ -212,8 +212,8 @@ class StartingViewController: UITableViewController {
     private func showMultiSheetARCountBarcodeScannerFromRTUUI() {
         self.detectedBarcodes = []
         
-        let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        let config = SBSDKUI2BarcodeScannerScreenConfiguration()
+        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .counting
@@ -248,8 +248,8 @@ class StartingViewController: UITableViewController {
     private func showMultiSheetARCountAutoSelectBarcodeScannerFromRTUUI() {
         self.detectedBarcodes = []
         
-        let config = SBSDKUI2BarcodeScannerConfiguration()
-        config.recognizerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        let config = SBSDKUI2BarcodeScannerScreenConfiguration()
+        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .counting
@@ -283,7 +283,7 @@ class StartingViewController: UITableViewController {
     private func showFindAndPickBarcodeScannerFromRTUUI() {
         self.detectedBarcodes = []
         
-        let config = SBSDKUI2BarcodeScannerConfiguration()
+        let config = SBSDKUI2BarcodeScannerScreenConfiguration()
         config.userGuidance.title.text = "Please align the QR-/Barcode in the frame above to scan it."
         
         let usecase = SBSDKUI2FindAndPickScanningMode()
@@ -322,7 +322,7 @@ class StartingViewController: UITableViewController {
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [barcodeConfiguration])
         
         let scanner = SBSDKBarcodeScanner(configuration: configuration)
-        let result = scanner.detectBarcodes(on: image)
+        let result = scanner.scan(from: image)
         result?.barcodes.forEach({ barcode in
             let barcodeResult = BarcodeResult(type: barcode.format,
                                               rawTextString: barcode.text,
