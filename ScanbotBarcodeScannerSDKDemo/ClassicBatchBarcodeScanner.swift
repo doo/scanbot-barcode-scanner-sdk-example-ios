@@ -19,7 +19,7 @@ class ClassicBatchBarcodeScanner: UIViewController {
     @IBOutlet var cameraContainer: UIView!
     @IBOutlet var tableView: UITableView!
     
-    private var detectedBarcodes: [SBSDKBarcodeItem] = []
+    private var scannedBarcodes: [SBSDKBarcodeItem] = []
     private var scannerController: SBSDKBarcodeScannerViewController!
     private var isScrolling: Bool = false
     
@@ -61,10 +61,10 @@ extension ClassicBatchBarcodeScanner: SBSDKBarcodeTrackingOverlayControllerDeleg
     func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
                                 didTapOnBarcode barcode: SBSDKBarcodeItem) {
         
-        if !self.detectedBarcodes.contains(barcode) {
-            self.detectedBarcodes.insert(barcode, at: 0)
+        if !self.scannedBarcodes.contains(barcode) {
+            self.scannedBarcodes.insert(barcode, at: 0)
         } else {
-            self.detectedBarcodes.removeAll(where: { $0 == barcode })
+            self.scannedBarcodes.removeAll(where: { $0 == barcode })
         }
         self.tableView.reloadData()
     }
@@ -73,19 +73,19 @@ extension ClassicBatchBarcodeScanner: SBSDKBarcodeTrackingOverlayControllerDeleg
 
 extension ClassicBatchBarcodeScanner: SBSDKBarcodeScannerViewControllerDelegate {
     
-    func barcodeScannerControllerShouldDetectBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
+    func barcodeScannerControllerShouldScanBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
         return !self.isScrolling
     }
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
-                                  didDetectBarcodes codes: [SBSDKBarcodeItem]) {
+                                  didScanBarcodes codes: [SBSDKBarcodeItem]) {
         
         if codes.count == 0 || controller.isTrackingOverlayEnabled {
             return
         }
         for code in codes.reversed() {
-            if !self.detectedBarcodes.contains(code) {
-                self.detectedBarcodes.insert(code, at: 0)
+            if !self.scannedBarcodes.contains(code) {
+                self.scannedBarcodes.insert(code, at: 0)
             }
         }
         self.tableView.reloadData()
@@ -95,7 +95,7 @@ extension ClassicBatchBarcodeScanner: SBSDKBarcodeScannerViewControllerDelegate 
 extension ClassicBatchBarcodeScanner: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.detectedBarcodes.count
+        return self.scannedBarcodes.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -104,7 +104,7 @@ extension ClassicBatchBarcodeScanner: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "barcodeCell") as! ClassicBatchBarcodeScannerTableCell
-        let code = self.detectedBarcodes[indexPath.row]
+        let code = self.scannedBarcodes[indexPath.row]
         
         cell.barcodeImageView.image = code.sourceImage?.toUIImage()
         cell.barcodeLabel.text = code.textWithExtension
