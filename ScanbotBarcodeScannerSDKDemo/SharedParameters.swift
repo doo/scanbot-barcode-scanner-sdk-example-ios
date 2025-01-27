@@ -10,5 +10,5 @@ import Foundation
 import ScanbotBarcodeScannerSDK
 
 enum SharedParameters {
-    static var acceptedBarcodeTypes: Set<SBSDKBarcodeType> = Set(SBSDKBarcodeType.allTypes)
+    static var acceptedBarcodeTypes: Set<SBSDKBarcodeFormat> = Set(SBSDKBarcodeFormats.all)
 }

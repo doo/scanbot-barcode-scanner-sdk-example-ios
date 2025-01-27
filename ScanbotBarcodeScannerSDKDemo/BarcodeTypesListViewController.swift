@@ -13,7 +13,7 @@ class BarcodeTypesListViewController: UIViewController {
     @IBOutlet private var tableView: UITableView?
     @IBOutlet private var selectDeselectAllButton: UIBarButtonItem?
     
-    private let allBarcodes = SBSDKBarcodeType.allTypes
+    private let allBarcodes = SBSDKBarcodeFormats.all
     
     @IBAction private func selectDeselectAllButtonTapped(_ sender: UIBarButtonItem) {
         if self.isEverythingSelected {
