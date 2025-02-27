@@ -34,11 +34,11 @@ class ClassicBarcodeScanner: UIViewController {
         
         let barcodeConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: Array(SharedParameters.acceptedBarcodeTypes))
         
-        let scannerConfiguration = self.scannerController.configuration
+        let scannerConfiguration = self.scannerController.copyCurrentConfiguration()
         
         scannerConfiguration.barcodeFormatConfigurations = [barcodeConfiguration]
         
-        self.scannerController.configuration = scannerConfiguration
+        self.scannerController.setConfiguration(scannerConfiguration)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
