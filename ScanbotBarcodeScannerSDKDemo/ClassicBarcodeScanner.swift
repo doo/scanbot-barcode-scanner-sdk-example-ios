@@ -10,76 +10,79 @@ import UIKit
 import ScanbotBarcodeScannerSDK
 
 class ClassicBarcodeScanner: UIViewController {
-    private var detectedBarcodes: [SBSDKBarcodeScannerResult] = []
-    private var shouldRecognizeBarcodes = true
+    private var detectedBarcodes: [SBSDKBarcodeItem] = []
+    private var shouldScanBarcodes = true
     private var scannerController: SBSDKBarcodeScannerViewController!
     private var selectedBarcode: SBSDKBarcodeScannerResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let barcodeConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: [.australiaPost])
+        barcodeConfiguration.gs1Handling = .validateFull
+        
+        let scannerConfiguration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [barcodeConfiguration])
+        scannerConfiguration.returnBarcodeImage = true
         self.scannerController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                   parentView: self.view)
+                                                                   parentView: self.view,
+                                                                   configuration: scannerConfiguration)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.selectedBarcode = nil
-        self.scannerController.acceptedBarcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        
+        let barcodeConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: Array(SharedParameters.acceptedBarcodeTypes))
+        
+        let scannerConfiguration = self.scannerController.copyCurrentConfiguration()
+        
+        scannerConfiguration.barcodeFormatConfigurations = [barcodeConfiguration]
+        
+        self.scannerController.setConfiguration(scannerConfiguration)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "BarcodeResultList",
             let destination = segue.destination as? BarcodeResultList {
             destination.barcodes = self.detectedBarcodes.map({ barcode in
-                return BarcodeResult(type: barcode.type,
-                                     rawTextString: barcode.rawTextString,
-                                     rawTextStringWithExtension: barcode.rawTextStringWithExtension,
-                                     barcodeImage: barcode.barcodeImage, 
+                return BarcodeResult(type: barcode.format,
+                                     rawTextString: barcode.text,
+                                     rawTextStringWithExtension: barcode.textWithExtension,
+                                     barcodeImage: barcode.sourceImage?.toUIImage(), 
                                      rawBytes: barcode.rawBytes,
-                                     formattedDocument: barcode.parsedDocument)
+                                     formattedDocument: barcode.extractedDocument)
             })
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.shouldRecognizeBarcodes = true
+        self.shouldScanBarcodes = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.shouldRecognizeBarcodes = false
+        self.shouldScanBarcodes = false
     }
 }
 
 extension ClassicBarcodeScanner: SBSDKBarcodeScannerViewControllerDelegate {
-    
-    func barcodeScannerControllerShouldDetectBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
-        return self.shouldRecognizeBarcodes
+    func barcodeScannerControllerShouldScanBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
+        return self.shouldScanBarcodes
     }
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController, 
-                                  didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
+                                  didScanBarcodes codes: [SBSDKBarcodeItem]) {
         if codes.count == 0 {
             return
         }
         
         self.detectedBarcodes = codes
-        self.shouldRecognizeBarcodes = false
+        self.shouldScanBarcodes = false
         
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)
             self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
         }
-    }
-    
-    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController, didTapOnBarcode code: SBSDKBarcodeScannerResult) {
-        self.selectedBarcode = code
-    }
-    
-    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController, shouldHighlight code: SBSDKBarcodeScannerResult) -> Bool {
-        guard let selectedBarcode else { return false }
-        return selectedBarcode == code
     }
 }
