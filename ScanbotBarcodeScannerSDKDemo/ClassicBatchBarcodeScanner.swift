@@ -19,14 +19,20 @@ class ClassicBatchBarcodeScanner: UIViewController {
     @IBOutlet var cameraContainer: UIView!
     @IBOutlet var tableView: UITableView!
     
-    private var detectedBarcodes: [SBSDKBarcodeScannerResult] = []
+    private var scannedBarcodes: [SBSDKBarcodeItem] = []
     private var scannerController: SBSDKBarcodeScannerViewController!
     private var isScrolling: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let barcodeConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: SBSDKBarcodeFormats.common)
+        
+        let scannerConfiguration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [barcodeConfiguration])
+        
         self.scannerController = SBSDKBarcodeScannerViewController(parentViewController: self,
-                                                                   parentView: self.cameraContainer)
+                                                                   parentView: self.cameraContainer, 
+                                                                   configuration: scannerConfiguration)
         
         self.scannerController.trackingOverlayController.delegate = self
         
@@ -40,54 +46,56 @@ class ClassicBatchBarcodeScanner: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.scannerController.acceptedBarcodeTypes = Array(SharedParameters.acceptedBarcodeTypes)
+        
+        let barcodeConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: Array(SharedParameters.acceptedBarcodeTypes))
+        
+        let scannerConfiguration = self.scannerController.copyCurrentConfiguration()
+        
+        scannerConfiguration.barcodeFormatConfigurations = [barcodeConfiguration]
+        
+        self.scannerController.setConfiguration(scannerConfiguration)
     }
 }
 
 extension ClassicBatchBarcodeScanner: SBSDKBarcodeTrackingOverlayControllerDelegate {
-    
     func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
-                                didTapOnBarcode barcode: SBSDKBarcodeScannerResult) {
+                                didTapOnBarcode barcode: SBSDKBarcodeItem) {
         
-        if !self.detectedBarcodes.contains(barcode) {
-            self.detectedBarcodes.insert(barcode, at: 0)
+        if !self.scannedBarcodes.contains(barcode) {
+            self.scannedBarcodes.insert(barcode, at: 0)
         } else {
-            self.detectedBarcodes.removeAll(where: { $0 == barcode })
+            self.scannedBarcodes.removeAll(where: { $0 == barcode })
         }
         self.tableView.reloadData()
     }
+    
 }
 
 extension ClassicBatchBarcodeScanner: SBSDKBarcodeScannerViewControllerDelegate {
     
-    func barcodeScannerControllerShouldDetectBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
+    func barcodeScannerControllerShouldScanBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
         return !self.isScrolling
     }
     
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
-                                  didDetectBarcodes codes: [SBSDKBarcodeScannerResult]) {
+                                  didScanBarcodes codes: [SBSDKBarcodeItem]) {
         
         if codes.count == 0 || controller.isTrackingOverlayEnabled {
             return
         }
         for code in codes.reversed() {
-            if !self.detectedBarcodes.contains(code) {
-                self.detectedBarcodes.insert(code, at: 0)
+            if !self.scannedBarcodes.contains(code) {
+                self.scannedBarcodes.insert(code, at: 0)
             }
         }
         self.tableView.reloadData()
-    }
-        
-    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
-                                  shouldHighlight code: SBSDKBarcodeScannerResult) -> Bool {
-        return detectedBarcodes.contains(code)
     }
 }
 
 extension ClassicBatchBarcodeScanner: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.detectedBarcodes.count
+        return self.scannedBarcodes.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -96,11 +104,11 @@ extension ClassicBatchBarcodeScanner: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "barcodeCell") as! ClassicBatchBarcodeScannerTableCell
-        let code = self.detectedBarcodes[indexPath.row]
+        let code = self.scannedBarcodes[indexPath.row]
         
-        cell.barcodeImageView.image = code.barcodeImage
-        cell.barcodeLabel.text = code.rawTextStringWithExtension
-        cell.barcodeTypeLabel.text = code.type.name
+        cell.barcodeImageView.image = code.sourceImage?.toUIImage()
+        cell.barcodeLabel.text = code.textWithExtension
+        cell.barcodeTypeLabel.text = code.format.name
         return cell
     }
     
