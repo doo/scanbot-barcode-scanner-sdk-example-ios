@@ -23,6 +23,8 @@ class ClassicBatchBarcodeScanner: UIViewController {
     private var scannerController: SBSDKBarcodeScannerViewController!
     private var isScrolling: Bool = false
     
+    private var paarent: UIViewController? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +44,11 @@ class ClassicBatchBarcodeScanner: UIViewController {
         let energyConfiguration = self.scannerController.energyConfiguration
         energyConfiguration.detectionRate = 10
         self.scannerController.energyConfiguration = energyConfiguration
+        
+        let generalConfig = self.scannerController.generalConfiguration
+        generalConfig.stopsCameraSessionWhenDisappeared = false
+        
+        self.scannerController.generalConfiguration = generalConfig
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,6 +61,25 @@ class ClassicBatchBarcodeScanner: UIViewController {
         scannerConfiguration.barcodeFormatConfigurations = [barcodeConfiguration]
         
         self.scannerController.setConfiguration(scannerConfiguration)
+    }
+    
+    
+    @IBAction func toggleCameraVisibility(_ sender: Any) {
+        cameraContainer.isHidden = !cameraContainer.isHidden
+        
+//        if (paarent == nil) {
+//            paarent = self.scannerController.parent
+//        }
+        
+        if (cameraContainer.isHidden) {
+            print("PAUSE")
+            //self.scannerController.pause()
+            
+            self.sbsdk_detach(self.scannerController)
+        } else {
+            print("RESUME")
+            self.sbsdk_attach(self.scannerController, in: cameraContainer)
+        }
     }
 }
 
