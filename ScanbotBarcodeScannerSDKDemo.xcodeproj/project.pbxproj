@@ -23,6 +23,7 @@
 		69B9C29423A91D320055809B /* BarcodeResultDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28C23A91D320055809B /* BarcodeResultDetails.swift */; };
 		69B9C29523A91D320055809B /* BarcodeResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28D23A91D320055809B /* BarcodeResultList.swift */; };
 		69B9C29723A91D440055809B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B9C29623A91D440055809B /* Main.storyboard */; };
+		94F51BF42E007527002EA011 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F51BF32E007526002EA011 /* SceneDelegate.swift */; };
 		BCFFEB7ED266F64063A92628 /* Pods_ScanbotBarcodeScannerSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE3F0ED51EE0F51919B2E73 /* Pods_ScanbotBarcodeScannerSDKDemo.framework */; };
 		F1A5C2B72B8CFF87005E30B1 /* BarcodeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A5C2B62B8CFF87005E30B1 /* BarcodeResult.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		69B9C28D23A91D320055809B /* BarcodeResultList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultList.swift; sourceTree = "<group>"; };
 		69B9C29623A91D440055809B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		829D9430CA08B67D5E019FAD /* Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+		94F51BF32E007526002EA011 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BFE3F0ED51EE0F51919B2E73 /* Pods_ScanbotBarcodeScannerSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanbotBarcodeScannerSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1A5C2B62B8CFF87005E30B1 /* BarcodeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				690166CA239811940054D9AA /* AppDelegate.swift */,
+				94F51BF32E007526002EA011 /* SceneDelegate.swift */,
 				69B9C28823A91D310055809B /* BarcodeFormatter.swift */,
 				69B9C28C23A91D320055809B /* BarcodeResultDetails.swift */,
 				69B9C28D23A91D320055809B /* BarcodeResultList.swift */,
@@ -253,6 +256,7 @@
 				69B9C28F23A91D320055809B /* BarcodeTypesListViewController.swift in Sources */,
 				69B9C29023A91D320055809B /* BarcodeFormatter.swift in Sources */,
 				69B9C29423A91D320055809B /* BarcodeResultDetails.swift in Sources */,
+				94F51BF42E007527002EA011 /* SceneDelegate.swift in Sources */,
 				69B9C29523A91D320055809B /* BarcodeResultList.swift in Sources */,
 				69B9C29123A91D320055809B /* SharedParameters.swift in Sources */,
 				69B9C28E23A91D320055809B /* ClassicBarcodeScanner.swift in Sources */,
