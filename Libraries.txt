@@ -1362,7 +1362,7 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 
 JSON for Modern C++
 
-Version no-rev
+Version v3.11.3
 (https://github.com/nlohmann/json)
 
 MIT License 
