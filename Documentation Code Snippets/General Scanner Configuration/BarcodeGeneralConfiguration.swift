@@ -88,18 +88,20 @@ class BarcodeGeneralConfiguration {
     
     func configDocumentParsers() {
         
-        // The barcode document formats to be scanned.
-        let documentFormatsToDetect = [SBSDKBarcodeDocumentFormat.swissQr]
+        // List of barcode document formats to extract.
+        let documentFormats: [SBSDKBarcodeDocumentFormat] = [.gs1, .boardingPass, .swissQr]
         
-        // Get the supported barcode formats for the document formats set above.
-        let barcodeFormats = SBSDKBarcodeDocumentFormat.supportedBarcodeFormats(for: documentFormatsToDetect)
+        // Instantiate the parser, providing the list of formats.
+        let parser = SBSDKBarcodeDocumentParser(extractedDocumentFormats: documentFormats)
         
-        // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
-        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: barcodeFormats)
-        
-        // Create an instance of `SBSDKBarcodeScannerConfiguration`.
-        let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration],
-                                                             extractedDocumentFormats: documentFormatsToDetect)
+        // Some raw barcode string.
+        let rawBarcodeString = "(01)02804086001986(3103)000220(15)220724(30)01(3922)00198"
+            
+        // Run the parser and check the result.
+        if let document = parser.parse(from: rawBarcodeString) {
+            
+            // Handle the result.
+        }
     }
     
     func configRegularExpression() {
