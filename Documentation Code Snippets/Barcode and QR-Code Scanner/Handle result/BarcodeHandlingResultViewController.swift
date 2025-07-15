@@ -12,9 +12,6 @@ class BarcodeHandlingResultViewController: UIViewController {
     
     // The instance of the scanner view controller.
     var scannerViewController: SBSDKBarcodeScannerViewController!
-
-    // The variable to indicate whether you want the scanner to detect barcodes or not.
-    var shouldDetectBarcodes = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
