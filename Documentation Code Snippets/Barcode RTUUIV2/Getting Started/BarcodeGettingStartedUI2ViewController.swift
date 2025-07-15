@@ -1,5 +1,5 @@
 //
-//  BarcodeGetStarted.swift
+//  BarcodeGettingStartedUI2ViewController.swift
 //  ScanbotSDK Examples
 //
 //  Created by Rana Sohaib on 15.07.25.
@@ -8,7 +8,7 @@
 import Foundation
 import ScanbotBarcodeScannerSDK
 
-class BarcodeGetStartedViewController: UIViewController {
+class BarcodeGettingStartedUI2ViewController: UIViewController {
     
     func launchRTUUIv2Scanner() {
         
