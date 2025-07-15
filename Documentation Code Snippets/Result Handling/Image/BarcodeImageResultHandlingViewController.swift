@@ -13,6 +13,18 @@ class BarcodeImageResultHandlingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // The barcode formats to be scanned.
+        let formatsToDetect = SBSDKBarcodeFormats.common
+        
+        // Create an instance of `SBSDKBarcodeFormatCommonConfiguration`.
+        let formatConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: formatsToDetect)
+        
+        // Create an instance of `SBSDKBarcodeScannerConfiguration`.
+        let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [formatConfiguration])
+        
+        // Configure the scanner to return barcode image.
+        configuration.returnBarcodeImage = true
+        
         // Create the `SBSDKBarcodeScanner` instance.
         let scanner = SBSDKBarcodeScanner()
         
@@ -29,6 +41,8 @@ class BarcodeImageResultHandlingViewController: UIViewController {
     
     // Handle the resulting barcode item's image.
     func handle(barcode: SBSDKBarcodeItem) {
+        
+        // Make sure to set `returnBarcodeImage` to true in `SBSDKBarcodeScannerConfiguration` when setting up the scanner.
         
         // Retrieve the barcode image.
         let image = barcode.sourceImage
