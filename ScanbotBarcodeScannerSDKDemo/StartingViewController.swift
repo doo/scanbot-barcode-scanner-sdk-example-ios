@@ -50,8 +50,8 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
-        
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
+                
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
         usecase.barcodeInfoMapping.barcodeItemMapper = self
@@ -83,7 +83,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
         
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -116,7 +116,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
         
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -148,7 +148,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .unique
@@ -180,7 +180,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .unique
@@ -213,7 +213,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .counting
@@ -249,7 +249,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .counting
@@ -315,21 +315,25 @@ class StartingViewController: UITableViewController {
         }
     }
     
-    private func detectBarcodesOnImage(_ image: UIImage) {
+    private func detectBarcodesOnImage(_ image: SBSDKImageRef) {
         detectedBarcodes.removeAll()
         
         let barcodeConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: Array(SharedParameters.acceptedBarcodeTypes))
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [barcodeConfiguration])
         
-        let scanner = SBSDKBarcodeScanner(configuration: configuration)
-        let result = scanner.scan(from: image)
-        result?.barcodes.forEach({ barcode in
-            let barcodeResult = BarcodeResult(type: barcode.format,
-                                              rawTextString: barcode.text,
-                                              rawTextStringWithExtension: barcode.textWithExtension)
-            detectedBarcodes.append(barcodeResult)
-        })
-        self.barcodeImage = nil
+        do {
+            let scanner = try SBSDKBarcodeScanner(configuration: configuration)
+            let result = try scanner.run(image: image)
+            result.barcodes.forEach({ barcode in
+                let barcodeResult = BarcodeResult(type: barcode.format,
+                                                  rawTextString: barcode.text,
+                                                  rawTextStringWithExtension: barcode.textWithExtension)
+                detectedBarcodes.append(barcodeResult)
+            })
+            self.barcodeImage = nil
+        } catch {
+            print("Error during barcode scanning: \(error)")
+        }
     }
     
     private func showImagePicker() {
@@ -420,7 +424,8 @@ extension StartingViewController: UINavigationControllerDelegate, UIImagePickerC
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.dismiss(animated: true) {
-                self.detectBarcodesOnImage(image)
+                let imageRef = SBSDKImageRef.fromUIImage(image: image)
+                self.detectBarcodesOnImage(imageRef)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
             }
         }

@@ -48,7 +48,7 @@ class ClassicBarcodeScanner: UIViewController {
                 return BarcodeResult(type: barcode.format,
                                      rawTextString: barcode.text,
                                      rawTextStringWithExtension: barcode.textWithExtension,
-                                     barcodeImage: barcode.sourceImage?.toUIImage(), 
+                                     barcodeImage: try? barcode.sourceImage?.toUIImage(), 
                                      rawBytes: barcode.rawBytes,
                                      formattedDocument: barcode.extractedDocument)
             })

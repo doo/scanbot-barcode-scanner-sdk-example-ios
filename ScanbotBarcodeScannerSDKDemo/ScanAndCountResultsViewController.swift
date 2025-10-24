@@ -29,7 +29,7 @@ class ScanAndCountResultsViewController: UIViewController {
             destination.barcode = BarcodeResult(type: selectedBarcode.format,
                                                 rawTextString: selectedBarcode.text,
                                                 rawTextStringWithExtension: selectedBarcode.textWithExtension,
-                                                barcodeImage: selectedBarcode.sourceImage?.toUIImage(),
+                                                barcodeImage: try? selectedBarcode.sourceImage?.toUIImage(),
                                                 rawBytes: selectedBarcode.rawBytes,
                                                 formattedDocument: selectedBarcode.extractedDocument)
         }

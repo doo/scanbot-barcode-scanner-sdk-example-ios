@@ -106,7 +106,7 @@ extension ClassicBatchBarcodeScanner: UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "barcodeCell") as! ClassicBatchBarcodeScannerTableCell
         let code = self.scannedBarcodes[indexPath.row]
         
-        cell.barcodeImageView.image = code.sourceImage?.toUIImage()
+        cell.barcodeImageView.image = try? code.sourceImage?.toUIImage()
         cell.barcodeLabel.text = code.textWithExtension
         cell.barcodeTypeLabel.text = code.format.name
         return cell
