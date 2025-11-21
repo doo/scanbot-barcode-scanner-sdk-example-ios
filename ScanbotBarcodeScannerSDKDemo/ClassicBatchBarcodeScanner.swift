@@ -72,6 +72,15 @@ extension ClassicBatchBarcodeScanner: SBSDKBarcodeTrackingOverlayControllerDeleg
 }
 
 extension ClassicBatchBarcodeScanner: SBSDKBarcodeScannerViewControllerDelegate {
+    func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController, didFailScanning error: any Error) {
+        if let error = error as? SBSDKError {
+            if error.isCanceled {
+                print("Scanning was cancelled by the user")
+            } else {
+                print(error.localizedDescription)
+            }
+        }
+    }
     
     func barcodeScannerControllerShouldScanBarcodes(_ controller: SBSDKBarcodeScannerViewController) -> Bool {
         return !self.isScrolling

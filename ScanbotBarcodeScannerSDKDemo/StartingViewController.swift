@@ -61,9 +61,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -73,7 +73,7 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else {
                 controller.presentingViewController?.dismiss(animated: true)
             }
         }
@@ -94,9 +94,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -106,7 +106,7 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else {
                 controller.presentingViewController?.dismiss(animated: true)
             }
         }
@@ -126,9 +126,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -138,7 +138,7 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else {
                 controller.presentingViewController?.dismiss(animated: true)
             }
         }
@@ -158,9 +158,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -170,7 +170,7 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else {
                 controller.presentingViewController?.dismiss(animated: true)
             }
         }
@@ -191,9 +191,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -203,7 +203,7 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else {
                 controller.presentingViewController?.dismiss(animated: true)
             }
         }
@@ -227,9 +227,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -239,7 +239,7 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else {
                 controller.presentingViewController?.dismiss(animated: true)
             }
         }
@@ -262,9 +262,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -274,7 +274,7 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else {
                 controller.presentingViewController?.dismiss(animated: true)
             }
         }
@@ -299,8 +299,8 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
-            if !cancelled, let items = result?.items {
+                                                     configuration: config) { controller, result, error in
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in 
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -309,7 +309,7 @@ class StartingViewController: UITableViewController {
                 
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
-            } else if cancelled {
+            } else {
                 controller.presentingViewController?.dismiss(animated: true)
             }
         }
