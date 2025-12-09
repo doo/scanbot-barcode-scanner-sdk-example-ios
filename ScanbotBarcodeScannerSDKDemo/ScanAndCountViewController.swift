@@ -58,7 +58,10 @@ extension ScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDele
             if error.isCanceled {
                 print("Scanning was cancelled by the user")
             } else {
-                print(error.localizedDescription)
+                sbsdk_showError(error) { [weak self] _ in
+                    guard let self else { return }
+                    self.sbsdk_forceClose(animated: true, completion: nil)
+                }
             }
         }
     }
