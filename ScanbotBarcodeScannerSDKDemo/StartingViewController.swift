@@ -73,8 +73,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -106,8 +111,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -138,8 +148,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -170,8 +185,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -203,8 +223,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -239,8 +264,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -274,8 +304,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -309,8 +344,14 @@ class StartingViewController: UITableViewController {
                 
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
-            } else {
+                
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -332,7 +373,10 @@ class StartingViewController: UITableViewController {
             })
             self.barcodeImage = nil
         } catch {
-            print("Error during barcode scanning: \(error)")
+            sbsdk_showError(error) { [weak self] _ in
+                guard let self else { return }
+                self.sbsdk_forceClose(animated: true, completion: nil)
+            }
         }
     }
     
