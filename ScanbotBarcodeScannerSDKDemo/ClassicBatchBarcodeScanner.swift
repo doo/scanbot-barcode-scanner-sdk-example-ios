@@ -22,6 +22,7 @@ class ClassicBatchBarcodeScanner: UIViewController {
     private var scannedBarcodes: [SBSDKBarcodeItem] = []
     private var scannerController: SBSDKBarcodeScannerViewController!
     private var isScrolling: Bool = false
+    private var isShowingError: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +75,9 @@ extension ClassicBatchBarcodeScanner: SBSDKBarcodeTrackingOverlayControllerDeleg
 extension ClassicBatchBarcodeScanner: SBSDKBarcodeScannerViewControllerDelegate {
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController, didFailScanning error: any Error) {
         if let error = error as? SBSDKError {
+            guard !isShowingError else { return }
+            
+            isShowingError = true
             if error.isCanceled {
                 print("Scanning was cancelled by the user")
             } else {

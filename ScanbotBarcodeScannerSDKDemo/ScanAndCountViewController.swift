@@ -16,7 +16,8 @@ final class ScanAndCountViewController: UIViewController {
     
     private var countedBarcodes = [SBSDKBarcodeScannerAccumulatingResult]()
     private var scannerController: SBSDKBarcodeScanAndCountViewController!
-        
+    private var isShowingError: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +56,9 @@ final class ScanAndCountViewController: UIViewController {
 extension ScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDelegate {
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController, didFailScanning error: any Error) {
         if let error = error as? SBSDKError {
+            guard !isShowingError else { return }
+            
+            isShowingError = true
             if error.isCanceled {
                 print("Scanning was cancelled by the user")
             } else {
