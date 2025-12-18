@@ -13,6 +13,7 @@ final class ScanAndCountViewController: UIViewController {
     
     @IBOutlet private var listCountView: UIView!
     @IBOutlet private var listCountLabel: UILabel!
+    @IBOutlet private var containerCounterView: UIView!
     
     private var countedBarcodes = [SBSDKBarcodeScannerAccumulatingResult]()
     private var scannerController: SBSDKBarcodeScanAndCountViewController!
@@ -36,7 +37,7 @@ final class ScanAndCountViewController: UIViewController {
         let scannerConfiguration = self.scannerController.configuration
         
         scannerConfiguration.barcodeFormatConfigurations = [barcodeConfiguration]
-        
+        self.view.bringSubviewToFront(containerCounterView)
         self.scannerController.configuration = scannerConfiguration
     }
     
