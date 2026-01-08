@@ -11,6 +11,7 @@
 		288AB3D52A448B3100D6461E /* ScanAndCountResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288AB3D42A448B3100D6461E /* ScanAndCountResultsViewController.swift */; };
 		288AB3D72A448B5900D6461E /* ScanAndCountBarcodeDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288AB3D62A448B5900D6461E /* ScanAndCountBarcodeDetailsCell.swift */; };
 		28E8A5942A41BEC10071539A /* ScanAndCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8A5932A41BEC10071539A /* ScanAndCountViewController.swift */; };
+		55C76C262F0F099400EAADB4 /* ViewImageRefViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C76C252F0F099400EAADB4 /* ViewImageRefViewController.swift */; };
 		690166CB239811940054D9AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690166CA239811940054D9AA /* AppDelegate.swift */; };
 		690166D4239811960054D9AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690166D3239811960054D9AA /* Assets.xcassets */; };
 		690166D7239811960054D9AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690166D5239811960054D9AA /* LaunchScreen.storyboard */; };
@@ -34,6 +35,7 @@
 		288AB3D42A448B3100D6461E /* ScanAndCountResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanAndCountResultsViewController.swift; sourceTree = "<group>"; };
 		288AB3D62A448B5900D6461E /* ScanAndCountBarcodeDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanAndCountBarcodeDetailsCell.swift; sourceTree = "<group>"; };
 		28E8A5932A41BEC10071539A /* ScanAndCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanAndCountViewController.swift; sourceTree = "<group>"; };
+		55C76C252F0F099400EAADB4 /* ViewImageRefViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewImageRefViewController.swift; sourceTree = "<group>"; };
 		690166C7239811940054D9AA /* Scanbot Barcode Scanner SDK Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scanbot Barcode Scanner SDK Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		690166CA239811940054D9AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		690166D3239811960054D9AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				690166D3239811960054D9AA /* Assets.xcassets */,
 				690166D5239811960054D9AA /* LaunchScreen.storyboard */,
 				690166D8239811960054D9AA /* Info.plist */,
+				55C76C252F0F099400EAADB4 /* ViewImageRefViewController.swift */,
 			);
 			path = ScanbotBarcodeScannerSDKDemo;
 			sourceTree = "<group>";
@@ -213,9 +216,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -261,6 +268,7 @@
 				69B9C29123A91D320055809B /* SharedParameters.swift in Sources */,
 				69B9C28E23A91D320055809B /* ClassicBarcodeScanner.swift in Sources */,
 				288AB3D52A448B3100D6461E /* ScanAndCountResultsViewController.swift in Sources */,
+				55C76C262F0F099400EAADB4 /* ViewImageRefViewController.swift in Sources */,
 				69B9C29223A91D320055809B /* StartingViewController.swift in Sources */,
 				69B9C29323A91D320055809B /* BarcodeResultListCell.swift in Sources */,
 				690166CB239811940054D9AA /* AppDelegate.swift in Sources */,

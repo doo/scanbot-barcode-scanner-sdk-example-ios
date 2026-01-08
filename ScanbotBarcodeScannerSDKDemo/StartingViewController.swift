@@ -8,6 +8,7 @@
 
 import UIKit
 import ScanbotBarcodeScannerSDK
+import UniformTypeIdentifiers
 
 class StartingViewController: UITableViewController {
     private var shouldCaptureBarcodeImage = false
@@ -51,7 +52,7 @@ class StartingViewController: UITableViewController {
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
         config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
-                
+        
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
         usecase.barcodeInfoMapping.barcodeItemMapper = self
@@ -336,7 +337,7 @@ class StartingViewController: UITableViewController {
         SBSDKUI2BarcodeScannerViewController.present(on: self,
                                                      configuration: config) { controller, result, error in
             if let items = result?.items {
-                self.detectedBarcodes = items.map({ item in 
+                self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
                                          rawTextStringWithExtension: item.barcode.textWithExtension)
@@ -393,7 +394,7 @@ extension StartingViewController {
     @IBAction func classicBarcodeScannerButtonTapped(_ sender: UIButton) {
         self.showBarcodeScannerFromClassicComponent()
     }
-
+    
     @IBAction func classicBatchBarcodeScannerButtonTapped(_ sender: UIButton) {
         self.showBatchBarcodeScannerFromClassicComponent()
     }
@@ -435,7 +436,7 @@ extension StartingViewController {
     }
     
     @IBAction func scanImageFromLibraryButtonTapped(_ sender: UIButton) {
-        self.showImagePicker()
+        self.scanFromPdfFile()
     }
     
     @IBAction func setAcceptedBarcodesButtonTapped(_ sender: UIButton) {
@@ -444,7 +445,7 @@ extension StartingViewController {
 }
 
 extension StartingViewController : SBSDKUI2BarcodeItemMapper {
-    func mapBarcodeItem(item: ScanbotBarcodeScannerSDK.SBSDKBarcodeItem, 
+    func mapBarcodeItem(item: ScanbotBarcodeScannerSDK.SBSDKBarcodeItem,
                         onResult: @escaping (ScanbotBarcodeScannerSDK.SBSDKUI2BarcodeMappedData) -> Void,
                         onError: @escaping () -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -473,5 +474,52 @@ extension StartingViewController: UINavigationControllerDelegate, UIImagePickerC
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
             }
         }
+    }
+}
+
+
+extension StartingViewController :  UIDocumentPickerDelegate {
+    
+    func documentPicker(
+        _ controller: UIDocumentPickerViewController,
+        didPickDocumentsAt urls: [URL]
+    ) {
+        guard let sourceURL = urls.first else { return }
+        
+        let extractor = SBSDKPDFImageExtractor()
+        let imageRefs = extractor.extract(from: sourceURL)
+        
+        guard imageRefs.count != 0 else { return }
+        
+        let viewController = ViewImageRefViewController()
+        viewController.imageRef = imageRefs.first!
+        self.navigationController?.pushViewController(viewController, animated: true)
+        
+        
+    }
+    
+    func documentPickerWasCancelled(
+        _ controller: UIDocumentPickerViewController
+    ) {
+        print("User cancelled PDF picker")
+    }
+    
+    func scanFromPdfFile() {
+        var picker : UIDocumentPickerViewController
+        if #available(iOS 14.0, *) {
+            picker = UIDocumentPickerViewController(
+                forOpeningContentTypes: [.pdf],
+                asCopy: false
+            )
+        } else {
+            picker = UIDocumentPickerViewController()
+            picker.allowsMultipleSelection = false
+        }
+        
+        picker.delegate = self
+        picker.allowsMultipleSelection = false
+        
+        present(picker, animated: true)
+        
     }
 }
