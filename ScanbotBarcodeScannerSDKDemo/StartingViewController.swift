@@ -509,7 +509,7 @@ extension StartingViewController :  UIDocumentPickerDelegate {
         if #available(iOS 14.0, *) {
             picker = UIDocumentPickerViewController(
                 forOpeningContentTypes: [.pdf],
-                asCopy: false
+                asCopy: true
             )
         } else {
             picker = UIDocumentPickerViewController()
