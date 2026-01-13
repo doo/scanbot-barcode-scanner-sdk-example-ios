@@ -50,8 +50,8 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
-        
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
+                
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
         usecase.barcodeInfoMapping.barcodeItemMapper = self
@@ -61,9 +61,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -73,8 +73,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -83,7 +88,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
         
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -94,9 +99,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -106,8 +111,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -116,7 +126,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
         
         let usecase = SBSDKUI2SingleScanningMode()
         usecase.confirmationSheetEnabled = true
@@ -126,9 +136,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -138,8 +148,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -148,7 +163,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .unique
@@ -158,9 +173,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -170,8 +185,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -180,7 +200,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .unique
@@ -191,9 +211,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -203,8 +223,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -213,7 +238,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .counting
@@ -227,9 +252,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -239,8 +264,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -249,7 +279,7 @@ class StartingViewController: UITableViewController {
         self.detectedBarcodes = []
         
         let config = SBSDKUI2BarcodeScannerScreenConfiguration()
-        config.scannerConfiguration.barcodeFormats = SBSDKBarcodeFormats.all
+        config.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.all)
         
         let usecase = SBSDKUI2MultipleScanningMode()
         usecase.mode = .counting
@@ -262,9 +292,9 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
+                                                     configuration: config) { controller, result, error in
             
-            if !cancelled, let items = result?.items {
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -274,8 +304,13 @@ class StartingViewController: UITableViewController {
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if cancelled {
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
@@ -299,8 +334,8 @@ class StartingViewController: UITableViewController {
         config.useCase = usecase
         
         SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, cancelled, error, result in
-            if !cancelled, let items = result?.items {
+                                                     configuration: config) { controller, result, error in
+            if let items = result?.items {
                 self.detectedBarcodes = items.map({ item in 
                     return BarcodeResult(type: item.barcode.format,
                                          rawTextString: item.barcode.text,
@@ -309,27 +344,40 @@ class StartingViewController: UITableViewController {
                 
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
-            } else if cancelled {
+                
+            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                // Canceled. Do nothing.
                 controller.presentingViewController?.dismiss(animated: true)
+            } else if let error {
+                // Show an error alert.
+                controller.presentingViewController?.dismiss(animated: true)
+                self.sbsdk_showError(error)
             }
         }
     }
     
-    private func detectBarcodesOnImage(_ image: UIImage) {
+    private func detectBarcodesOnImage(_ image: SBSDKImageRef) {
         detectedBarcodes.removeAll()
         
         let barcodeConfiguration = SBSDKBarcodeFormatCommonConfiguration(formats: Array(SharedParameters.acceptedBarcodeTypes))
         let configuration = SBSDKBarcodeScannerConfiguration(barcodeFormatConfigurations: [barcodeConfiguration])
         
-        let scanner = SBSDKBarcodeScanner(configuration: configuration)
-        let result = scanner.scan(from: image)
-        result?.barcodes.forEach({ barcode in
-            let barcodeResult = BarcodeResult(type: barcode.format,
-                                              rawTextString: barcode.text,
-                                              rawTextStringWithExtension: barcode.textWithExtension)
-            detectedBarcodes.append(barcodeResult)
-        })
-        self.barcodeImage = nil
+        do {
+            let scanner = try SBSDKBarcodeScanner(configuration: configuration)
+            let result = try scanner.run(image: image)
+            result.barcodes.forEach({ barcode in
+                let barcodeResult = BarcodeResult(type: barcode.format,
+                                                  rawTextString: barcode.text,
+                                                  rawTextStringWithExtension: barcode.textWithExtension)
+                detectedBarcodes.append(barcodeResult)
+            })
+            self.barcodeImage = nil
+        } catch {
+            sbsdk_showError(error) { [weak self] _ in
+                guard let self else { return }
+                self.sbsdk_forceClose(animated: true, completion: nil)
+            }
+        }
     }
     
     private func showImagePicker() {
@@ -420,7 +468,8 @@ extension StartingViewController: UINavigationControllerDelegate, UIImagePickerC
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.dismiss(animated: true) {
-                self.detectBarcodesOnImage(image)
+                let imageRef = SBSDKImageRef.fromUIImage(image: image)
+                self.detectBarcodesOnImage(imageRef)
                 self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
             }
         }

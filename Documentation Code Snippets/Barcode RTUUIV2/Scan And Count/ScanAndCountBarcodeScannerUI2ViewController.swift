@@ -1,14 +1,14 @@
 //
-//  BarcodeViewFinderUI2ViewController.swift
+//  ScanAndCountBarcodeScannerUI2ViewController.swift
 //  ScanbotSDK Examples
 //
-//  Created by Rana Sohaib on 15.07.25.
+//  Created by Rana Sohaib on 11.11.25.
 //
 
 import Foundation
 import ScanbotBarcodeScannerSDK
 
-class BarcodeViewFinderUI2ViewController: UIViewController {
+class ScanAndCountBarcodeScannerUI2ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,22 +24,30 @@ class BarcodeViewFinderUI2ViewController: UIViewController {
         // Create the default configuration object.
         let configuration = SBSDKUI2BarcodeScannerScreenConfiguration()
         
-        // Set visibility for the view finder.
-        configuration.viewFinder.visible = true
+        // Initialize the multi scan usecase.
+        let multiUsecase = SBSDKUI2MultipleScanningMode()
         
-        // Create the instance of the style, either `SBSDKUI2FinderCorneredStyle` or `SBSDKUI2FinderStrokedStyle`.
-        let style = SBSDKUI2FinderCorneredStyle(strokeColor: SBSDKUI2Color(colorString: "#FFFFFFFF"),
-                                                strokeWidth: 3.0,
-                                                cornerRadius: 10.0)
+        // Set the counting repeat delay.
+        multiUsecase.countingRepeatDelay = 1000
         
-        // Set the configured style.
-        configuration.viewFinder.style = style
+        // Set the counting mode.
+        multiUsecase.mode = .counting
         
-        // Set the desired aspect ratio of the view finder.
-        configuration.viewFinder.aspectRatio = SBSDKAspectRatio(width: 1.0, height: 1.0)
+        // Set the sheet mode of the barcodes preview.
+        multiUsecase.sheet.mode = .collapsedSheet
         
-        // Set the overlay color.
-        configuration.viewFinder.overlayColor = SBSDKUI2Color(colorString: "#26000000")
+        // Set the height of the collapsed sheet.
+        multiUsecase.sheet.collapsedVisibleHeight = .large
+        
+        // Enable manual count change.
+        multiUsecase.sheetContent.manualCountChangeEnabled = true
+        
+        // Configure the submit button.
+        multiUsecase.sheetContent.submitButton.text = "Submit"
+        multiUsecase.sheetContent.submitButton.foreground.color = SBSDKUI2Color(colorString: "#000000")
+        
+        // Set the configured usecase.
+        configuration.useCase = multiUsecase
         
         // Create and set an array of accepted barcode formats.
         configuration.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.twod)

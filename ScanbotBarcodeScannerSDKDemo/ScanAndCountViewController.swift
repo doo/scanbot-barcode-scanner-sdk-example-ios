@@ -13,10 +13,12 @@ final class ScanAndCountViewController: UIViewController {
     
     @IBOutlet private var listCountView: UIView!
     @IBOutlet private var listCountLabel: UILabel!
+    @IBOutlet private var containerCounterView: UIView!
     
     private var countedBarcodes = [SBSDKBarcodeScannerAccumulatingResult]()
     private var scannerController: SBSDKBarcodeScanAndCountViewController!
-        
+    private var isShowingError: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +37,7 @@ final class ScanAndCountViewController: UIViewController {
         let scannerConfiguration = self.scannerController.configuration
         
         scannerConfiguration.barcodeFormatConfigurations = [barcodeConfiguration]
-        
+        self.view.bringSubviewToFront(containerCounterView)
         self.scannerController.configuration = scannerConfiguration
     }
     
@@ -53,6 +55,21 @@ final class ScanAndCountViewController: UIViewController {
 }
 
 extension ScanAndCountViewController: SBSDKBarcodeScanAndCountViewControllerDelegate {
+    func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController, didFailScanning error: any Error) {
+        if let error = error as? SBSDKError {
+            guard !isShowingError else { return }
+            
+            isShowingError = true
+            if error.isCanceled {
+                print("Scanning was cancelled by the user")
+            } else {
+                sbsdk_showError(error) { [weak self] _ in
+                    guard let self else { return }
+                    self.sbsdk_forceClose(animated: true, completion: nil)
+                }
+            }
+        }
+    }
     
     func barcodeScanAndCount(_ controller: SBSDKBarcodeScanAndCountViewController,
                              didScanBarcodes codes: [SBSDKBarcodeItem]) {
