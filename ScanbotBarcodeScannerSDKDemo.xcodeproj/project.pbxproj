@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0852F3C2274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */; };
+		287B5E5D2F45C9BA00E6613A /* ScanbotBarcodeScannerSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 287B5E5C2F45C9BA00E6613A /* ScanbotBarcodeScannerSDK */; };
 		288AB3D52A448B3100D6461E /* ScanAndCountResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288AB3D42A448B3100D6461E /* ScanAndCountResultsViewController.swift */; };
 		288AB3D72A448B5900D6461E /* ScanAndCountBarcodeDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288AB3D62A448B5900D6461E /* ScanAndCountBarcodeDetailsCell.swift */; };
 		28E8A5942A41BEC10071539A /* ScanAndCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8A5932A41BEC10071539A /* ScanAndCountViewController.swift */; };
@@ -24,13 +25,11 @@
 		69B9C29523A91D320055809B /* BarcodeResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69B9C28D23A91D320055809B /* BarcodeResultList.swift */; };
 		69B9C29723A91D440055809B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B9C29623A91D440055809B /* Main.storyboard */; };
 		94F51BF42E007527002EA011 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F51BF32E007526002EA011 /* SceneDelegate.swift */; };
-		BCFFEB7ED266F64063A92628 /* Pods_ScanbotBarcodeScannerSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE3F0ED51EE0F51919B2E73 /* Pods_ScanbotBarcodeScannerSDKDemo.framework */; };
 		F1A5C2B72B8CFF87005E30B1 /* BarcodeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A5C2B62B8CFF87005E30B1 /* BarcodeResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0852F3C1274BEF6600C33EC7 /* ClassicBatchBarcodeScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicBatchBarcodeScanner.swift; sourceTree = "<group>"; };
-		0D67B2ECD8F25944B8795754 /* Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		288AB3D42A448B3100D6461E /* ScanAndCountResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanAndCountResultsViewController.swift; sourceTree = "<group>"; };
 		288AB3D62A448B5900D6461E /* ScanAndCountBarcodeDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanAndCountBarcodeDetailsCell.swift; sourceTree = "<group>"; };
 		28E8A5932A41BEC10071539A /* ScanAndCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanAndCountViewController.swift; sourceTree = "<group>"; };
@@ -48,9 +47,7 @@
 		69B9C28C23A91D320055809B /* BarcodeResultDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultDetails.swift; sourceTree = "<group>"; };
 		69B9C28D23A91D320055809B /* BarcodeResultList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeResultList.swift; sourceTree = "<group>"; };
 		69B9C29623A91D440055809B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		829D9430CA08B67D5E019FAD /* Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
 		94F51BF32E007526002EA011 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BFE3F0ED51EE0F51919B2E73 /* Pods_ScanbotBarcodeScannerSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScanbotBarcodeScannerSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1A5C2B62B8CFF87005E30B1 /* BarcodeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,37 +56,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCFFEB7ED266F64063A92628 /* Pods_ScanbotBarcodeScannerSDKDemo.framework in Frameworks */,
+				287B5E5D2F45C9BA00E6613A /* ScanbotBarcodeScannerSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02621F3468A5C9E4EDB7C682 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BFE3F0ED51EE0F51919B2E73 /* Pods_ScanbotBarcodeScannerSDKDemo.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		32E897214C1993773CBE83D5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0D67B2ECD8F25944B8795754 /* Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig */,
-				829D9430CA08B67D5E019FAD /* Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		690166BE239811940054D9AA = {
 			isa = PBXGroup;
 			children = (
 				690166C9239811940054D9AA /* ScanbotBarcodeScannerSDKDemo */,
 				690166C8239811940054D9AA /* Products */,
-				32E897214C1993773CBE83D5 /* Pods */,
-				02621F3468A5C9E4EDB7C682 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,11 +120,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 690166DB239811960054D9AA /* Build configuration list for PBXNativeTarget "ScanbotBarcodeScannerSDKDemo" */;
 			buildPhases = (
-				8460761BC2A8280D5811BD98 /* [CP] Check Pods Manifest.lock */,
 				690166C3239811940054D9AA /* Sources */,
 				690166C4239811940054D9AA /* Frameworks */,
 				690166C5239811940054D9AA /* Resources */,
-				509D478582B2EF378ECCBA2C /* [CP] Embed Pods Frameworks */,
+				287B5E5E2F45CA4D00E6613A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -182,6 +159,9 @@
 				Base,
 			);
 			mainGroup = 690166BE239811940054D9AA;
+			packageReferences = (
+				287B5E5B2F45C9BA00E6613A /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */,
+			);
 			productRefGroup = 690166C8239811940054D9AA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -205,24 +185,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		509D478582B2EF378ECCBA2C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ScanbotBarcodeScannerSDKDemo/Pods-ScanbotBarcodeScannerSDKDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8460761BC2A8280D5811BD98 /* [CP] Check Pods Manifest.lock */ = {
+		287B5E5E2F45CA4D00E6613A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -230,19 +193,15 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ScanbotBarcodeScannerSDKDemo-checkManifestLockResult.txt",
+				"${SRCROOT}/Libraries.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "cp -af \"${BUILD_DIR%Build/*}/SourcePackages/checkouts/scanbot-barcode-scanner-sdk-ios-spm/LICENSE\" \"${SRCROOT}/Libraries.txt\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -401,7 +360,6 @@
 		};
 		690166DC239811960054D9AA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D67B2ECD8F25944B8795754 /* Pods-ScanbotBarcodeScannerSDKDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -421,7 +379,6 @@
 		};
 		690166DD239811960054D9AA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 829D9430CA08B67D5E019FAD /* Pods-ScanbotBarcodeScannerSDKDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -461,6 +418,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		287B5E5B2F45C9BA00E6613A /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:doo/scanbot-barcode-scanner-sdk-ios-spm.git";
+			requirement = {
+				kind = exactVersion;
+				version = "8.1.0-RC1";
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		287B5E5C2F45C9BA00E6613A /* ScanbotBarcodeScannerSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 287B5E5B2F45C9BA00E6613A /* XCRemoteSwiftPackageReference "scanbot-barcode-scanner-sdk-ios-spm" */;
+			productName = ScanbotBarcodeScannerSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 690166BF239811940054D9AA /* Project object */;
 }
