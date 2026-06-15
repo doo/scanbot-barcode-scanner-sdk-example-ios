@@ -22,12 +22,18 @@ class BarcodeClassicUIGeneralConfigurationViewController: UIViewController {
                                                                        configuration: .init(),
                                                                        delegate: self)
         
-        // Now you can configure some general properties using one of the configuration objects.
+        // Now you can configure some properties using configuration objects or ViewModel @Published properties.
         //
-        // As demonstrated in the functions below there are 3 steps:
+        // For most viewfinder properties, use ViewModel @Published properties for reactive updates.
+        // For other configurations like general/zoom/energy, still use configuration objects.
+        //
+        // Configuration objects pattern (for general/zoom/energy):
         // 1. Read the current configuration from the scanner view controller.
         // 2. Modify the configuration to your needs.
         // 3. Pass the modified configuration back to the scanner view controller to apply it.
+        //
+        // ViewModel properties pattern (for viewfinder and other reactive properties):
+        // 1. Directly set properties on scannerViewController.viewModel.* for reactive updates.
         
         self.applyGeneralConfiguration()
         self.applyZoomConfiguration()
@@ -91,16 +97,10 @@ class BarcodeClassicUIGeneralConfigurationViewController: UIViewController {
         // The view finder configuration lets you control the appearance of the view finder,
         // e.g. if it is enabled, its aspect ratio, its colors and style, its offsets and insets and more.
         
-        // Read the current view finder configuration from the scanner view controller.
-        let viewFinderConfiguration = scannerViewController.viewFinderConfiguration
-        
-        // Modify it to your needs.
-        viewFinderConfiguration.isViewFinderEnabled = true
-        viewFinderConfiguration.aspectRatio = SBSDKAspectRatio(width: 8.0, height: 5.0)
-        viewFinderConfiguration.lineColor = UIColor.white.withAlphaComponent(0.85)
-        
-        // After changing the configuration you need to pass it back to the scanner view controller in order to apply it.
-        self.scannerViewController.viewFinderConfiguration = viewFinderConfiguration
+        // Use ViewModel @Published properties for direct property updates.
+        self.scannerViewController.viewModel.isViewFinderEnabled = true
+        self.scannerViewController.viewModel.viewFinderAspectRatio = SBSDKAspectRatio(width: 8.0, height: 5.0)
+        self.scannerViewController.viewFinderLineColor = UIColor.white.withAlphaComponent(0.85)
     }
 
 }
