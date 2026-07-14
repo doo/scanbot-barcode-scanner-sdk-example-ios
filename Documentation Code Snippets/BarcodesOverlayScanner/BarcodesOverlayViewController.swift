@@ -35,13 +35,13 @@ class BarcodesOverlayViewController: UIViewController {
                                                                        configuration: configuration)
         
         // Set self as a trackingViewController's delegate.
-        self.scannerViewController.trackingOverlayController.delegate = self
+        self.scannerViewController.model.barcodeFrameEngine.trackingDelegate = self
         
         // Enable the barcodes tracking overlay.
         self.scannerViewController.isTrackingOverlayEnabled = true
         
         // Get current tracking configuration object.
-        let trackingConfiguration = self.scannerViewController.trackingOverlayController.configuration
+        let trackingConfiguration = self.scannerViewController.model.barcodeFrameEngine.trackingOverlayConfiguration
         
         // Set the color for the polygons of the tracked barcodes.
         trackingConfiguration.polygonStyle.polygonColor = UIColor(red: 0, green: 0.81, blue: 0.65, alpha: 0.8)
@@ -64,8 +64,8 @@ class BarcodesOverlayViewController: UIViewController {
         // Set the text format of the tracked barcodes.
         trackingConfiguration.textStyle.trackingOverlayTextFormat = .codeAndType
         
-        // Set the tracking configuration to apply it.
-        self.scannerViewController.trackingOverlayController.configuration = trackingConfiguration
+        // Re-assign to commit the changes and force the overlay to redraw already-tracked items.
+        self.scannerViewController.model.barcodeFrameEngine.trackingOverlayConfiguration = trackingConfiguration
     }
 }
 
