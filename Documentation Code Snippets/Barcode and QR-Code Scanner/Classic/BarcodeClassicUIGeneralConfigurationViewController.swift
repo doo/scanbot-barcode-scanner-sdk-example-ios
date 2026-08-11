@@ -99,9 +99,9 @@ class BarcodeClassicUIGeneralConfigurationViewController: UIViewController {
         // e.g. if it is enabled, its aspect ratio, its colors and style, its offsets and insets and more.
         
         // Use the scanner's model configuration for direct, reactive property updates.
-        self.scannerViewController.model.configuration.isViewFinderEnabled = true
-        self.scannerViewController.model.configuration.viewFinderAspectRatio = SBSDKAspectRatio(width: 8.0, height: 5.0)
-        self.scannerViewController.model.configuration.viewFinderLineColor = UIColor.white.withAlphaComponent(0.85)
+        self.scannerViewController.model.configuration.viewFinder.isViewFinderEnabled = true
+        self.scannerViewController.model.configuration.viewFinder.aspectRatio = SBSDKAspectRatio(width: 8.0, height: 5.0)
+        self.scannerViewController.model.configuration.viewFinder.lineColor = UIColor.white.withAlphaComponent(0.85)
     }
 
 }

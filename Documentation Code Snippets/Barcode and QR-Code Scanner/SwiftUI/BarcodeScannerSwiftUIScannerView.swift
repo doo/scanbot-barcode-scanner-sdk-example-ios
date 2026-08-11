@@ -36,34 +36,34 @@ struct BarcodeScannerSwiftUIScannerView: View {
     var body: some View {
 
         // Embed the `SBSDKBarcodeScannerModel`-driven camera/detection UI.
-        SBSDKScannerView(viewModel: model)
+        SBSDKScannerView(model: model)
             .onAppear {
                 // Enable the view finder.
-                model.configuration.isViewFinderEnabled = true
+                model.configuration.viewFinder.isViewFinderEnabled = true
 
                 // Set the finder's aspect ratio.
-                model.configuration.viewFinderAspectRatio = SBSDKAspectRatio(width: 2, height: 1)
+                model.configuration.viewFinder.aspectRatio = SBSDKAspectRatio(width: 2, height: 1)
 
                 // Set the finder's minimum insets.
-                model.configuration.viewFinderMinimumInset = UIEdgeInsets(top: 100, left: 50, bottom: 100, right: 50)
+                model.configuration.viewFinder.minimumInset = UIEdgeInsets(top: 100, left: 50, bottom: 100, right: 50)
 
                 // Configure the view finder colors and line properties.
-                model.configuration.viewFinderLineColor = UIColor.red
-                model.configuration.viewFinderBackgroundColor = UIColor.red.withAlphaComponent(0.1)
-                model.configuration.viewFinderLineWidth = 2
-                model.configuration.viewFinderLineCornerRadius = 8
+                model.configuration.viewFinder.lineColor = UIColor.red
+                model.configuration.viewFinder.backgroundColor = UIColor.red.withAlphaComponent(0.1)
+                model.configuration.viewFinder.lineWidth = 2
+                model.configuration.viewFinder.lineCornerRadius = 8
 
                 // Set the detection rate.
-                model.configuration.detectionRate = 5
+                model.configuration.userInterface.detectionRate = 5
 
                 // Implement this to pause the detection (e.g. when showing the results).
-                model.configuration.isScanningEnabled = shouldDetectBarcodes
+                model.baseRuntime.isScanningEnabled = shouldDetectBarcodes
             }
             // Subscribe to the frame engine's result/failure events. This replaces
             // `SBSDKBarcodeScannerViewControllerDelegate`.
-            .onReceive(model.barcodeFrameEngine.events) { event in
+            .onReceive(model.frameEngine.events) { event in
                 switch event {
-                case .result(let snapshot):
+                case .validResult(let snapshot, _):
                     // Process the detected barcodes.
                     print(snapshot.barcodes)
 
@@ -71,6 +71,10 @@ struct BarcodeScannerSwiftUIScannerView: View {
                         // Get the source image.
                         let sourceImage = try? code.sourceImage?.toUIImage()
                     }
+
+                case .everyFrame:
+                    // Fired for every processed frame, before validity is checked; nothing to do here.
+                    break
 
                 case .failure(let error):
                     // Handle the error.

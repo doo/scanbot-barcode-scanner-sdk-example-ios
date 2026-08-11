@@ -39,19 +39,19 @@ class BarcodesBatchViewController: UIViewController {
                                                                        delegate: self)
         
         // Enable the view finder.
-        self.scannerViewController.model.configuration.isViewFinderEnabled = true
+        self.scannerViewController.model.configuration.viewFinder.isViewFinderEnabled = true
         
         // Set the finder's aspect ratio.
-        self.scannerViewController.model.configuration.viewFinderAspectRatio = SBSDKAspectRatio(width: 2, height: 1)
+        self.scannerViewController.model.configuration.viewFinder.aspectRatio = SBSDKAspectRatio(width: 2, height: 1)
         
         // Set the finder's minimum insets.
-        self.scannerViewController.model.configuration.viewFinderMinimumInset = UIEdgeInsets(top: 100, left: 50, bottom: 100, right: 50)
+        self.scannerViewController.model.configuration.viewFinder.minimumInset = UIEdgeInsets(top: 100, left: 50, bottom: 100, right: 50)
         
         // Configure the view finder colors and line properties.
-        self.scannerViewController.model.configuration.viewFinderLineColor = UIColor.red
-        self.scannerViewController.model.configuration.viewFinderBackgroundColor = UIColor.red.withAlphaComponent(0.1)
-        self.scannerViewController.model.configuration.viewFinderLineWidth = 2
-        self.scannerViewController.model.configuration.viewFinderLineCornerRadius = 8
+        self.scannerViewController.model.configuration.viewFinder.lineColor = UIColor.red
+        self.scannerViewController.model.configuration.viewFinder.backgroundColor = UIColor.red.withAlphaComponent(0.1)
+        self.scannerViewController.model.configuration.viewFinder.lineWidth = 2
+        self.scannerViewController.model.configuration.viewFinder.lineCornerRadius = 8
 
         // Get current energy configuration.
         let energyConfig = self.scannerViewController.energyConfiguration

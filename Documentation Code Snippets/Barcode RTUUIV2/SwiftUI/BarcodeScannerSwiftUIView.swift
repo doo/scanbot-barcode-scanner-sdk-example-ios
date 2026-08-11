@@ -72,13 +72,18 @@ struct BarcodeScannerSwiftUIView: View {
             Text("Scan error: \(scanError.localizedDescription)")
 
         } else {
+            
             // Show the scanner, pass the configuration and the button and error handlers.
-            SBSDKUI2BarcodeScannerView(configuration: configuration, 
-                                       completion: { result, error in
+            if let scannerView = try? SBSDKUI2BarcodeScannerView(configuration: configuration,
+                                                                 completion: { result, error in
                 scannerResult = result
                 scanError = error
-            })
-            .ignoresSafeArea()
+            }) {
+                scannerView
+                    .ignoresSafeArea()
+            } else {
+                Text("Failed to initialize the barcode scanner.")
+            }
         }
     }
 }
