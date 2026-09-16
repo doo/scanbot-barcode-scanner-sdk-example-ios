@@ -90,8 +90,8 @@ class InfoMappingBarcodeScannerUI2ViewController: UIViewController {
 
 extension InfoMappingBarcodeScannerUI2ViewController: SBSDKUI2BarcodeItemMapper {
     
-    func mapBarcodeItem(item: ScanbotSDK.SBSDKBarcodeItem,
-                        onResult: @escaping (ScanbotSDK.SBSDKUI2BarcodeMappedData) -> Void,
+    func mapBarcodeItem(item: ScanbotBarcodeScannerSDK.SBSDKBarcodeItem,
+                        onResult: @escaping (ScanbotBarcodeScannerSDK.SBSDKUI2BarcodeMappedData) -> Void,
                         onError: @escaping () -> Void) {
         
         // Handle the item.
