@@ -8,7 +8,7 @@
 import UIKit
 import ScanbotBarcodeScannerSDK
 
-// This is a simple, empty view controller which acts as a container and delegate for the `SBSDKBarcodeScannerViewController` conforming `SBSDKBarcodeTrackingOverlayControllerDelegate`.
+// This is a simple, empty view controller which acts as a container and delegate for the `SBSDKBarcodeScannerViewController` conforming to `SBSDKBarcodeTrackingOverlayControllerDelegate`.
 class BarcodesOverlayViewController: UIViewController {
     
     // The instance of the scanner view controller.
@@ -35,37 +35,35 @@ class BarcodesOverlayViewController: UIViewController {
                                                                        configuration: configuration)
         
         // Set self as a trackingViewController's delegate.
-        self.scannerViewController.trackingOverlayController.delegate = self
+        self.scannerViewController.viewModel.trackingOverlay.delegate = self
         
         // Enable the barcodes tracking overlay.
-        self.scannerViewController.isTrackingOverlayEnabled = true
+        self.scannerViewController.viewModel.trackingOverlay.isTrackingOverlayEnabled = true
         
         // Get current tracking configuration object.
-        let trackingConfiguration = self.scannerViewController.trackingOverlayController.configuration
+        let trackingConfiguration = self.scannerViewController.viewModel.trackingOverlay.trackingOverlayConfiguration
         
         // Set the color for the polygons of the tracked barcodes.
-        trackingConfiguration.polygonStyle.polygonColor = UIColor(red: 0, green: 0.81, blue: 0.65, alpha: 0.8)
-        
-        // Set the color for the polygons of the selected tracked barcodes.
-        trackingConfiguration.polygonStyle.polygonSelectedColor = UIColor(red:0.784, green:0.1, blue:0.235, alpha:0.8)
+        trackingConfiguration.defaultStyle.polygonColor = UIColor(red: 0, green: 0.81, blue: 0.65, alpha: 0.8)
         
         // Set the text color of the tracked barcodes.
-        trackingConfiguration.textStyle.textColor = UIColor.black
+        trackingConfiguration.defaultStyle.textColor = UIColor.black
         
         // Set the text background color of the tracked barcodes.
-        trackingConfiguration.textStyle.textBackgroundColor = UIColor(red:0, green:0.81, blue:0.65, alpha:0.8)
-        
-        // Set the text color of the selected tracked barcodes.
-        trackingConfiguration.textStyle.highlightedTextColor = UIColor.white
-        
-        // Set the text background color of the selected tracked barcodes.
-        trackingConfiguration.textStyle.textBackgroundHighlightedColor = UIColor(red:0.784, green:0.1, blue:0.235, alpha:0.8)
+        trackingConfiguration.defaultStyle.textBackgroundColor = UIColor(red:0, green:0.81, blue:0.65, alpha:0.8)
         
         // Set the text format of the tracked barcodes.
-        trackingConfiguration.textStyle.trackingOverlayTextFormat = .codeAndType
+        trackingConfiguration.defaultStyle.textFormat = .codeAndType
         
-        // Set the tracking configuration to apply it.
-        self.scannerViewController.trackingOverlayController.configuration = trackingConfiguration
+        // Set the style used for selected tracked barcodes.
+        let selectionStyle = trackingConfiguration.defaultStyle.copy() as! SBSDKBarcodeTrackingOverlayStyle
+        selectionStyle.polygonColor = UIColor(red:0.784, green:0.1, blue:0.235, alpha:0.8)
+        selectionStyle.textColor = UIColor.white
+        selectionStyle.textBackgroundColor = UIColor(red:0.784, green:0.1, blue:0.235, alpha:0.8)
+        trackingConfiguration.selectionStyle = selectionStyle
+        
+        // Re-assign to commit the changes and force the overlay to redraw already-tracked items.
+        self.scannerViewController.viewModel.trackingOverlay.trackingOverlayConfiguration = trackingConfiguration
     }
 }
 
@@ -81,24 +79,15 @@ extension BarcodesOverlayViewController: SBSDKBarcodeTrackingOverlayControllerDe
         let sourceImage = try? barcode.sourceImage?.toUIImage()
     }
     
-    // Implement this method if you need to customize the polygon style individually for each barcode detected.
-    func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController, polygonStyleFor barcode: SBSDKBarcodeItem) -> SBSDKBarcodeTrackedViewPolygonStyle? {
-        let style = SBSDKBarcodeTrackedViewPolygonStyle()
-        if barcode.format == SBSDKBarcodeFormat.qrCode {
-            style.polygonColor = UIColor.red
-            style.polygonBackgroundColor = UIColor.purple.withAlphaComponent(0.2)
-        }
-        return style
-    }
-    
-    // Implement this method if you need to customize the text style individually for each barcode detected.
+    // Implement this method if you need to customize the style individually for each barcode detected.
     func barcodeTrackingOverlay(_ controller: SBSDKBarcodeTrackingOverlayController,
-                                textStyleFor barcode: SBSDKBarcodeItem,
-                                proposedStyle: SBSDKBarcodeTrackedViewTextStyle) -> SBSDKBarcodeTrackedViewTextStyle {
-        let style = SBSDKBarcodeTrackedViewTextStyle()
-        if barcode.format == SBSDKBarcodeFormat.qrCode {
-            style.textBackgroundColor = UIColor.purple.withAlphaComponent(0.2)
-        }
+                                styleFor item: SBSDKBarcodeTrackingOverlayItem,
+                                proposedStyle: SBSDKBarcodeTrackingOverlayStyle) -> SBSDKBarcodeTrackingOverlayStyle {
+        guard item.barcode.format == SBSDKBarcodeFormat.qrCode else { return proposedStyle }
+        let style = proposedStyle.copy() as! SBSDKBarcodeTrackingOverlayStyle
+        style.polygonColor = UIColor.red
+        style.polygonBackgroundColor = UIColor.purple.withAlphaComponent(0.2)
+        style.textBackgroundColor = UIColor.purple.withAlphaComponent(0.2)
         return style
     }
 }

@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // See also the Scanbot.setLicenseFailureHandler(..) to setup a custom handler.
         Scanbot.setupDefaultLicenseFailureHandler()
         
-        Scanbot.setLoggingEnabled(true)
+        Scanbot.loggingEnabled = true
         
         // TODO: Add the Scanbot Barcode SDK license key here.
         // Please note: The Scanbot Barcode SDK will run without a license key for one minute per session!

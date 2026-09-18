@@ -60,27 +60,32 @@ class StartingViewController: UITableViewController {
         
         config.useCase = usecase
         
-        SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, result, error in
+        do {
+            try SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                             configuration: config) { controller, result, error in
             
-            if let items = result?.items {
-                self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.barcode.format,
-                                         rawTextString: item.barcode.text,
-                                         rawTextStringWithExtension: item.barcode.textWithExtension)
-                })
+                if let items = result?.items {
+                    self.detectedBarcodes = items.map({ item in
+                        return BarcodeResult(type: item.barcode.format,
+                                             rawTextString: item.barcode.text,
+                                             rawTextStringWithExtension: item.barcode.textWithExtension)
+                    })
                 
-                self.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                    self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
-                // Canceled. Do nothing.
-                controller.presentingViewController?.dismiss(animated: true)
-            } else if let error {
-                // Show an error alert.
-                controller.presentingViewController?.dismiss(animated: true)
-                self.sbsdk_showError(error)
+                } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                    // Canceled. Do nothing.
+                    controller.presentingViewController?.dismiss(animated: true)
+                } else if let error {
+                    // Show an error alert.
+                    controller.presentingViewController?.dismiss(animated: true)
+                    self.sbsdk_showError(error)
+                }
             }
+        } catch {
+            // The scanner screen could not be created, e.g. due to an invalid configuration.
+            self.sbsdk_showError(error)
         }
     }
     
@@ -98,27 +103,32 @@ class StartingViewController: UITableViewController {
         
         config.useCase = usecase
         
-        SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, result, error in
+        do {
+            try SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                             configuration: config) { controller, result, error in
             
-            if let items = result?.items {
-                self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.barcode.format,
-                                         rawTextString: item.barcode.text,
-                                         rawTextStringWithExtension: item.barcode.textWithExtension)
-                })
+                if let items = result?.items {
+                    self.detectedBarcodes = items.map({ item in
+                        return BarcodeResult(type: item.barcode.format,
+                                             rawTextString: item.barcode.text,
+                                             rawTextStringWithExtension: item.barcode.textWithExtension)
+                    })
                 
-                self.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                    self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
-                // Canceled. Do nothing.
-                controller.presentingViewController?.dismiss(animated: true)
-            } else if let error {
-                // Show an error alert.
-                controller.presentingViewController?.dismiss(animated: true)
-                self.sbsdk_showError(error)
+                } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                    // Canceled. Do nothing.
+                    controller.presentingViewController?.dismiss(animated: true)
+                } else if let error {
+                    // Show an error alert.
+                    controller.presentingViewController?.dismiss(animated: true)
+                    self.sbsdk_showError(error)
+                }
             }
+        } catch {
+            // The scanner screen could not be created, e.g. due to an invalid configuration.
+            self.sbsdk_showError(error)
         }
     }
     
@@ -135,27 +145,32 @@ class StartingViewController: UITableViewController {
         
         config.useCase = usecase
         
-        SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, result, error in
+        do {
+            try SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                             configuration: config) { controller, result, error in
             
-            if let items = result?.items {
-                self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.barcode.format,
-                                         rawTextString: item.barcode.text,
-                                         rawTextStringWithExtension: item.barcode.textWithExtension)
-                })
+                if let items = result?.items {
+                    self.detectedBarcodes = items.map({ item in
+                        return BarcodeResult(type: item.barcode.format,
+                                             rawTextString: item.barcode.text,
+                                             rawTextStringWithExtension: item.barcode.textWithExtension)
+                    })
                 
-                self.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                    self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
-                // Canceled. Do nothing.
-                controller.presentingViewController?.dismiss(animated: true)
-            } else if let error {
-                // Show an error alert.
-                controller.presentingViewController?.dismiss(animated: true)
-                self.sbsdk_showError(error)
+                } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                    // Canceled. Do nothing.
+                    controller.presentingViewController?.dismiss(animated: true)
+                } else if let error {
+                    // Show an error alert.
+                    controller.presentingViewController?.dismiss(animated: true)
+                    self.sbsdk_showError(error)
+                }
             }
+        } catch {
+            // The scanner screen could not be created, e.g. due to an invalid configuration.
+            self.sbsdk_showError(error)
         }
     }
     
@@ -172,27 +187,32 @@ class StartingViewController: UITableViewController {
         
         config.useCase = usecase
         
-        SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, result, error in
+        do {
+            try SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                             configuration: config) { controller, result, error in
             
-            if let items = result?.items {
-                self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.barcode.format,
-                                         rawTextString: item.barcode.text,
-                                         rawTextStringWithExtension: item.barcode.textWithExtension)
-                })
+                if let items = result?.items {
+                    self.detectedBarcodes = items.map({ item in
+                        return BarcodeResult(type: item.barcode.format,
+                                             rawTextString: item.barcode.text,
+                                             rawTextStringWithExtension: item.barcode.textWithExtension)
+                    })
                 
-                self.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                    self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
-                // Canceled. Do nothing.
-                controller.presentingViewController?.dismiss(animated: true)
-            } else if let error {
-                // Show an error alert.
-                controller.presentingViewController?.dismiss(animated: true)
-                self.sbsdk_showError(error)
+                } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                    // Canceled. Do nothing.
+                    controller.presentingViewController?.dismiss(animated: true)
+                } else if let error {
+                    // Show an error alert.
+                    controller.presentingViewController?.dismiss(animated: true)
+                    self.sbsdk_showError(error)
+                }
             }
+        } catch {
+            // The scanner screen could not be created, e.g. due to an invalid configuration.
+            self.sbsdk_showError(error)
         }
     }
     
@@ -210,27 +230,32 @@ class StartingViewController: UITableViewController {
         
         config.useCase = usecase
         
-        SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, result, error in
+        do {
+            try SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                             configuration: config) { controller, result, error in
             
-            if let items = result?.items {
-                self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.barcode.format,
-                                         rawTextString: item.barcode.text,
-                                         rawTextStringWithExtension: item.barcode.textWithExtension)
-                })
+                if let items = result?.items {
+                    self.detectedBarcodes = items.map({ item in
+                        return BarcodeResult(type: item.barcode.format,
+                                             rawTextString: item.barcode.text,
+                                             rawTextStringWithExtension: item.barcode.textWithExtension)
+                    })
                 
-                self.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                    self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
-                // Canceled. Do nothing.
-                controller.presentingViewController?.dismiss(animated: true)
-            } else if let error {
-                // Show an error alert.
-                controller.presentingViewController?.dismiss(animated: true)
-                self.sbsdk_showError(error)
+                } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                    // Canceled. Do nothing.
+                    controller.presentingViewController?.dismiss(animated: true)
+                } else if let error {
+                    // Show an error alert.
+                    controller.presentingViewController?.dismiss(animated: true)
+                    self.sbsdk_showError(error)
+                }
             }
+        } catch {
+            // The scanner screen could not be created, e.g. due to an invalid configuration.
+            self.sbsdk_showError(error)
         }
     }
     
@@ -251,27 +276,32 @@ class StartingViewController: UITableViewController {
         
         config.useCase = usecase
         
-        SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, result, error in
+        do {
+            try SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                             configuration: config) { controller, result, error in
             
-            if let items = result?.items {
-                self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.barcode.format,
-                                         rawTextString: item.barcode.text,
-                                         rawTextStringWithExtension: item.barcode.textWithExtension)
-                })
+                if let items = result?.items {
+                    self.detectedBarcodes = items.map({ item in
+                        return BarcodeResult(type: item.barcode.format,
+                                             rawTextString: item.barcode.text,
+                                             rawTextStringWithExtension: item.barcode.textWithExtension)
+                    })
                 
-                self.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                    self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
-                // Canceled. Do nothing.
-                controller.presentingViewController?.dismiss(animated: true)
-            } else if let error {
-                // Show an error alert.
-                controller.presentingViewController?.dismiss(animated: true)
-                self.sbsdk_showError(error)
+                } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                    // Canceled. Do nothing.
+                    controller.presentingViewController?.dismiss(animated: true)
+                } else if let error {
+                    // Show an error alert.
+                    controller.presentingViewController?.dismiss(animated: true)
+                    self.sbsdk_showError(error)
+                }
             }
+        } catch {
+            // The scanner screen could not be created, e.g. due to an invalid configuration.
+            self.sbsdk_showError(error)
         }
     }
     
@@ -291,27 +321,32 @@ class StartingViewController: UITableViewController {
         
         config.useCase = usecase
         
-        SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, result, error in
+        do {
+            try SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                             configuration: config) { controller, result, error in
             
-            if let items = result?.items {
-                self.detectedBarcodes = items.map({ item in
-                    return BarcodeResult(type: item.barcode.format,
-                                         rawTextString: item.barcode.text,
-                                         rawTextStringWithExtension: item.barcode.textWithExtension)
-                })
+                if let items = result?.items {
+                    self.detectedBarcodes = items.map({ item in
+                        return BarcodeResult(type: item.barcode.format,
+                                             rawTextString: item.barcode.text,
+                                             rawTextStringWithExtension: item.barcode.textWithExtension)
+                    })
                 
-                self.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                    self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
-                // Canceled. Do nothing.
-                controller.presentingViewController?.dismiss(animated: true)
-            } else if let error {
-                // Show an error alert.
-                controller.presentingViewController?.dismiss(animated: true)
-                self.sbsdk_showError(error)
+                } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                    // Canceled. Do nothing.
+                    controller.presentingViewController?.dismiss(animated: true)
+                } else if let error {
+                    // Show an error alert.
+                    controller.presentingViewController?.dismiss(animated: true)
+                    self.sbsdk_showError(error)
+                }
             }
+        } catch {
+            // The scanner screen could not be created, e.g. due to an invalid configuration.
+            self.sbsdk_showError(error)
         }
     }
     
@@ -333,26 +368,31 @@ class StartingViewController: UITableViewController {
         
         config.useCase = usecase
         
-        SBSDKUI2BarcodeScannerViewController.present(on: self,
-                                                     configuration: config) { controller, result, error in
-            if let items = result?.items {
-                self.detectedBarcodes = items.map({ item in 
-                    return BarcodeResult(type: item.barcode.format,
-                                         rawTextString: item.barcode.text,
-                                         rawTextStringWithExtension: item.barcode.textWithExtension)
-                })
+        do {
+            try SBSDKUI2BarcodeScannerViewController.present(on: self,
+                                                             configuration: config) { controller, result, error in
+                if let items = result?.items {
+                    self.detectedBarcodes = items.map({ item in 
+                        return BarcodeResult(type: item.barcode.format,
+                                             rawTextString: item.barcode.text,
+                                             rawTextStringWithExtension: item.barcode.textWithExtension)
+                    })
                 
-                self.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
+                    self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "BarcodeResultList", sender: self)
                 
-            } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
-                // Canceled. Do nothing.
-                controller.presentingViewController?.dismiss(animated: true)
-            } else if let error {
-                // Show an error alert.
-                controller.presentingViewController?.dismiss(animated: true)
-                self.sbsdk_showError(error)
+                } else if let sdkError = error as? SBSDKError, sdkError.isCanceled {
+                    // Canceled. Do nothing.
+                    controller.presentingViewController?.dismiss(animated: true)
+                } else if let error {
+                    // Show an error alert.
+                    controller.presentingViewController?.dismiss(animated: true)
+                    self.sbsdk_showError(error)
+                }
             }
+        } catch {
+            // The scanner screen could not be created, e.g. due to an invalid configuration.
+            self.sbsdk_showError(error)
         }
     }
     

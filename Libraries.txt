@@ -1,4 +1,4 @@
-Open Source libraries used in ScanbotBarcodeScannerSDK for iOS version 9.0.3:
+Open Source libraries used in ScanbotBarcodeScannerSDK for iOS version 10.0.0:
 
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
