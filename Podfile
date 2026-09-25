@@ -1,4 +1,4 @@
-platform :ios, '15.6'
+platform :ios, '15.0'
 
 target 'ScanbotBarcodeScannerSDKDemo' do
   use_frameworks!
