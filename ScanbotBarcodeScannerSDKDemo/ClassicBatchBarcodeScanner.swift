@@ -35,10 +35,10 @@ class ClassicBatchBarcodeScanner: UIViewController {
                                                                    parentView: self.cameraContainer, 
                                                                    configuration: scannerConfiguration)
         
-        self.scannerController.trackingOverlayController.delegate = self
+        self.scannerController.viewModel.trackingOverlay.delegate = self
         
         // Enable the tracking overlay here.
-        //self.scannerController.isTrackingOverlayEnabled = true
+        //self.scannerController.viewModel.trackingOverlay.isTrackingOverlayEnabled = true
         
         let energyConfiguration = self.scannerController.energyConfiguration
         energyConfiguration.detectionRate = 10
@@ -96,7 +96,7 @@ extension ClassicBatchBarcodeScanner: SBSDKBarcodeScannerViewControllerDelegate 
     func barcodeScannerController(_ controller: SBSDKBarcodeScannerViewController,
                                   didScanBarcodes codes: [SBSDKBarcodeItem]) {
         
-        if codes.count == 0 || controller.isTrackingOverlayEnabled {
+        if codes.count == 0 || controller.viewModel.trackingOverlay.isTrackingOverlayEnabled {
             return
         }
         for code in codes.reversed() {
