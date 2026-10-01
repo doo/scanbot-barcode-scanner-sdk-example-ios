@@ -1,17 +1,23 @@
 //
-//  BarcodeScannerSwiftUIView.swift
+//  BarcodeScannerCustomConfigurationUI2ViewController.swift
 //  ScanbotSDK Examples
 //
-//  Created by Daniil Voitenko on 10.04.24.
-//
 
-import SwiftUI
+import Foundation
 import ScanbotBarcodeScannerSDK
 
-struct BarcodeScannerSwiftUIView: View {
+class BarcodeScannerCustomConfigurationUI2ViewController: UIViewController {
     
-    // An instance of `SBSDKUI2BarcodeScannerScreenConfiguration` which contains the configuration settings for the barcode scanner.
-    let configuration: SBSDKUI2BarcodeScannerScreenConfiguration = {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Start scanning here. Usually this is an action triggered by some button or menu.
+        Task {
+            await self.startScanning()
+        }
+    }
+    
+    func startScanning() async {
         
         // Create the default configuration object.
         let configuration = SBSDKUI2BarcodeScannerScreenConfiguration()
@@ -50,39 +56,19 @@ struct BarcodeScannerSwiftUIView: View {
         // Create and set an array of accepted barcode formats.
         configuration.scannerConfiguration.setBarcodeFormats(SBSDKBarcodeFormats.twod)
         
-        return configuration
-    }()
-    
-    // An optional error object representing any errors that may occur during the scanning process.
-    @State var scanError: Error?
-    
-    // An optional `SBSDKUI2BarcodeScannerUIResult` object containing the result of the scanning process.
-    @State var scannerResult: SBSDKUI2BarcodeScannerUIResult?
-    
-    var body: some View {
-        
-        if let scannerResult {
+        // Present the view controller modally.
+        do {
+            let result = try await SBSDKUI2BarcodeScannerViewController.present(on: self, configuration: configuration)
             
             // Process and show the results here.
-            Text("Barcodes scanned: \(scannerResult.items.count)")
-
-        } else if let scanError {
+            print("Barcodes scanned: \(result.items.count)")
+        
+        } catch SBSDKError.operationCanceled {
+            print("The operation was cancelled before completion or by the user")
             
-            // Show error view here.
-            Text("Scan error: \(scanError.localizedDescription)")
-
-        } else {
-            // Show the scanner, pass the configuration and the button and error handlers.
-            SBSDKUI2BarcodeScannerView(configuration: configuration, 
-                                       completion: { result, error in
-                scannerResult = result
-                scanError = error
-            })
-            .ignoresSafeArea()
+        } catch {
+            // Any other error
+            print("Error scanning barcode: \(error.localizedDescription)")
         }
     }
-}
-
-#Preview {
-    BarcodeScannerSwiftUIView()
 }

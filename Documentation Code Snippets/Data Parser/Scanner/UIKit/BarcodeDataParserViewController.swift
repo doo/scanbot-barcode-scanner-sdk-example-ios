@@ -40,26 +40,21 @@ class BarcodeDataParserViewController: UIViewController {
                                                                        configuration: configuration,
                                                                        delegate: self)
         
-        // Get the current view finder configuration object.
-        let config = self.scannerViewController.viewFinderConfiguration
-        
         // Enable the view finder.
-        config.isViewFinderEnabled = true
+        self.scannerViewController.viewModel.configuration.viewFinder.isViewFinderEnabled = true
         
         // Set the finder's aspect ratio.
-        config.aspectRatio = SBSDKAspectRatio(width: 2, height: 1)
+        self.scannerViewController.viewModel.configuration.viewFinder.aspectRatio = SBSDKAspectRatio(width: 2, height: 1)
         
         // Set the finder's minimum insets.
-        config.minimumInset = UIEdgeInsets(top: 100, left: 50, bottom: 100, right: 50)
+        self.scannerViewController.viewModel.configuration.viewFinder.minimumInset = UIEdgeInsets(top: 100, left: 50, bottom: 100, right: 50)
         
         // Configure the view finder colors and line properties.
-        config.lineColor = UIColor.red
-        config.backgroundColor = UIColor.red.withAlphaComponent(0.1)
-        config.lineWidth = 2
-        config.lineCornerRadius = 8
+        self.scannerViewController.viewModel.configuration.viewFinder.lineColor = UIColor.red
+        self.scannerViewController.viewModel.configuration.viewFinder.backgroundColor = UIColor.red.withAlphaComponent(0.1)
+        self.scannerViewController.viewModel.configuration.viewFinder.lineWidth = 2
+        self.scannerViewController.viewModel.configuration.viewFinder.lineCornerRadius = 8
         
-        // Set the view finder configuration to apply it.
-        self.scannerViewController.viewFinderConfiguration = config
 
         // Get the current energy configuration.
         let energyConfig = self.scannerViewController.energyConfiguration
