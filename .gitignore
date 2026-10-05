@@ -8,7 +8,5 @@
 # IntelliJ IDEA
 .idea/
 
-# Pods
-Pods/
-
-/Podfile.lock
+# Keep the app's Swift Package Manager dependency lockfile.
+!ScanbotBarcodeScannerSDKDemo.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
