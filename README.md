@@ -25,16 +25,16 @@ The SDK can be integrated into your mobile apps within minutes and comes with Re
 
 ### Requirements
 
-* **Operating system**: iOS 13 and higher
+* **Operating system**: iOS 15 and higher
 * **IDE**: Xcode 14.0 and higher
 
 ### Installation
 
-Make sure you have the latest versions of [Xcode](https://developer.apple.com/xcode/) and [CocoaPods](https://cocoapods.org/) installed.
+Make sure you have [Xcode](https://developer.apple.com/xcode/) installed. The SDK is integrated using Swift Package Manager, pinned to version `10.0.0` from [the Scanbot Barcode Scanner SDK package](https://github.com/doo/scanbot-barcode-scanner-sdk-ios-spm).
 
 * Clone this repository to a local folder.
-* run `pod install --repo-update`
-* Open `ScanbotBarcodeScannerSDKDemo.xcworkspace` (not `.xcodeproj!`) with Xcode, build and run
+* Open `ScanbotBarcodeScannerSDKDemo.xcodeproj` with Xcode and let it resolve the package dependency.
+* Build and run the app.
 
 ## Features of the iOS Barcode Scanner library
 
